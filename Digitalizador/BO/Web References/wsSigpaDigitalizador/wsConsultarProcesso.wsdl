@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="wsRealizarLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSenha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="wsRealizarLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsRealizarLoginResult" type="tns:wsINFOUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="wsINFOUsuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NomeUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PerfilUsuario" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="wsConsultarProcesso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pNumeroProcesso" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="wsConsultarProcessoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsConsultarProcessoResult" type="tns:wsINFOCliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="wsINFOCliente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdProcessoSigpa" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCliente" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeMapa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeCliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCNPJ" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="wsRealizarLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:wsRealizarLogin" />
+  </wsdl:message>
+  <wsdl:message name="wsRealizarLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:wsRealizarLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="wsConsultarProcessoSoapIn">
+    <wsdl:part name="parameters" element="tns:wsConsultarProcesso" />
+  </wsdl:message>
+  <wsdl:message name="wsConsultarProcessoSoapOut">
+    <wsdl:part name="parameters" element="tns:wsConsultarProcessoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WsConsultarProcessoSoap">
+    <wsdl:operation name="wsRealizarLogin">
+      <wsdl:input message="tns:wsRealizarLoginSoapIn" />
+      <wsdl:output message="tns:wsRealizarLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="wsConsultarProcesso">
+      <wsdl:input message="tns:wsConsultarProcessoSoapIn" />
+      <wsdl:output message="tns:wsConsultarProcessoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsConsultarProcessoSoap" type="tns:WsConsultarProcessoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="wsRealizarLogin">
+      <soap:operation soapAction="http://tempuri.org/wsRealizarLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wsConsultarProcesso">
+      <soap:operation soapAction="http://tempuri.org/wsConsultarProcesso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsConsultarProcessoSoap12" type="tns:WsConsultarProcessoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="wsRealizarLogin">
+      <soap12:operation soapAction="http://tempuri.org/wsRealizarLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="wsConsultarProcesso">
+      <soap12:operation soapAction="http://tempuri.org/wsConsultarProcesso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsConsultarProcesso">
+    <wsdl:port name="WsConsultarProcessoSoap" binding="tns:WsConsultarProcessoSoap">
+      <soap:address location="http://localhost/wsSIGPA/wsConsultarProcesso.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsConsultarProcessoSoap12" binding="tns:WsConsultarProcessoSoap12">
+      <soap12:address location="http://localhost/wsSIGPA/wsConsultarProcesso.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

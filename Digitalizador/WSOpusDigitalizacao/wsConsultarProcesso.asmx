@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="wsConsultarProcesso.asmx.cs" Class="WSOpusDigitalizacao.WsConsultarProcesso" %>
