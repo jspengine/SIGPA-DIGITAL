@@ -26,11 +26,17 @@ namespace SIGPA.DAO
 
                 strSQL.AppendLine("SELECT nome, username, privilegio ");
                 strSQL.AppendLine(" FROM usuario ");
-                strSQL.AppendLine(" WHERE username = '" + pUsername + "' AND senha = '" + pSenha + "'");
+                strSQL.AppendLine(" WHERE username = ? AND senha = ?");
 
                 objConn = new MySqlConnection(strConnection);
                 objConn.Open();
                 objCmd = new MySqlCommand(strSQL.ToString(), objConn);
+                int i = 0;
+
+                objCmd.Parameters.Insert(++i, pUsername);
+                objCmd.Parameters.Insert(++i, pSenha);
+                
+
                 objDr = objCmd.ExecuteReader();
 
                 if (objDr != null)

@@ -35,16 +35,24 @@
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelProductName = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.grpSobre.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("okButton.BackgroundImage")));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Location = new System.Drawing.Point(307, 311);
+            this.okButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.okButton.ForeColor = System.Drawing.Color.White;
+            this.okButton.Location = new System.Drawing.Point(299, 291);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(91, 23);
+            this.okButton.Size = new System.Drawing.Size(91, 42);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&OK";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -60,9 +68,9 @@
             this.grpSobre.Controls.Add(this.labelProductName);
             this.grpSobre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpSobre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpSobre.Location = new System.Drawing.Point(0, 0);
+            this.grpSobre.Location = new System.Drawing.Point(4, 55);
             this.grpSobre.Name = "grpSobre";
-            this.grpSobre.Size = new System.Drawing.Size(412, 365);
+            this.grpSobre.Size = new System.Drawing.Size(404, 345);
             this.grpSobre.TabIndex = 4;
             this.grpSobre.TabStop = false;
             // 
@@ -76,7 +84,7 @@
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(389, 145);
+            this.textBoxDescription.Size = new System.Drawing.Size(382, 129);
             this.textBoxDescription.TabIndex = 24;
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "Description";
@@ -126,12 +134,51 @@
             this.labelProductName.Text = "Product Name";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.grpSobre, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(412, 404);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(404, 44);
+            this.panel1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 39);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Sobre";
+            // 
             // frmSobre
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(412, 365);
-            this.Controls.Add(this.grpSobre);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(412, 404);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -142,6 +189,9 @@
             this.Text = "Sobre";
             this.grpSobre.ResumeLayout(false);
             this.grpSobre.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -156,6 +206,9 @@
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Label labelProductName;
         private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
 
     }
 }

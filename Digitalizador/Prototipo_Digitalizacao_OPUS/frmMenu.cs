@@ -130,11 +130,11 @@ namespace DigitalView
 
                 objPanelUsuario.Text = String.Format(" Usuário: {0}", Global.USER);
                 objPanelUsuario.Width = 400;
-                this.stMain.Panels.Add(objPanelUsuario);
+                this.statusBar.Panels.Add(objPanelUsuario);
 
                 objPanelVersao.Text = String.Format(" Versão: {0}", AssemblyVersion);
                 objPanelVersao.Width = 250;
-                this.stMain.Panels.Add(objPanelVersao);
+                this.statusBar.Panels.Add(objPanelVersao);
 
             }
             catch (Exception ex)

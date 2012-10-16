@@ -55,42 +55,48 @@ namespace DigitalView
         private void txtReferencia_KeyDown(object sender, KeyEventArgs e)
         {
             BODigitalizarDocumentos objDigitalizar = null;
-            
-            try 
-	        {	 
+
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+
                 if (e.KeyCode == Keys.Enter)
                 {
-                    cmbTipoDocumento.SelectedIndex = 0;
+                    cmbTipoDocumento.SelectedIndex = -1;
 
                     if (string.IsNullOrEmpty(txtReferencia.Text))
                     {
                         MessageBox.Show("Por favor, digite uma referencia válida!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         txtReferencia.Focus();
                     }
-                    else{
+                    else
+                    {
                         objDigitalizar = new BODigitalizarDocumentos();
-                        objCliente =  objDigitalizar.boSincronizarBaseSIGPA(txtReferencia.Text);
+                        objCliente = objDigitalizar.boSincronizarBaseSIGPA(txtReferencia.Text);
 
                         if (objCliente != null)
                         {
                             lblCNPJCPF.Text = objCliente.NumeroCnpj;
                             lblNome.Text = objCliente.NomeCliente;
-                            //grpDigitalizar.Enabled = true;
+                            grpDocumentos.Enabled = true;
                             grpDocumentos.Enabled = true;
 
                         }
-                        else {
+                        else
+                        {
                             MessageBox.Show("Processo NÃO ESTÁ CADASTRADO no Sistema!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
-        		
-	        }
-	        catch (Exception ex)
-	        {
+
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("ERRO : " + ex.ToString(), Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Error);
-	        }
-            
+            }
+            finally {
+                Cursor = Cursors.Default;
+            }
             
         }
 
@@ -121,7 +127,7 @@ namespace DigitalView
                     {
                         cmbTipoDocumento.Items.Add(new ComboCustom(ListaInfoTipoDocumento[i].IdTipoDocumento, ListaInfoTipoDocumento[i].NomeTipoDocumento));
                     }
-                    cmbTipoDocumento.SelectedIndex = 0;
+                    cmbTipoDocumento.SelectedIndex = -1;
                 }
                 else
                 {
@@ -144,7 +150,7 @@ namespace DigitalView
                 cmbDocumento.Enabled = true;
             }
             else {
-                cmbDocumento.SelectedIndex = 0;
+                cmbDocumento.SelectedIndex = -1;
                 cmbDocumento.Enabled = true;
             }
         }
@@ -221,11 +227,26 @@ namespace DigitalView
 
         private void btnDigitalizar_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            btnDigitalizar.Enabled = false;
-            InitializeScan();
-            objTwain.Acquire();
-            //EndingScan();
+
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                btnDigitalizar.Enabled = false;
+                InitializeScan();
+                objTwain.Acquire();
+                //EndingScan();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO : " + ex.ToString(), Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+
+            
 
         }
 
@@ -326,7 +347,7 @@ namespace DigitalView
             }
             catch (Exception ex)
             {
-                gObjLog.Inserir("Sorry, but happened a mystake: " + ex.ToString (), TipoLog.ERRO );
+                gObjLog.Inserir("ERROR: " + ex.ToString (), TipoLog.ERRO );
                 Cursor.Current = Cursors.Default ;
                 btnDigitalizar.Enabled = true;
                 EndingScan();

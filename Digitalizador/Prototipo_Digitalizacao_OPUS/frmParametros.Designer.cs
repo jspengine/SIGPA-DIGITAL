@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmParametros));
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grpVisualizador = new System.Windows.Forms.GroupBox();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,30 +43,56 @@
             this.lblNomeCliente = new System.Windows.Forms.Label();
             this.lblCPForCNPJ = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
+            this.pnlTitle = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1.SuspendLayout();
             this.grpVisualizador.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pnlTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.grpVisualizador, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pnlTitle, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(848, 377);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // grpVisualizador
             // 
+            this.grpVisualizador.BackColor = System.Drawing.Color.Transparent;
             this.grpVisualizador.Controls.Add(this.btnAtualizar);
             this.grpVisualizador.Controls.Add(this.panel1);
             this.grpVisualizador.Controls.Add(this.btnSair);
-            this.grpVisualizador.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpVisualizador.Location = new System.Drawing.Point(0, 0);
+            this.grpVisualizador.Location = new System.Drawing.Point(4, 55);
             this.grpVisualizador.Name = "grpVisualizador";
-            this.grpVisualizador.Size = new System.Drawing.Size(848, 309);
+            this.grpVisualizador.Size = new System.Drawing.Size(840, 318);
             this.grpVisualizador.TabIndex = 1;
             this.grpVisualizador.TabStop = false;
             // 
             // btnAtualizar
             // 
+            this.btnAtualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.BackgroundImage")));
+            this.btnAtualizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtualizar.ForeColor = System.Drawing.Color.White;
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(456, 241);
+            this.btnAtualizar.Location = new System.Drawing.Point(456, 259);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(185, 23);
+            this.btnAtualizar.Size = new System.Drawing.Size(185, 38);
             this.btnAtualizar.TabIndex = 8;
             this.btnAtualizar.Text = "&Atualizar Parâmetros";
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
@@ -101,28 +128,34 @@
             // 
             this.txtURLWs.Location = new System.Drawing.Point(21, 130);
             this.txtURLWs.Name = "txtURLWs";
-            this.txtURLWs.Size = new System.Drawing.Size(685, 20);
+            this.txtURLWs.Size = new System.Drawing.Size(708, 20);
             this.txtURLWs.TabIndex = 12;
             // 
             // btnTestConectionWS
             // 
+            this.btnTestConectionWS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTestConectionWS.BackgroundImage")));
+            this.btnTestConectionWS.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnTestConectionWS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestConectionWS.ForeColor = System.Drawing.Color.White;
             this.btnTestConectionWS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTestConectionWS.Location = new System.Drawing.Point(712, 130);
+            this.btnTestConectionWS.Location = new System.Drawing.Point(735, 116);
             this.btnTestConectionWS.Name = "btnTestConectionWS";
-            this.btnTestConectionWS.Size = new System.Drawing.Size(105, 24);
+            this.btnTestConectionWS.Size = new System.Drawing.Size(70, 47);
             this.btnTestConectionWS.TabIndex = 9;
             this.btnTestConectionWS.Text = "Testar Conexão";
             this.btnTestConectionWS.Click += new System.EventHandler(this.btnTestConectionWS_Click);
             // 
             // btnDiretorio
             // 
+            this.btnDiretorio.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDiretorio.BackgroundImage")));
+            this.btnDiretorio.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnDiretorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiretorio.ForeColor = System.Drawing.Color.White;
             this.btnDiretorio.Image = ((System.Drawing.Image)(resources.GetObject("btnDiretorio.Image")));
             this.btnDiretorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiretorio.Location = new System.Drawing.Point(735, 24);
+            this.btnDiretorio.Location = new System.Drawing.Point(735, 19);
             this.btnDiretorio.Name = "btnDiretorio";
-            this.btnDiretorio.Size = new System.Drawing.Size(82, 23);
+            this.btnDiretorio.Size = new System.Drawing.Size(70, 42);
             this.btnDiretorio.TabIndex = 9;
             this.btnDiretorio.Text = "...";
             this.btnDiretorio.Click += new System.EventHandler(this.btnDiretorio_Click);
@@ -172,62 +205,106 @@
             // 
             // btnSair
             // 
+            this.btnSair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSair.BackgroundImage")));
+            this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(647, 241);
+            this.btnSair.Location = new System.Drawing.Point(647, 259);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(185, 23);
+            this.btnSair.Size = new System.Drawing.Size(185, 38);
             this.btnSair.TabIndex = 4;
             this.btnSair.Text = "&Sair";
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // pnlTitle
+            // 
+            this.pnlTitle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlTitle.BackgroundImage")));
+            this.pnlTitle.Controls.Add(this.pictureBox1);
+            this.pnlTitle.Controls.Add(this.label3);
+            this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTitle.Location = new System.Drawing.Point(4, 4);
+            this.pnlTitle.Name = "pnlTitle";
+            this.pnlTitle.Size = new System.Drawing.Size(840, 44);
+            this.pnlTitle.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(58, 7);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(327, 32);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Parâmetros do sistema";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(7, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 46);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // frmParametros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 309);
-            this.Controls.Add(this.grpVisualizador);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(848, 377);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
             this.Name = "frmParametros";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parâmetros";
             this.Load += new System.EventHandler(this.frmParametros_Load);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.grpVisualizador.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnlTitle.ResumeLayout(false);
+            this.pnlTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        //private Nevron.UI.WinForm.Controls.NGrouper grpVisualizador;
-        //private Nevron.UI.WinForm.Controls.NButton btnSair;
-
-
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox grpVisualizador;
-        private System.Windows.Forms.Button btnSair;
-
-
+        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtURLWs;
+        private System.Windows.Forms.Button btnTestConectionWS;
+        private System.Windows.Forms.Button btnDiretorio;
+        private System.Windows.Forms.TextBox txtDiretorio;
+        private System.Windows.Forms.Label lblNuDocDigital;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNomeCliente;
         private System.Windows.Forms.Label lblCPForCNPJ;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Panel pnlTitle;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+
+        //private Nevron.UI.WinForm.Controls.NGrouper grpVisualizador;
+        //private Nevron.UI.WinForm.Controls.NButton btnSair;
         //private Nevron.UI.WinForm.Controls.NButton btnAtualizar;
-        private System.Windows.Forms.Button btnAtualizar;
-        private System.Windows.Forms.Label lblNuDocDigital;
         //private Nevron.UI.WinForm.Controls.NTextBox txtDiretorio;
         //private Nevron.UI.WinForm.Controls.NButton btnDiretorio;
         //private Nevron.UI.WinForm.Controls.NButton btnTestConectionWS;
-
-        private System.Windows.Forms.TextBox txtDiretorio;
-        private System.Windows.Forms.Button btnDiretorio;
-        private System.Windows.Forms.Button btnTestConectionWS;
-
-
-        private System.Windows.Forms.Label label2;
         //private Nevron.UI.WinForm.Controls.NTextBox txtURLWs;
-        private System.Windows.Forms.TextBox txtURLWs;
     }
 }

@@ -144,7 +144,7 @@ namespace DigitalView
             }
             else
             {
-                cmbDocumento.SelectedIndex = 0;
+                cmbDocumento.SelectedIndex = -1;
                 cmbDocumento.Enabled = true;
             }
 
@@ -547,6 +547,19 @@ namespace DigitalView
         //GDI
         [DllImport("gdiplus.dll", ExactSpelling = true)]
         internal static extern int GdipDisposeImage(IntPtr image);
+
+      
+
+        private void iconFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void iconMinimizar_Click(object sender, EventArgs e)
+        {
+            
+
+        }
 
 
     }
