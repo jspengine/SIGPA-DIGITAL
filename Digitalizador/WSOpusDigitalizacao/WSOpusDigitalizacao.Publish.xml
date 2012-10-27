@@ -1,22 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishTarget publishUrl="http://localhost/wsSIGPA/">
-    <file relUrl="bin/WSOpusDigitalizacao.dll" publishTime="07/04/2010 22:17:42" />
-    <file relUrl="bin/DAO.dll" publishTime="07/04/2010 22:17:42" />
-    <file relUrl="Web.config" publishTime="07/04/2010 18:16:36" />
-    <file relUrl="bin/WSOpusDigitalizacao.pdb" publishTime="07/04/2010 22:17:42" />
-    <file relUrl="bin/INFO.dll" publishTime="07/04/2010 22:17:40" />
-    <file relUrl="bin/DAO.pdb" publishTime="07/04/2010 22:17:42" />
+  <publishProfile publishUrl="C:\Documents and Settings\jspengine\Meus documentos\Meus Projetos\Projeto Sigpa\IntegradorWS" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/DAO.pdb" publishTime="10/14/2012 00:34:09" />
+    <file relUrl="bin/INFO.dll" publishTime="10/14/2012 00:33:58" />
+    <file relUrl="bin/WSOpusDigitalizacao.pdb" publishTime="10/25/2012 14:28:16" />
+    <file relUrl="Web.config" publishTime="10/25/2012 14:28:03" />
+    <file relUrl="bin/INFO.pdb" publishTime="10/14/2012 00:33:58" />
     <file relUrl="wsConsultarProcesso.asmx" publishTime="08/13/2010 21:52:40" />
-    <file relUrl="bin/INFO.pdb" publishTime="07/04/2010 22:17:40" />
-  </publishTarget>
-  <publishTarget publishUrl="D:\wsIntegracaoSIGPA\">
-    <file relUrl="bin/WSOpusDigitalizacao.dll" publishTime="08/13/2010 21:14:12" />
-    <file relUrl="bin/DAO.dll" publishTime="08/13/2010 21:14:12" />
-    <file relUrl="Web.config" publishTime="08/13/2010 18:48:04" />
-    <file relUrl="bin/WSOpusDigitalizacao.pdb" publishTime="08/13/2010 21:14:12" />
-    <file relUrl="bin/INFO.dll" publishTime="08/13/2010 21:13:56" />
-    <file relUrl="bin/DAO.pdb" publishTime="08/13/2010 21:14:10" />
-    <file relUrl="wsConsultarProcesso.asmx" publishTime="08/06/2010 20:08:30" />
-    <file relUrl="bin/INFO.pdb" publishTime="08/13/2010 21:13:54" />
-  </publishTarget>
+    <file relUrl="bin/WSOpusDigitalizacao.dll" publishTime="10/25/2012 14:28:16" />
+    <file relUrl="bin/MySql.Data.dll" publishTime="09/21/2012 01:12:48" />
+    <file relUrl="bin/DAO.dll" publishTime="10/14/2012 00:34:10" />
+  </publishProfile>
 </publishData>

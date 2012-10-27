@@ -100,6 +100,12 @@ namespace DigitalView
             
         }
 
+
+        private void montaArvoreDiretorio() { 
+            
+        }
+
+
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -122,12 +128,11 @@ namespace DigitalView
 
                 if (ListaInfoTipoDocumento != null)
                 {
-                    cmbTipoDocumento.Items.Insert(0, "SELECIONE ...");
-                    for (int i = 0; i < ListaInfoTipoDocumento.Count; i++)
-                    {
-                        cmbTipoDocumento.Items.Add(new ComboCustom(ListaInfoTipoDocumento[i].IdTipoDocumento, ListaInfoTipoDocumento[i].NomeTipoDocumento));
-                    }
-                    cmbTipoDocumento.SelectedIndex = -1;
+
+                    cmbTipoDocumento.DataSource = ListaInfoTipoDocumento;
+                    cmbTipoDocumento.DisplayMember = "NomeTipoDocumento";
+                    cmbTipoDocumento.ValueMember = "IdTipoDocumento";
+
                 }
                 else
                 {
@@ -148,6 +153,25 @@ namespace DigitalView
                 cmbDocumento.Items.Clear();
                 CarregarComboDocumento();
                 cmbDocumento.Enabled = true;
+
+                //Dados cadastrais será montado acima da referência
+                if ("1".Equals(cmbTipoDocumento.SelectedValue)) { 
+                    //Monto o diretório de dados cadastrais abaixo do cliente
+
+                    // + Nome Cliente
+                    // |----- + Dados Cadastrais
+                    // |----- + Processos Importacao
+                    //          |------ + CI
+                    //          |------ + LI
+                    //          |------ + DI
+                    //          |------ + LI
+                    // |----- + Processos Exportacao
+                    //          |------ + RE
+                    //          |------ + DDE
+                    //          |------ + AWB
+
+                }
+
             }
             else {
                 cmbDocumento.SelectedIndex = -1;
@@ -163,16 +187,21 @@ namespace DigitalView
             {
                 objBoDigitalizar = new BODigitalizarDocumentos();
 
-                ListaInfoDocumento = objBoDigitalizar.boObterListaDocumento((double)((ComboCustom)(cmbTipoDocumento.SelectedItem)).Valor, txtReferencia.Text.Substring(0,1).ToUpper());
+                ListaInfoDocumento = objBoDigitalizar.boObterListaDocumento((double)(cmbTipoDocumento.SelectedValue), txtReferencia.Text.Substring(0,1).ToUpper());
 
                 if (ListaInfoDocumento != null)
                 {
-                    cmbDocumento.Items.Insert(0, "SELECIONE ...");
-                    for (int i = 0; i < ListaInfoDocumento.Count; i++)
-                    {
-                        cmbDocumento.Items.Add(new ComboCustom(ListaInfoDocumento[i].IdDocumentos, ListaInfoDocumento[i].NomeDocumento));
-                    }
-                    cmbDocumento.SelectedIndex = 0;
+
+                    cmbDocumento.DataSource = ListaInfoDocumento;
+                    cmbDocumento.DisplayMember = "NomeDocumento";
+                    cmbDocumento.ValueMember = "IdDocumentos";
+
+                    //cmbDocumento.Items.Insert(0, "SELECIONE ...");
+                    //for (int i = 0; i < ListaInfoDocumento.Count; i++)
+                    //{
+                    //    cmbDocumento.Items.Add(new ComboCustom(ListaInfoDocumento[i].IdDocumentos, ListaInfoDocumento[i].NomeDocumento));
+                    //}
+                    //cmbDocumento.SelectedIndex = 0;
                 }
                 else
                 {
@@ -415,6 +444,13 @@ namespace DigitalView
         //GDI
         [DllImport("gdiplus.dll", ExactSpelling = true)]
         internal static extern int GdipDisposeImage(IntPtr image);
+
+        private void iconMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+
 
        
     }

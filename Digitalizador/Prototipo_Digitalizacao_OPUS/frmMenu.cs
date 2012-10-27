@@ -174,6 +174,13 @@ namespace DigitalView
         {
             mostrarSobre();
         }
+
+        private void lnkDigitalizarV2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new frmManterTiposDocumentos().Show();
+
+            
+        }
        
 
     }

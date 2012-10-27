@@ -36,7 +36,7 @@ namespace SIGPA.DAO
 
                         if (objDr["ID_TIPODOCUMENTO"] != DBNull.Value)
                         {
-                            objTipodocumento.IdTipoDocumento = (double)objDr["ID_TIPODOCUMENTO"];
+                            objTipodocumento.IdTipoDocumento = (double) objDr["ID_TIPODOCUMENTO"];
                         }
 
                         if (objDr["NM_TIPODOCUMENTO"] != DBNull.Value)

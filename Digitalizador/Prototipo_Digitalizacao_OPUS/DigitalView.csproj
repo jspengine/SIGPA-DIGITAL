@@ -69,15 +69,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmManterTiposDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManterTiposDocumentos.Designer.cs">
+      <DependentUpon>frmManterTiposDocumentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSobre.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSobre.Designer.cs">
       <DependentUpon>frmSobre.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComboCustom.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="ComboCustom.cs" />
     <Compile Include="frmAtualizarDocumentosDigitalizados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +120,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmManterTiposDocumentos.resx">
+      <DependentUpon>frmManterTiposDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSobre.resx">
       <DependentUpon>frmSobre.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -168,6 +175,7 @@
   <ItemGroup>
     <Content Include="DLLs\PdfSharp.dll" />
     <Content Include="DLLs\RImageScan.dll" />
+    <Content Include="Imagens\dir.png" />
     <Content Include="Imagens\Escaner-16.png" />
     <Content Include="Imagens\Escaner-32.png" />
     <Content Include="Imagens\Escaner-24.ico" />
@@ -180,6 +188,7 @@
     <Content Include="Imagens\btnVisualizar.png" />
     <Content Include="Imagens\btnExcluir.png" />
     <Content Include="Imagens\LogoRtn1.jpg" />
+    <Content Include="Imagens\pdf.png" />
     <Content Include="Imagens\Sistema-48.png" />
     <Content Include="Imagens\EngieneParametros-48.png" />
     <Content Include="Imagens\wi0147-48.png" />

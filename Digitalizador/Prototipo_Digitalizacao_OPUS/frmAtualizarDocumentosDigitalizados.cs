@@ -557,7 +557,7 @@ namespace DigitalView
 
         private void iconMinimizar_Click(object sender, EventArgs e)
         {
-            
+            this.WindowState = FormWindowState.Minimized;
 
         }
 

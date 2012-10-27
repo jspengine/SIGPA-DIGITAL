@@ -55,8 +55,8 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.iconFechar = new System.Windows.Forms.PictureBox();
             this.iconMinimizar = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.grpAcao.SuspendLayout();
@@ -162,7 +162,7 @@
             this.lblCNPJCPF.AutoSize = true;
             this.lblCNPJCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCNPJCPF.ForeColor = System.Drawing.Color.Navy;
-            this.lblCNPJCPF.Location = new System.Drawing.Point(179, 140);
+            this.lblCNPJCPF.Location = new System.Drawing.Point(152, 153);
             this.lblCNPJCPF.Name = "lblCNPJCPF";
             this.lblCNPJCPF.Size = new System.Drawing.Size(0, 20);
             this.lblCNPJCPF.TabIndex = 15;
@@ -172,7 +172,7 @@
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.ForeColor = System.Drawing.Color.Navy;
-            this.lblNome.Location = new System.Drawing.Point(153, 114);
+            this.lblNome.Location = new System.Drawing.Point(152, 120);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(0, 20);
             this.lblNome.TabIndex = 14;
@@ -180,7 +180,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 119);
+            this.label4.Location = new System.Drawing.Point(13, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 13);
             this.label4.TabIndex = 13;
@@ -191,7 +191,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(530, 81);
+            this.label11.Location = new System.Drawing.Point(522, 81);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(419, 17);
             this.label11.TabIndex = 12;
@@ -211,7 +211,7 @@
             this.grpDocumentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpDocumentos.Location = new System.Drawing.Point(3, 188);
             this.grpDocumentos.Name = "grpDocumentos";
-            this.grpDocumentos.Size = new System.Drawing.Size(981, 178);
+            this.grpDocumentos.Size = new System.Drawing.Size(975, 178);
             this.grpDocumentos.TabIndex = 11;
             this.grpDocumentos.TabStop = false;
             this.grpDocumentos.Text = "DOCUMENTO A SEREM DIGITALIZADOS";
@@ -235,8 +235,8 @@
             // 
             // cmbDocumento
             // 
+            this.cmbDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDocumento.Enabled = false;
-            this.cmbDocumento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDocumento.Location = new System.Drawing.Point(179, 71);
             this.cmbDocumento.Name = "cmbDocumento";
@@ -274,7 +274,7 @@
             // 
             // cmbTipoDocumento
             // 
-            this.cmbTipoDocumento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoDocumento.ForeColor = System.Drawing.Color.Black;
             this.cmbTipoDocumento.Location = new System.Drawing.Point(179, 26);
@@ -305,7 +305,7 @@
             // 
             this.lblNomeCliente.AutoSize = true;
             this.lblNomeCliente.ForeColor = System.Drawing.Color.Navy;
-            this.lblNomeCliente.Location = new System.Drawing.Point(179, 121);
+            this.lblNomeCliente.Location = new System.Drawing.Point(152, 146);
             this.lblNomeCliente.Name = "lblNomeCliente";
             this.lblNomeCliente.Size = new System.Drawing.Size(0, 13);
             this.lblNomeCliente.TabIndex = 4;
@@ -327,7 +327,7 @@
             // lblCPForCNPJ
             // 
             this.lblCPForCNPJ.AutoSize = true;
-            this.lblCPForCNPJ.Location = new System.Drawing.Point(13, 145);
+            this.lblCPForCNPJ.Location = new System.Drawing.Point(13, 158);
             this.lblCPForCNPJ.Name = "lblCPForCNPJ";
             this.lblCPForCNPJ.Size = new System.Drawing.Size(83, 13);
             this.lblCPForCNPJ.TabIndex = 3;
@@ -376,18 +376,7 @@
             this.iconMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconMinimizar.TabIndex = 2;
             this.iconMinimizar.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(64, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(324, 32);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Digitalizar documentos";
+            this.iconMinimizar.Click += new System.EventHandler(this.iconMinimizar_Click);
             // 
             // pictureBox1
             // 
@@ -401,14 +390,29 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(64, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(324, 32);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Digitalizar documentos";
+            // 
             // frmDigitalizarDocumentos
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(997, 521);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDigitalizarDocumentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Digitalização de Documentos";
+            this.Load += new System.EventHandler(this.frmDigitalizarDocumentos_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();

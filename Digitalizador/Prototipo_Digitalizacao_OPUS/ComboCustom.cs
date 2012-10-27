@@ -3,7 +3,7 @@
 namespace DigitalView
 {
     //public class ComboCustom : Nevron.UI.WinForm.Controls.NListBoxItem 
-    public class ComboCustom : System.Windows.Forms.ListBox
+    public class ComboCustom : System.Windows.Forms.ListViewItem
     {
         private object rotulo;
         private object valor;
