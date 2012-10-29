@@ -209,12 +209,12 @@ namespace DigitalView
 
                 if (ListaInfoTipoDocumento != null)
                 {
-                    cmbTipoDocumento.Items.Insert(0, "SELECIONE ...");
-                    for (int i = 0; i < ListaInfoTipoDocumento.Count; i++)
-                    {
-                        cmbTipoDocumento.Items.Add(new ComboCustom(ListaInfoTipoDocumento[i].IdTipoDocumento, ListaInfoTipoDocumento[i].NomeTipoDocumento));
-                    }
-                    cmbTipoDocumento.SelectedIndex = 0;
+                    //cmbTipoDocumento.Items.Insert(0, "SELECIONE ...");
+                    //for (int i = 0; i < ListaInfoTipoDocumento.Count; i++)
+                    //{
+                    //    cmbTipoDocumento.Items.Add(new ComboCustom(ListaInfoTipoDocumento[i].IdTipoDocumento, ListaInfoTipoDocumento[i].NomeTipoDocumento));
+                    //}
+                    //cmbTipoDocumento.SelectedIndex = 0;
                 }
                 else
                 {
@@ -241,12 +241,12 @@ namespace DigitalView
 
                 if (ListaInfoDocumento != null)
                 {
-                    cmbDocumento.Items.Insert(0, "SELECIONE ...");
-                    for (int i = 0; i < ListaInfoDocumento.Count; i++)
-                    {
-                        cmbDocumento.Items.Add(new ComboCustom(ListaInfoDocumento[i].IdDocumentos, ListaInfoDocumento[i].NomeDocumento));
-                    }
-                    cmbDocumento.SelectedIndex = 0;
+                    //cmbDocumento.Items.Insert(0, "SELECIONE ...");
+                    //for (int i = 0; i < ListaInfoDocumento.Count; i++)
+                    //{
+                    //    cmbDocumento.Items.Add(new ComboCustom(ListaInfoDocumento[i].IdDocumentos, ListaInfoDocumento[i].NomeDocumento));
+                    //}
+                    //cmbDocumento.SelectedIndex = 0;
                 }
                 else
                 {
@@ -271,7 +271,7 @@ namespace DigitalView
                 this.lstDocumentosDigitalisados.Items.Clear();
 
                 objManterDocumentosDigitais = new BOManterDocumentosDigitais();
-                ListaDocumentosDigitais = objManterDocumentosDigitais.boObterDocumentosDigitais(txtReferencia.Text,(double)((ComboCustom)(cmbDocumento.SelectedItem)).Valor );
+                //ListaDocumentosDigitais = objManterDocumentosDigitais.boObterDocumentosDigitais(txtReferencia.Text,(double)((ComboCustom)(cmbDocumento.SelectedItem)).Valor );
 
                 if (ListaDocumentosDigitais != null)
                 {

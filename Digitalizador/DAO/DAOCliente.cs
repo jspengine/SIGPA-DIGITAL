@@ -29,11 +29,14 @@ namespace SIGPA.DAO
 
                 strSQL.AppendLine(" SELECT ID_CLIENTE, NM_CLIENTE, NM_CLIENTE_MAPA, NR_CNPJ, NR_CPF  ");
                 strSQL.AppendLine(" FROM cliente  ");
-                strSQL.AppendLine(" WHERE ID_CLIENTE = " + pIntIdCliente );
+                strSQL.AppendLine(" WHERE ID_CLIENTE = ?idCliente" );
 
                 objConn = new MySqlConnection(gConnectionString);
                 objConn.Open();
                 objCmd = new MySqlCommand(strSQL.ToString(), objConn);
+
+                objCmd.Parameters.Add("?idCliente", MySqlDbType.Int32).Value = pIntIdCliente ;
+
                 objDr = objCmd.ExecuteReader();
 
                 if (objDr != null)
@@ -126,11 +129,14 @@ namespace SIGPA.DAO
 
                 strSQL.AppendLine(" SELECT ID_CLIENTE, NM_CLIENTE, NM_CLIENTE_MAPA, NR_CNPJ, NR_CPF  ");
                 strSQL.AppendLine(" FROM cliente  ");
-                strSQL.AppendLine(" WHERE ID_CLIENTE_SIGPA = " + pIntIdClienteSigpa);
+                strSQL.AppendLine(" WHERE ID_CLIENTE_SIGPA = ?idClienteSigpa");
 
                 objConn = new MySqlConnection(gConnectionString);
                 objConn.Open();
                 objCmd = new MySqlCommand(strSQL.ToString(), objConn);
+
+                objCmd.Parameters.Add("?idClienteSigpa", MySqlDbType.Int32).Value = pIntIdClienteSigpa;
+
                 objDr = objCmd.ExecuteReader();
 
                 if (objDr != null)
@@ -215,29 +221,28 @@ namespace SIGPA.DAO
             StringBuilder strSQL = null;
             MySqlConnection objConn = null;
             MySqlCommand objCmd = null;
-            bool vRetorno = false;
+            
             try
             {
                 strSQL = new StringBuilder();
 
-                strSQL.AppendLine(" INSERT INTO CLIENTES ( NM_CLIENTE, NM_CLIENTE_MAPA, NR_CNPJ, NR_CPF, ID_CLIENTE_SIGPA)");
+                strSQL.AppendLine(" INSERT INTO CLIENTES ( NM_CLIENTE, NM_CLIENTE_MAPA, NR_CNPJ, NR_CPF, ID_CLIENTE_SIGPA)").
+                       AppendLine(" VALUES ( ?nomeCliente, ?nomeClienteMapa, ?nrCnpj, ?nrCpf, ?idCliente ) ");
+                       
                 
-                strSQL.AppendLine(" VALUES ( '" + objCliente.NomeCliente +"', ");
-                strSQL.AppendLine("  '" + objCliente.NomeClienteMapa + "', ");
-                strSQL.AppendLine(" '" + objCliente.NumeroCnpj + "', ");
-                strSQL.AppendLine(" '" + objCliente.NumeroCpf + "', ");
-                strSQL.AppendLine(" '" + objCliente.IdClienteSigpa + ") ");
-
                 objConn = new MySqlConnection(gConnectionString);
                 objConn.Open();
                 objCmd = new MySqlCommand(strSQL.ToString(), objConn);
 
-                if (objCmd.ExecuteNonQuery() > 0)
-                {
-                    vRetorno = true;
-                }
+                objCmd.Parameters.Add("?nomeCliente", MySqlDbType.VarChar).Value = objCliente.NomeCliente;
+                objCmd.Parameters.Add("?nomeClienteMapa", MySqlDbType.VarChar).Value = objCliente.NomeClienteMapa;
+                objCmd.Parameters.Add("?nrCnpj", MySqlDbType.VarChar).Value = objCliente.NumeroCnpj;
+                objCmd.Parameters.Add("?nrCpf", MySqlDbType.VarChar).Value = objCliente.NumeroCpf;
+                objCmd.Parameters.Add("?idCliente", MySqlDbType.Int32).Value = objCliente.IdClienteSigpa;
+                
 
-                return vRetorno;
+                return  (objCmd.ExecuteNonQuery() > 0) ? true : false;
+               
             }
             catch (Exception ex)
             {
@@ -265,13 +270,14 @@ namespace SIGPA.DAO
         {
             StringBuilder strSQL = null;
             bool vRetorno = false;
+       
             try
             {
                 strSQL = new StringBuilder();
 
                 strSQL.AppendLine(" INSERT INTO CLIENTE ( NM_CLIENTE, NM_CLIENTE_MAPA, NR_CNPJ, NR_CPF, ID_CLIENTE_SIGPA)");
-                strSQL.AppendLine(" VALUES ( '" + objCliente.NomeCliente + "', ");
-                strSQL.AppendLine("  '" + objCliente.NomeClienteMapa + "', ");
+                strSQL.AppendLine(" VALUES ( '" + objCliente.NomeCliente.Replace("'", "''") + "', ");
+                strSQL.AppendLine("  '" + objCliente.NomeClienteMapa.Replace("'", "''") + "', ");
                 strSQL.AppendLine(" '" + objCliente.NumeroCnpj + "', ");
                 strSQL.AppendLine(" '" + objCliente.NumeroCpf + "', ");
                 strSQL.AppendLine( + objCliente.IdClienteSigpa + ") ");

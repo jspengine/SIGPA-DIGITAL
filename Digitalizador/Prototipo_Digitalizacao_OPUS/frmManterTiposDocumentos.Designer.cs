@@ -32,32 +32,32 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManterTiposDocumentos));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.trvExplorer = new System.Windows.Forms.TreeView();
+            this.imgLstPastas = new System.Windows.Forms.ImageList(this.components);
+            this.lsvExplorer = new System.Windows.Forms.ListView();
+            this.clNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clTipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clUltimaModificacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.iconFechar = new System.Windows.Forms.PictureBox();
             this.iconMinimizar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.imgLstPastas = new System.Windows.Forms.ImageList(this.components);
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.trvExplorer = new System.Windows.Forms.TreeView();
-            this.lsvExplorer = new System.Windows.Forms.ListView();
-            this.clNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clTipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clUltimaModificacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ctxMnuExplorer = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconFechar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconFechar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ctxMnuExplorer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1009, 507);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1009, 687);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // pnlMain
@@ -86,8 +86,73 @@
             this.pnlMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMain.Location = new System.Drawing.Point(5, 57);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(999, 445);
+            this.pnlMain.Size = new System.Drawing.Size(999, 625);
             this.pnlMain.TabIndex = 8;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Location = new System.Drawing.Point(0, 36);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.trvExplorer);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.lsvExplorer);
+            this.splitContainer1.Size = new System.Drawing.Size(999, 409);
+            this.splitContainer1.SplitterDistance = 333;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // trvExplorer
+            // 
+            this.trvExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trvExplorer.ImageIndex = 0;
+            this.trvExplorer.ImageList = this.imgLstPastas;
+            this.trvExplorer.Location = new System.Drawing.Point(0, 0);
+            this.trvExplorer.Name = "trvExplorer";
+            this.trvExplorer.SelectedImageIndex = 0;
+            this.trvExplorer.Size = new System.Drawing.Size(333, 409);
+            this.trvExplorer.TabIndex = 0;
+            this.trvExplorer.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvExplorer_NodeMouseClick);
+            // 
+            // imgLstPastas
+            // 
+            this.imgLstPastas.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgLstPastas.ImageStream")));
+            this.imgLstPastas.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgLstPastas.Images.SetKeyName(0, "dir.png");
+            this.imgLstPastas.Images.SetKeyName(1, "pdf.png");
+            // 
+            // lsvExplorer
+            // 
+            this.lsvExplorer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clNome,
+            this.clTipo,
+            this.clUltimaModificacao});
+            this.lsvExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsvExplorer.Location = new System.Drawing.Point(0, 0);
+            this.lsvExplorer.Name = "lsvExplorer";
+            this.lsvExplorer.Size = new System.Drawing.Size(662, 409);
+            this.lsvExplorer.SmallImageList = this.imgLstPastas;
+            this.lsvExplorer.TabIndex = 0;
+            this.lsvExplorer.UseCompatibleStateImageBehavior = false;
+            this.lsvExplorer.View = System.Windows.Forms.View.Details;
+            // 
+            // clNome
+            // 
+            this.clNome.Text = "Nome";
+            this.clNome.Width = 100;
+            // 
+            // clTipo
+            // 
+            this.clTipo.Text = "Tipo";
+            this.clTipo.Width = 100;
+            // 
+            // clUltimaModificacao
+            // 
+            this.clUltimaModificacao.Text = "Última modificação";
+            this.clUltimaModificacao.Width = 300;
             // 
             // tableLayoutPanel2
             // 
@@ -158,72 +223,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Manutenção dos Documentos";
             // 
-            // imgLstPastas
-            // 
-            this.imgLstPastas.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgLstPastas.ImageStream")));
-            this.imgLstPastas.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgLstPastas.Images.SetKeyName(0, "dir.png");
-            this.imgLstPastas.Images.SetKeyName(1, "pdf.png");
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.trvExplorer);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.lsvExplorer);
-            this.splitContainer1.Size = new System.Drawing.Size(999, 445);
-            this.splitContainer1.SplitterDistance = 333;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // trvExplorer
-            // 
-            this.trvExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trvExplorer.ImageIndex = 0;
-            this.trvExplorer.ImageList = this.imgLstPastas;
-            this.trvExplorer.Location = new System.Drawing.Point(0, 0);
-            this.trvExplorer.Name = "trvExplorer";
-            this.trvExplorer.SelectedImageIndex = 0;
-            this.trvExplorer.Size = new System.Drawing.Size(333, 445);
-            this.trvExplorer.TabIndex = 0;
-            this.trvExplorer.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvExplorer_NodeMouseClick);
-            // 
-            // lsvExplorer
-            // 
-            this.lsvExplorer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clNome,
-            this.clTipo,
-            this.clUltimaModificacao});
-            this.lsvExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lsvExplorer.Location = new System.Drawing.Point(0, 0);
-            this.lsvExplorer.Name = "lsvExplorer";
-            this.lsvExplorer.Size = new System.Drawing.Size(662, 445);
-            this.lsvExplorer.SmallImageList = this.imgLstPastas;
-            this.lsvExplorer.TabIndex = 0;
-            this.lsvExplorer.UseCompatibleStateImageBehavior = false;
-            this.lsvExplorer.View = System.Windows.Forms.View.Details;
-            // 
-            // clNome
-            // 
-            this.clNome.Text = "Nome";
-            this.clNome.Width = 100;
-            // 
-            // clTipo
-            // 
-            this.clTipo.Text = "Tipo";
-            this.clTipo.Width = 100;
-            // 
-            // clUltimaModificacao
-            // 
-            this.clUltimaModificacao.Text = "Última modificação";
-            this.clUltimaModificacao.Width = 300;
-            // 
             // ctxMnuExplorer
             // 
             this.ctxMnuExplorer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -257,7 +256,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1009, 507);
+            this.ClientSize = new System.Drawing.Size(1009, 687);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -266,15 +265,15 @@
             this.Text = "Cadastro de Documentos";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconFechar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.ctxMnuExplorer.ResumeLayout(false);
             this.ResumeLayout(false);
 

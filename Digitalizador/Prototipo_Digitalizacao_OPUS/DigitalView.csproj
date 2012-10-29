@@ -81,7 +81,6 @@
     <Compile Include="frmSobre.Designer.cs">
       <DependentUpon>frmSobre.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComboCustom.cs" />
     <Compile Include="frmAtualizarDocumentosDigitalizados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,12 +111,6 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSplashScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSplashScreen.Designer.cs">
-      <DependentUpon>frmSplashScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmManterTiposDocumentos.resx">
@@ -145,10 +138,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSplashScreen.resx">
-      <DependentUpon>frmSplashScreen.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

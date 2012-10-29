@@ -59,7 +59,7 @@ namespace SIGPA.DAO
 
         }
          
-        protected int dbExecutarQuery(string pstrSQL, MySqlTransaction pobjTrans ){
+        protected int dbExecutarQuery(string pstrSQL, MySqlTransaction pobjTrans){
             MySqlConnection lobjConn = null;
             MySqlCommand lobjCommand = null;
 
@@ -82,6 +82,7 @@ namespace SIGPA.DAO
                     lobjCommand.Connection = pobjTrans.Connection;
                 }
                 lobjCommand.CommandText = pstrSQL;
+               
 
                 return lobjCommand.ExecuteNonQuery();
 	        }

@@ -67,7 +67,8 @@ namespace DigitalView
 
                     subSubDirs = subDir.GetDirectories();
 
-                    if (subSubDirs.Length != 0) {
+                    if (subSubDirs.Length != 0)
+                    {
                         obterDiretorios(subSubDirs, aNode);
                     }
 
@@ -130,6 +131,10 @@ namespace DigitalView
             MessageBox.Show(trvExplorer.SelectedNode.FullPath);
         }
 
+
+        public void criarDiretorio() { 
+            
+        }
 
     }
 }

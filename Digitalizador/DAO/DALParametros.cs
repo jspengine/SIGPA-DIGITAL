@@ -98,25 +98,26 @@ namespace SIGPA.DAO
             StringBuilder strSQL = null;
             MySqlConnection objConn = null;
             MySqlCommand objCmd = null;
+    
 
             try
             {
                 strSQL = new StringBuilder();
 
                 strSQL.AppendLine("UPDATE parametros SET ");
-                strSQL.AppendLine(" nm_diretoriodocumentos = '" + pObjParametros.NomeDiretorioDocumentos.Replace("\\", "\\\\") + "'");
+                strSQL.AppendLine(" nm_diretoriodocumentos = ?nomediretorio");//'" + pObjParametros.NomeDiretorioDocumentos.Replace("\\", "\\\\") + "'");
 
                 objConn = new MySqlConnection(gConnectionString);
                 objConn.Open();
+
+
                 objCmd = new MySqlCommand(strSQL.ToString(), objConn);
 
-                if (objCmd.ExecuteNonQuery() > 0)
-                {
-                    return true;
-                }
-                else{
-                    return false;
-                }
+                objCmd.Parameters.Add("?nomediretorio", MySqlDbType.VarChar).Value = pObjParametros.NomeDiretorioDocumentos.Replace("\\", "\\\\");
+
+
+                 return (objCmd.ExecuteNonQuery() > 0) ? true : false ;
+                
             }
             catch (Exception ex)
             {

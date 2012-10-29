@@ -25,6 +25,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RImageScan", "..\RImageScan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewWPF", "ViewWPF\ViewWPF.csproj", "{2EBF4399-3C85-4320-A18D-0EA960D2CC60}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Banco de Dados", "Banco de Dados", "{23A07AA3-EC4C-4B5D-8C80-E7B724B9BF75}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Documents and Settings\jspengine\Desktop\sigpa_digital.sql = C:\Documents and Settings\jspengine\Desktop\sigpa_digital.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
