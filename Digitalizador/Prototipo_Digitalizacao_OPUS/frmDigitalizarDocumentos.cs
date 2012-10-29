@@ -359,7 +359,7 @@ namespace DigitalView
                                 if (objBoDigitalizarDocumentos.boDigitalizarDocumentos(TempDirPdf + lblNomeArquivo.Text,
                                                                                     lblPathDiretorio.Text,
                                                                                     lblNomeArquivo.Text,
-                                                                                    (double)((ComboCustom)(cmbDocumento.SelectedItem)).Valor,
+                                                                                    (double)cmbDocumento.SelectedValue,
                                                                                     objCliente.ObjProcesso[0].IdProcesso))
                                 {
                                     MessageBox.Show("Documento Digitalizado com SUCESSO!!!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);

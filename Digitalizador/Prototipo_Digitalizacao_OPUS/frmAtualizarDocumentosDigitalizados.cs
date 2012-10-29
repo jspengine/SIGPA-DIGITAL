@@ -237,7 +237,7 @@ namespace DigitalView
             {
                 objBoDigitalizar = new BODigitalizarDocumentos();
 
-                ListaInfoDocumento = objBoDigitalizar.boObterListaDocumento((double)((ComboCustom)(cmbTipoDocumento.SelectedItem)).Valor, txtReferencia.Text.Substring(0, 1).ToUpper());
+                ListaInfoDocumento = objBoDigitalizar.boObterListaDocumento((double)cmbTipoDocumento.SelectedValue, txtReferencia.Text.Substring(0, 1).ToUpper());
 
                 if (ListaInfoDocumento != null)
                 {
