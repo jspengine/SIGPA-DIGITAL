@@ -74,6 +74,11 @@
     </Compile>
     <Compile Include="frmTipoDocumento.Designer.cs">
       <DependentUpon>frmTipoDocumento.cs</DependentUpon>
+    <Compile Include="frmDigitalizarDocumentos1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDigitalizarDocumentos1.Designer.cs">
+      <DependentUpon>frmDigitalizarDocumentos1.cs</DependentUpon>
     </Compile>
     <Compile Include="frmManterTiposDocumentos.cs">
       <SubType>Form</SubType>
@@ -121,6 +126,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmTipoDocumento.resx">
       <DependentUpon>frmTipoDocumento.cs</DependentUpon>
+    <EmbeddedResource Include="frmDigitalizarDocumentos1.resx">
+      <DependentUpon>frmDigitalizarDocumentos1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManterTiposDocumentos.resx">
       <DependentUpon>frmManterTiposDocumentos.cs</DependentUpon>

@@ -235,6 +235,63 @@ namespace SIGPA.BO
             }
         }
 
+
+        public void boMontarDiretorioDadosCadastrais(string pTipoDocumento,
+                                                     string pDocumento,
+                                                     INFOCliente pObjCliente,
+                                                     out string pNameFile,
+                                                     out string pNameDir)
+        {
+            DALParametros objDalParametros = null;
+            INFOParametros objParametros = null;
+            string NomeArquivo = string.Empty;
+            string NomeDiretorio = string.Empty;
+            StringBuilder SBDiretorio = null;
+
+            try
+            {
+                objDalParametros = new DALParametros();
+                objParametros = objDalParametros.dbObterParametros();
+
+                if (objParametros == null) throw new Exception("Parâmetros devem ser cadastrados !");
+
+                //Nome do arquivo deverá ser montado com a seguinte nomeclatura
+                //nome do documento + contador
+                NomeArquivo = pDocumento.ToUpper() + objParametros.NumeroContador.ToString() + ".pdf";
+
+                //Nome do diretório será montado com a seguinte nomeclatura
+                //Nome do Diretório cadasrado em parametros / Nome Cliente Mapa / TipoDocumento / Documento
+
+                SBDiretorio = new StringBuilder();
+
+                SBDiretorio.Append(objParametros.NomeDiretorioDocumentos + "\\");
+                SBDiretorio.Append(pObjCliente.NomeClienteMapa.Replace(".", "").Replace("-", "").Replace(" ", "").Trim().ToUpper() + "\\");
+                SBDiretorio.Append(pTipoDocumento.Trim().Replace("/", "").ToUpper() + "\\");
+                SBDiretorio.Append(pDocumento.Trim().Replace("/", "").ToUpper() + "\\");
+
+                NomeDiretorio = justLegalChars(SBDiretorio.ToString());
+
+                // Se o diretório não existir então eu crio o diretório
+                if (!System.IO.Directory.Exists(NomeDiretorio))
+                {
+                    System.IO.Directory.CreateDirectory(NomeDiretorio);
+                }
+
+                pNameFile = justLegalChars(NomeArquivo);
+                pNameDir = NomeDiretorio;
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally {
+                SBDiretorio = null;
+            }
+            
+        }
+
+
         public void boMontarNomeArquivoeDiretorio(string pNRef, 
                                                   string pTipoDocumento, 
                                                   string pDocumento, 
@@ -257,14 +314,15 @@ namespace SIGPA.BO
                 //Numero Referencia + contador
                 NomeArquivo = pNRef.Replace("-", "").Replace("/", "").ToUpper() + objParametros.NumeroContador.ToString() + ".pdf";
                 //Nome do diretório será montado com a seguinte nomeclatura
-                //Nome do Diretório cadasrado em parametros / Nome Cliente Mapa / Numero Processo / TipoDocumento / Documento  
+                //Nome do Diretório cadasrado em parametros / Nome Cliente Mapa / TipoDocumento / Numero Processo / Documento  
 
                 SBDiretorio = new StringBuilder();
 
                 SBDiretorio.Append(objParametros.NomeDiretorioDocumentos + "\\");
                 SBDiretorio.Append(pObjCliente.NomeClienteMapa.Replace(".", "").Replace("-","").Replace(" ","").Trim().ToUpper() + "\\");
-                SBDiretorio.Append(pNRef.Replace("-", "").Replace("/", "").ToUpper() + "\\");
+                
                 SBDiretorio.Append(pTipoDocumento.Trim().Replace("/","").ToUpper() + "\\");
+                SBDiretorio.Append(pNRef.Replace("-", "").Replace("/", "").ToUpper() + "\\");
                 SBDiretorio.Append(pDocumento.Trim().Replace("/","").ToUpper() + "\\");
 
                 NomeDiretorio = SBDiretorio.Replace(" ", "").Replace("(","").Replace(")","").Replace("Á", "A").Replace("Ç", "C").Replace("Ã", "A").Replace("Í","I").Replace("É", "E").ToString().Trim();
@@ -286,8 +344,22 @@ namespace SIGPA.BO
             finally {
                 SBDiretorio = null;
             }
-        }        
-    }
+        }
 
+        private String justLegalChars(String s)
+        {
+            return s.Replace(" ", "").
+                     Replace("(","").
+                     Replace(")","").
+                     Replace("Á", "A").
+                     Replace("Ç", "C").
+                     Replace("Ã", "A").
+                     Replace("Í","I").
+                     Replace("É", "E").
+                     ToString().Trim();
+        }
+
+
+    }
    
 }

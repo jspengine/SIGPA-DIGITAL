@@ -242,7 +242,7 @@
             this.cmbDocumento.Name = "cmbDocumento";
             this.cmbDocumento.Size = new System.Drawing.Size(400, 28);
             this.cmbDocumento.TabIndex = 12;
-            this.cmbDocumento.SelectedIndexChanged += new System.EventHandler(this.cmbDocumento_SelectedIndexChanged);
+            this.cmbDocumento.SelectionChangeCommitted += new System.EventHandler(this.cmbDocumento_SelectionChangeCommitted);
             // 
             // label3
             // 
@@ -281,7 +281,7 @@
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(400, 28);
             this.cmbTipoDocumento.TabIndex = 3;
-            this.cmbTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cmbTipoDocumento_SelectedIndexChanged);
+            this.cmbTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cmbTipoDocumento_SelectionChangeCommitted);
             // 
             // label6
             // 

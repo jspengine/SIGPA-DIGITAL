@@ -13,7 +13,7 @@ namespace SIGPA.DAO
         {
             StringBuilder strSQL = null;
             MySqlConnection objConn = null;
-            MySqlCommand objCmd = null;
+           // MySqlCommand objCmd = null;
             MySqlDataReader objDr = null;
             INFOTipoDocumento objTipodocumento = null;
             List<INFOTipoDocumento> ListaTipoDocumento = null;
@@ -23,7 +23,7 @@ namespace SIGPA.DAO
 
                 strSQL.AppendLine("SELECT ID_TIPODOCUMENTO, NM_TIPODOCUMENTO ");
                 strSQL.AppendLine(" FROM tipodocumento  ");
-                strSQL.AppendLine(" ORDER BY NM_TIPODOCUMENTO ");
+                strSQL.AppendLine(" ORDER BY ID_TIPODOCUMENTO ");
 
                 objConn = new MySqlConnection(gConnectionString);
                 objDr = dbObterRegistros(objConn, strSQL.ToString(), null);

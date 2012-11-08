@@ -62,7 +62,7 @@ namespace DigitalView
 
                 if (e.KeyCode == Keys.Enter)
                 {
-                    cmbTipoDocumento.SelectedIndex = -1;
+                    cmbTipoDocumento.SelectedIndex =0;
 
                     if (string.IsNullOrEmpty(txtReferencia.Text))
                     {
@@ -101,11 +101,6 @@ namespace DigitalView
         }
 
 
-        private void montaArvoreDiretorio() { 
-            
-        }
-
-
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -129,6 +124,15 @@ namespace DigitalView
                 if (ListaInfoTipoDocumento != null)
                 {
 
+                    //cmbTipoDocumento.Items.Insert(0, "SELECIONE...");
+
+                    //foreach (INFOTipoDocumento tipodocumento in ListaInfoTipoDocumento)
+                    //{
+                    //    cmbTipoDocumento.Items.Insert(((int)tipodocumento.IdTipoDocumento), tipodocumento.NomeTipoDocumento);
+                    //}
+
+                    //cmbTipoDocumento.SelectedIndex = 0;
+
                     cmbTipoDocumento.DataSource = ListaInfoTipoDocumento;
                     cmbTipoDocumento.DisplayMember = "NomeTipoDocumento";
                     cmbTipoDocumento.ValueMember = "IdTipoDocumento";
@@ -148,35 +152,25 @@ namespace DigitalView
 
         private void cmbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbTipoDocumento.SelectedIndex > 0)
-            {
-                cmbDocumento.Items.Clear();
-                CarregarComboDocumento();
-                cmbDocumento.Enabled = true;
+            //if (cmbTipoDocumento.SelectedItem != null && !String.IsNullOrEmpty( txtReferencia.Text))
+            //{
+               
+            //    CarregarComboDocumento();
+            //    cmbDocumento.Enabled = true;
 
-                //Dados cadastrais será montado acima da referência
-                if ("1".Equals(cmbTipoDocumento.SelectedValue)) { 
-                    //Monto o diretório de dados cadastrais abaixo do cliente
+                
 
-                    // + Nome Cliente
-                    // |----- + Dados Cadastrais
-                    // |----- + Processos Importacao
-                    //          |------ + CI
-                    //          |------ + LI
-                    //          |------ + DI
-                    //          |------ + LI
-                    // |----- + Processos Exportacao
-                    //          |------ + RE
-                    //          |------ + DDE
-                    //          |------ + AWB
+            //}
+            //else {
+            //    //if (cmbDocumento.Items.Count > 0)
+            //    //{
+            //    //cmbDocumento.SelectedIndex = 0;
+            //    //cmbDocumento.Enabled = true;
+            //    //}
 
-                }
-
-            }
-            else {
-                cmbDocumento.SelectedIndex = -1;
-                cmbDocumento.Enabled = true;
-            }
+            //    //cmbTipoDocumento.SelectedIndex = 0;
+            //    //cmbTipoDocumento.Enabled = true;
+            //}
         }
 
         private void CarregarComboDocumento(){
@@ -185,21 +179,27 @@ namespace DigitalView
 
             try
             {
+
+                cmbDocumento.DataSource = null;
                 objBoDigitalizar = new BODigitalizarDocumentos();
 
                 ListaInfoDocumento = objBoDigitalizar.boObterListaDocumento((double)(cmbTipoDocumento.SelectedValue), txtReferencia.Text.Substring(0,1).ToUpper());
 
                 if (ListaInfoDocumento != null)
                 {
+                    //cmbDocumento.Items.Insert(0, "SELECIONE ...");
+                    //foreach (INFODocumento documento in ListaInfoDocumento)
+                    //{
+                    //    cmbDocumento.Items.Add(new CustomComboBox( documento.IdDocumentos, documento.NomeDocumento));
+                    //}
 
                     cmbDocumento.DataSource = ListaInfoDocumento;
                     cmbDocumento.DisplayMember = "NomeDocumento";
                     cmbDocumento.ValueMember = "IdDocumentos";
-
-                    //cmbDocumento.Items.Insert(0, "SELECIONE ...");
+                   
                     //for (int i = 0; i < ListaInfoDocumento.Count; i++)
                     //{
-                    //    cmbDocumento.Items.Add(new ComboCustom(ListaInfoDocumento[i].IdDocumentos, ListaInfoDocumento[i].NomeDocumento));
+                    //    cmbDocumento.Items.Insert((int) ListaInfoDocumento[i].IdDocumentos, ListaInfoDocumento[i].NomeDocumento);
                     //}
                     //cmbDocumento.SelectedIndex = 0;
                 }
@@ -215,43 +215,7 @@ namespace DigitalView
             }
         }
 
-        private void cmbDocumento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BODigitalizarDocumentos objBoDigitalizarDocumentos = null;
-            string NomeArquivo;
-            string NomeDir;
-            try
-            {
-                if (cmbDocumento.SelectedIndex > 0)
-                {
-                    objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
-
-                    objBoDigitalizarDocumentos.boMontarNomeArquivoeDiretorio(txtReferencia.Text,
-                                                                             cmbTipoDocumento.Text,
-                                                                             cmbDocumento.Text,
-                                                                             objCliente,
-                                                                             out NomeArquivo,
-                                                                             out NomeDir);
-
-                    lblNomeArquivo.Text = NomeArquivo;
-                    lblPathDiretorio.Text = NomeDir;
-                    btnDigitalizar.Enabled = true;
-                }
-                else {
-                    lblNomeArquivo.Text = string.Empty;
-                    lblPathDiretorio.Text = string.Empty;
-                    btnDigitalizar.Enabled = false;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERRO : " + ex.ToString(), Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //throw;
-            }
-
-        }
-
+ 
 
 
         private void btnDigitalizar_Click(object sender, EventArgs e)
@@ -449,6 +413,97 @@ namespace DigitalView
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+     
+        private void cmbTipoDocumento_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (cmbTipoDocumento.SelectedItem != null && !String.IsNullOrEmpty(txtReferencia.Text))
+                {
+
+                    CarregarComboDocumento();
+                    cmbDocumento.Enabled = true;
+                    lblPathDiretorio.Text = "";
+                    lblNomeArquivo.Text = "";
+                    btnDigitalizar.Enabled = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO : " + ex.ToString(), Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            
+        }
+
+        private void cmbDocumento_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            BODigitalizarDocumentos objBoDigitalizarDocumentos = null;
+            string NomeArquivo;
+            string NomeDir;
+            try
+            {
+
+                //Dados cadastrais será montado acima da referência
+                String nomePastaDadosCadastraisemParametros = System.Configuration.ConfigurationManager.AppSettings["NOMEPASTADADOSCADASTRAIS"].ToString();
+                if (nomePastaDadosCadastraisemParametros.Equals(cmbTipoDocumento.Text) && cmbDocumento.SelectedItem != null)
+                {
+                    //Monto o diretório de dados cadastrais abaixo do cliente
+
+                    // |----- + Nome Cliente Mapa 
+                    //      |----- + Dados Cadastrais
+                    //                  |------ + Identidade
+                    //                  |------ + CPF
+                    //                  |------ + Outros
+                    objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
+
+                    objBoDigitalizarDocumentos.boMontarDiretorioDadosCadastrais(
+                                                                             cmbTipoDocumento.Text,
+                                                                             cmbDocumento.Text,
+                                                                             objCliente,
+                                                                             out NomeArquivo,
+                                                                             out NomeDir);
+
+                    lblNomeArquivo.Text = NomeArquivo;
+                    lblPathDiretorio.Text = NomeDir;
+                    btnDigitalizar.Enabled = true;
+
+
+                }
+                else if (!nomePastaDadosCadastraisemParametros.Equals(cmbTipoDocumento.Text) && cmbDocumento.Text != "")
+                {
+                    objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
+
+                    objBoDigitalizarDocumentos.boMontarNomeArquivoeDiretorio(txtReferencia.Text,
+                                                                             cmbTipoDocumento.Text,
+                                                                             cmbDocumento.Text,
+                                                                             objCliente,
+                                                                             out NomeArquivo,
+                                                                             out NomeDir);
+
+                    lblNomeArquivo.Text = NomeArquivo;
+                    lblPathDiretorio.Text = NomeDir;
+                    btnDigitalizar.Enabled = true;
+                }
+                //else {
+                //    lblNomeArquivo.Text = string.Empty;
+                //    lblPathDiretorio.Text = string.Empty;
+                //    btnDigitalizar.Enabled = false;
+                //}
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO : " + ex.ToString(), Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //throw;
+            }
+
+        }
+
+        
 
 
 

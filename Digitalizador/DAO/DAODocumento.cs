@@ -23,7 +23,7 @@ namespace SIGPA.DAO
                 strSQL.AppendLine(" FROM documento  ");
                 strSQL.AppendLine(" WHERE ID_TIPODOCUMENTO = " + pIdentificador.ToString());
                 strSQL.AppendLine(" AND (DS_CATEGORIADOCUMENTO = 'S' OR DS_CATEGORIADOCUMENTO = '" + pCategoria + "')");
-                //strSQL.AppendLine(" ORDER BY NM_DOCUMENTO ");
+                strSQL.AppendLine(" ORDER BY ID_DOCUMENTO ");
 
                 objConn = new MySqlConnection(gConnectionString);
 
