@@ -36,10 +36,6 @@
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.btnExcluirDocumentos = new System.Windows.Forms.Button();
             this.btnDigitalizar = new System.Windows.Forms.Button();
-            this.lstDocumentosDigitalisados = new System.Windows.Forms.ListView();
-            this.col1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colNomeArquivo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblCNPJCPF = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -60,6 +56,10 @@
             this.iconMinimizar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.col1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNomeArquivo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstDocumentosDigitalisados = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.grpAcao.SuspendLayout();
@@ -178,43 +178,6 @@
             this.btnDigitalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDigitalizar.UseVisualStyleBackColor = true;
             this.btnDigitalizar.Click += new System.EventHandler(this.btnDigitalizar_Click);
-            // 
-            // lstDocumentosDigitalisados
-            // 
-            this.lstDocumentosDigitalisados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lstDocumentosDigitalisados.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstDocumentosDigitalisados.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col1,
-            this.colNomeArquivo,
-            this.colPath});
-            this.lstDocumentosDigitalisados.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lstDocumentosDigitalisados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lstDocumentosDigitalisados.FullRowSelect = true;
-            this.lstDocumentosDigitalisados.GridLines = true;
-            this.lstDocumentosDigitalisados.Location = new System.Drawing.Point(0, 375);
-            this.lstDocumentosDigitalisados.MultiSelect = false;
-            this.lstDocumentosDigitalisados.Name = "lstDocumentosDigitalisados";
-            this.lstDocumentosDigitalisados.Size = new System.Drawing.Size(987, 218);
-            this.lstDocumentosDigitalisados.TabIndex = 16;
-            this.lstDocumentosDigitalisados.UseCompatibleStateImageBehavior = false;
-            this.lstDocumentosDigitalisados.View = System.Windows.Forms.View.Details;
-            // 
-            // col1
-            // 
-            this.col1.DisplayIndex = 2;
-            this.col1.Width = 0;
-            // 
-            // colNomeArquivo
-            // 
-            this.colNomeArquivo.DisplayIndex = 0;
-            this.colNomeArquivo.Text = "Nome do Arquivo";
-            this.colNomeArquivo.Width = 200;
-            // 
-            // colPath
-            // 
-            this.colPath.DisplayIndex = 1;
-            this.colPath.Text = "Caminho do Arquivo";
-            this.colPath.Width = 750;
             // 
             // lblCNPJCPF
             // 
@@ -440,6 +403,43 @@
             this.label2.Text = "Manutenção dos documentos digitalizados";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // col1
+            // 
+            this.col1.DisplayIndex = 2;
+            this.col1.Width = 0;
+            // 
+            // colNomeArquivo
+            // 
+            this.colNomeArquivo.DisplayIndex = 0;
+            this.colNomeArquivo.Text = "Nome do Arquivo";
+            this.colNomeArquivo.Width = 200;
+            // 
+            // colPath
+            // 
+            this.colPath.DisplayIndex = 1;
+            this.colPath.Text = "Caminho do Arquivo";
+            this.colPath.Width = 750;
+            // 
+            // lstDocumentosDigitalisados
+            // 
+            this.lstDocumentosDigitalisados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lstDocumentosDigitalisados.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstDocumentosDigitalisados.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.col1,
+            this.colNomeArquivo,
+            this.colPath});
+            this.lstDocumentosDigitalisados.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lstDocumentosDigitalisados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lstDocumentosDigitalisados.FullRowSelect = true;
+            this.lstDocumentosDigitalisados.GridLines = true;
+            this.lstDocumentosDigitalisados.Location = new System.Drawing.Point(0, 375);
+            this.lstDocumentosDigitalisados.MultiSelect = false;
+            this.lstDocumentosDigitalisados.Name = "lstDocumentosDigitalisados";
+            this.lstDocumentosDigitalisados.Size = new System.Drawing.Size(987, 218);
+            this.lstDocumentosDigitalisados.TabIndex = 16;
+            this.lstDocumentosDigitalisados.UseCompatibleStateImageBehavior = false;
+            this.lstDocumentosDigitalisados.View = System.Windows.Forms.View.Details;
+            // 
             // frmAtualizarDocumentosDigitalizados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,10 +479,6 @@
         private System.Windows.Forms.PictureBox iconMinimizar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.ListView lstDocumentosDigitalisados;
-        private System.Windows.Forms.ColumnHeader col1;
-        private System.Windows.Forms.ColumnHeader colNomeArquivo;
-        private System.Windows.Forms.ColumnHeader colPath;
         private System.Windows.Forms.Label lblCNPJCPF;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label label4;
@@ -503,6 +499,10 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnVisualizar;
         private System.Windows.Forms.Button btnExcluirDocumentos;
+        private System.Windows.Forms.ListView lstDocumentosDigitalisados;
+        private System.Windows.Forms.ColumnHeader col1;
+        private System.Windows.Forms.ColumnHeader colNomeArquivo;
+        private System.Windows.Forms.ColumnHeader colPath;
 
         //private Nevron.UI.WinForm.Controls.NGrouper grpDigitalizar;
         //private Nevron.UI.WinForm.Controls.NButton btnSair;
