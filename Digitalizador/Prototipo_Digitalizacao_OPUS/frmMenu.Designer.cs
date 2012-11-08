@@ -58,12 +58,13 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lnkDigitalizarV2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lnkDigitalizarV2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.mnuSistema.SuspendLayout();
             this.Explorer.SuspendLayout();
             this.exSistema.SuspendLayout();
@@ -387,6 +388,7 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.linkLabel6);
             this.panel1.Controls.Add(this.lnkDigitalizarV2);
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.linkLabel1);
@@ -395,6 +397,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(275, 172);
             this.panel1.TabIndex = 0;
+            // 
+            // lnkDigitalizarV2
+            // 
+            this.lnkDigitalizarV2.AutoSize = true;
+            this.lnkDigitalizarV2.Location = new System.Drawing.Point(23, 80);
+            this.lnkDigitalizarV2.Name = "lnkDigitalizarV2";
+            this.lnkDigitalizarV2.Size = new System.Drawing.Size(82, 13);
+            this.lnkDigitalizarV2.TabIndex = 4;
+            this.lnkDigitalizarV2.TabStop = true;
+            this.lnkDigitalizarV2.Text = "Digitalização v2";
+            this.lnkDigitalizarV2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkDigitalizarV2_LinkClicked);
             // 
             // linkLabel2
             // 
@@ -450,16 +463,16 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
-            // lnkDigitalizarV2
+            // linkLabel6
             // 
-            this.lnkDigitalizarV2.AutoSize = true;
-            this.lnkDigitalizarV2.Location = new System.Drawing.Point(23, 80);
-            this.lnkDigitalizarV2.Name = "lnkDigitalizarV2";
-            this.lnkDigitalizarV2.Size = new System.Drawing.Size(82, 13);
-            this.lnkDigitalizarV2.TabIndex = 4;
-            this.lnkDigitalizarV2.TabStop = true;
-            this.lnkDigitalizarV2.Text = "Digitalização v2";
-            this.lnkDigitalizarV2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkDigitalizarV2_LinkClicked);
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Location = new System.Drawing.Point(25, 107);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(141, 13);
+            this.linkLabel6.TabIndex = 5;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Cadastro Tipos Documentos";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
             // frmMenu
             // 
@@ -556,6 +569,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel lnkDigitalizarV2;
+        private System.Windows.Forms.LinkLabel linkLabel6;
        
 
 

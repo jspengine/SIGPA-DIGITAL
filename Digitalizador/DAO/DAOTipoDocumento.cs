@@ -86,6 +86,83 @@ namespace SIGPA.DAO
 
         }
 
+        public bool dbInserirTipoDocumento(INFOTipoDocumento objTipoDocumento)
+        {
+            StringBuilder strSQL = null;
+            MySqlConnection objConn = null;
+            MySqlCommand objCmd = null;
+
+            try
+            {
+                strSQL = new StringBuilder();
+
+                strSQL.AppendLine(" INSERT INTO tipodocumento ( NM_TIPODOCUMENTO )").
+                       AppendLine(" VALUES ( ?nometipodocumento ) ");
+
+
+                objConn = new MySqlConnection(gConnectionString);
+                objConn.Open();
+                objCmd = new MySqlCommand(strSQL.ToString(), objConn);
+
+                objCmd.Parameters.Add("?nometipodocumento", MySqlDbType.VarChar).Value = objTipoDocumento.NomeTipoDocumento;
+                
+
+                return (objCmd.ExecuteNonQuery() > 0) ? true : false;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (objCmd != null)
+                {
+                    objCmd.Dispose();
+                    objCmd = null;
+                }
+
+                if (objConn.State == System.Data.ConnectionState.Open)
+                {
+                    objConn.Close();
+                    objConn.Dispose();
+                    objConn = null;
+                }
+
+                strSQL = null;
+            }
+        }
+
+        public bool dbAlterarTipoDocumento(INFOTipoDocumento pObjTipoDocumento)
+        {
+            StringBuilder strSql = new StringBuilder();
+            MySqlConnection objConn = null;
+            MySqlCommand objCmd = null;
+
+            try
+            {
+                strSql.Append("UPDATE TIPODOCUMENTO SET ");
+                strSql.Append("NM_TIPODOCUMENTO ='" + pObjTipoDocumento.NomeTipoDocumento + "' ");
+                strSql.Append("WHERE ID_TIPODOCUMENTO =" + pObjTipoDocumento.IdTipoDocumento.ToString());
+
+                objConn = new MySqlConnection(gConnectionString);
+                objConn.Open();
+                objCmd = new MySqlCommand(strSql.ToString(), objConn);
+
+
+                return (objCmd.ExecuteNonQuery() > 0) ? true : false;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                strSql = null;
+            }
+        }
+
 
     }
 }

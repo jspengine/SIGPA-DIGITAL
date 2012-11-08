@@ -69,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmTipoDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTipoDocumento.Designer.cs">
+      <DependentUpon>frmTipoDocumento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManterTiposDocumentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmTipoDocumento.resx">
+      <DependentUpon>frmTipoDocumento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManterTiposDocumentos.resx">
       <DependentUpon>frmManterTiposDocumentos.cs</DependentUpon>
     </EmbeddedResource>

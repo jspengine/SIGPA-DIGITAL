@@ -71,6 +71,7 @@
     <Compile Include="BOManterDocumentosDigitais.cs" />
     <Compile Include="BOManterParametros.cs" />
     <Compile Include="BORealizarLogin.cs" />
+    <Compile Include="BOTipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
