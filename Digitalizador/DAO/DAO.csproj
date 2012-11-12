@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="DALGeneral.cs" />
     <Compile Include="DALParametros.cs" />
+    <Compile Include="DAOCategoriaProcesso.cs" />
     <Compile Include="DAOCliente.cs" />
     <Compile Include="DAODocumento.cs" />
     <Compile Include="DAODocumentoDigital.cs" />

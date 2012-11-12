@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="INFOCategoriaProcesso.cs" />
     <Compile Include="INFOCliente.cs" />
     <Compile Include="INFODocumento.cs" />
     <Compile Include="INFODocumentoDigital.cs" />

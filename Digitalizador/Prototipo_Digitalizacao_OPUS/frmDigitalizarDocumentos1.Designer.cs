@@ -1,6 +1,6 @@
 ﻿namespace DigitalView
 {
-    partial class frmAtualizarDocumentosDigitalizados
+    partial class frmDigitalizarDocumentos1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAtualizarDocumentosDigitalizados));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDigitalizarDocumentos));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.chkVisualizacao = new System.Windows.Forms.CheckBox();
             this.grpAcao = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
-            this.btnVisualizar = new System.Windows.Forms.Button();
-            this.btnExcluirDocumentos = new System.Windows.Forms.Button();
             this.btnDigitalizar = new System.Windows.Forms.Button();
-            this.lstDocumentosDigitalisados = new System.Windows.Forms.ListView();
-            this.col1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colNomeArquivo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblCNPJCPF = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.grpDocumentos = new System.Windows.Forms.GroupBox();
+            this.lblNomeArquivo = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.cmbDocumento = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPathDiretorio = new System.Windows.Forms.Label();
@@ -84,14 +81,15 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(997, 655);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(997, 521);
+            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.Click += new System.EventHandler(this.frmDigitalizarDocumentos_Load);
             // 
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Transparent;
+            this.pnlMain.Controls.Add(this.chkVisualizacao);
             this.pnlMain.Controls.Add(this.grpAcao);
-            this.pnlMain.Controls.Add(this.lstDocumentosDigitalisados);
             this.pnlMain.Controls.Add(this.lblCNPJCPF);
             this.pnlMain.Controls.Add(this.lblNome);
             this.pnlMain.Controls.Add(this.label4);
@@ -105,16 +103,26 @@
             this.pnlMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMain.Location = new System.Drawing.Point(5, 57);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(987, 593);
+            this.pnlMain.Size = new System.Drawing.Size(987, 459);
             this.pnlMain.TabIndex = 8;
+            // 
+            // chkVisualizacao
+            // 
+            this.chkVisualizacao.AutoSize = true;
+            this.chkVisualizacao.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.chkVisualizacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkVisualizacao.Location = new System.Drawing.Point(16, 15);
+            this.chkVisualizacao.Name = "chkVisualizacao";
+            this.chkVisualizacao.Size = new System.Drawing.Size(314, 17);
+            this.chkVisualizacao.TabIndex = 18;
+            this.chkVisualizacao.Text = "VISUALIZAR DOCUMENTO APÓS DIGITALIZAÇÃO";
+            this.chkVisualizacao.UseVisualStyleBackColor = true;
             // 
             // grpAcao
             // 
             this.grpAcao.Controls.Add(this.btnSair);
-            this.grpAcao.Controls.Add(this.btnVisualizar);
-            this.grpAcao.Controls.Add(this.btnExcluirDocumentos);
             this.grpAcao.Controls.Add(this.btnDigitalizar);
-            this.grpAcao.Location = new System.Drawing.Point(3, 293);
+            this.grpAcao.Location = new System.Drawing.Point(3, 380);
             this.grpAcao.Name = "grpAcao";
             this.grpAcao.Size = new System.Drawing.Size(981, 76);
             this.grpAcao.TabIndex = 17;
@@ -134,43 +142,13 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // btnVisualizar
-            // 
-            this.btnVisualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVisualizar.BackgroundImage")));
-            this.btnVisualizar.Enabled = false;
-            this.btnVisualizar.ForeColor = System.Drawing.Color.White;
-            this.btnVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnVisualizar.Image")));
-            this.btnVisualizar.Location = new System.Drawing.Point(334, 17);
-            this.btnVisualizar.Name = "btnVisualizar";
-            this.btnVisualizar.Size = new System.Drawing.Size(148, 48);
-            this.btnVisualizar.TabIndex = 2;
-            this.btnVisualizar.Text = "Visualizar";
-            this.btnVisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnVisualizar.UseVisualStyleBackColor = true;
-            this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
-            // 
-            // btnExcluirDocumentos
-            // 
-            this.btnExcluirDocumentos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcluirDocumentos.BackgroundImage")));
-            this.btnExcluirDocumentos.Enabled = false;
-            this.btnExcluirDocumentos.ForeColor = System.Drawing.Color.White;
-            this.btnExcluirDocumentos.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluirDocumentos.Image")));
-            this.btnExcluirDocumentos.Location = new System.Drawing.Point(171, 17);
-            this.btnExcluirDocumentos.Name = "btnExcluirDocumentos";
-            this.btnExcluirDocumentos.Size = new System.Drawing.Size(148, 48);
-            this.btnExcluirDocumentos.TabIndex = 1;
-            this.btnExcluirDocumentos.Text = "Excluir";
-            this.btnExcluirDocumentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnExcluirDocumentos.UseVisualStyleBackColor = true;
-            this.btnExcluirDocumentos.Click += new System.EventHandler(this.btnExcluirDocumentos_Click);
-            // 
             // btnDigitalizar
             // 
             this.btnDigitalizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDigitalizar.BackgroundImage")));
             this.btnDigitalizar.Enabled = false;
             this.btnDigitalizar.ForeColor = System.Drawing.Color.White;
             this.btnDigitalizar.Image = ((System.Drawing.Image)(resources.GetObject("btnDigitalizar.Image")));
-            this.btnDigitalizar.Location = new System.Drawing.Point(8, 17);
+            this.btnDigitalizar.Location = new System.Drawing.Point(13, 17);
             this.btnDigitalizar.Name = "btnDigitalizar";
             this.btnDigitalizar.Size = new System.Drawing.Size(148, 48);
             this.btnDigitalizar.TabIndex = 0;
@@ -179,49 +157,12 @@
             this.btnDigitalizar.UseVisualStyleBackColor = true;
             this.btnDigitalizar.Click += new System.EventHandler(this.btnDigitalizar_Click);
             // 
-            // lstDocumentosDigitalisados
-            // 
-            this.lstDocumentosDigitalisados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lstDocumentosDigitalisados.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstDocumentosDigitalisados.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col1,
-            this.colNomeArquivo,
-            this.colPath});
-            this.lstDocumentosDigitalisados.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lstDocumentosDigitalisados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lstDocumentosDigitalisados.FullRowSelect = true;
-            this.lstDocumentosDigitalisados.GridLines = true;
-            this.lstDocumentosDigitalisados.Location = new System.Drawing.Point(0, 375);
-            this.lstDocumentosDigitalisados.MultiSelect = false;
-            this.lstDocumentosDigitalisados.Name = "lstDocumentosDigitalisados";
-            this.lstDocumentosDigitalisados.Size = new System.Drawing.Size(987, 218);
-            this.lstDocumentosDigitalisados.TabIndex = 16;
-            this.lstDocumentosDigitalisados.UseCompatibleStateImageBehavior = false;
-            this.lstDocumentosDigitalisados.View = System.Windows.Forms.View.Details;
-            // 
-            // col1
-            // 
-            this.col1.DisplayIndex = 2;
-            this.col1.Width = 0;
-            // 
-            // colNomeArquivo
-            // 
-            this.colNomeArquivo.DisplayIndex = 0;
-            this.colNomeArquivo.Text = "Nome do Arquivo";
-            this.colNomeArquivo.Width = 200;
-            // 
-            // colPath
-            // 
-            this.colPath.DisplayIndex = 1;
-            this.colPath.Text = "Caminho do Arquivo";
-            this.colPath.Width = 750;
-            // 
             // lblCNPJCPF
             // 
             this.lblCNPJCPF.AutoSize = true;
             this.lblCNPJCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCNPJCPF.ForeColor = System.Drawing.Color.Navy;
-            this.lblCNPJCPF.Location = new System.Drawing.Point(154, 102);
+            this.lblCNPJCPF.Location = new System.Drawing.Point(152, 153);
             this.lblCNPJCPF.Name = "lblCNPJCPF";
             this.lblCNPJCPF.Size = new System.Drawing.Size(0, 20);
             this.lblCNPJCPF.TabIndex = 15;
@@ -231,7 +172,7 @@
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.ForeColor = System.Drawing.Color.Navy;
-            this.lblNome.Location = new System.Drawing.Point(153, 77);
+            this.lblNome.Location = new System.Drawing.Point(152, 120);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(0, 20);
             this.lblNome.TabIndex = 14;
@@ -239,7 +180,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 83);
+            this.label4.Location = new System.Drawing.Point(13, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 13);
             this.label4.TabIndex = 13;
@@ -250,7 +191,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(522, 35);
+            this.label11.Location = new System.Drawing.Point(522, 81);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(419, 17);
             this.label11.TabIndex = 12;
@@ -258,6 +199,8 @@
             // 
             // grpDocumentos
             // 
+            this.grpDocumentos.Controls.Add(this.lblNomeArquivo);
+            this.grpDocumentos.Controls.Add(this.label5);
             this.grpDocumentos.Controls.Add(this.cmbDocumento);
             this.grpDocumentos.Controls.Add(this.label3);
             this.grpDocumentos.Controls.Add(this.lblPathDiretorio);
@@ -266,12 +209,29 @@
             this.grpDocumentos.Controls.Add(this.label6);
             this.grpDocumentos.Enabled = false;
             this.grpDocumentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpDocumentos.Location = new System.Drawing.Point(3, 147);
+            this.grpDocumentos.Location = new System.Drawing.Point(3, 188);
             this.grpDocumentos.Name = "grpDocumentos";
-            this.grpDocumentos.Size = new System.Drawing.Size(981, 140);
+            this.grpDocumentos.Size = new System.Drawing.Size(975, 178);
             this.grpDocumentos.TabIndex = 11;
             this.grpDocumentos.TabStop = false;
             this.grpDocumentos.Text = "DOCUMENTO A SEREM DIGITALIZADOS";
+            // 
+            // lblNomeArquivo
+            // 
+            this.lblNomeArquivo.AutoSize = true;
+            this.lblNomeArquivo.Location = new System.Drawing.Point(176, 146);
+            this.lblNomeArquivo.Name = "lblNomeArquivo";
+            this.lblNomeArquivo.Size = new System.Drawing.Size(0, 13);
+            this.lblNomeArquivo.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 146);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "NOME ARQUIVO:";
             // 
             // cmbDocumento
             // 
@@ -282,7 +242,7 @@
             this.cmbDocumento.Name = "cmbDocumento";
             this.cmbDocumento.Size = new System.Drawing.Size(400, 28);
             this.cmbDocumento.TabIndex = 12;
-            this.cmbDocumento.SelectionChangeCommitted += new System.EventHandler(this.cmbDocumento_SelectedIndexChanged);
+            this.cmbDocumento.SelectedIndexChanged += new System.EventHandler(this.cmbDocumento_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -321,7 +281,7 @@
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(400, 28);
             this.cmbTipoDocumento.TabIndex = 3;
-            this.cmbTipoDocumento.SelectionChangeCommitted += new System.EventHandler(this.cmbTipoDocumento_SelectedIndexChanged);
+            this.cmbTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cmbTipoDocumento_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -335,7 +295,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 35);
+            this.label1.Location = new System.Drawing.Point(13, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 13);
             this.label1.TabIndex = 0;
@@ -345,7 +305,7 @@
             // 
             this.lblNomeCliente.AutoSize = true;
             this.lblNomeCliente.ForeColor = System.Drawing.Color.Navy;
-            this.lblNomeCliente.Location = new System.Drawing.Point(131, 53);
+            this.lblNomeCliente.Location = new System.Drawing.Point(152, 146);
             this.lblNomeCliente.Name = "lblNomeCliente";
             this.lblNomeCliente.Size = new System.Drawing.Size(0, 13);
             this.lblNomeCliente.TabIndex = 4;
@@ -357,7 +317,7 @@
             this.txtReferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReferencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtReferencia.Location = new System.Drawing.Point(182, 17);
+            this.txtReferencia.Location = new System.Drawing.Point(182, 57);
             this.txtReferencia.MaxLength = 15;
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(334, 41);
@@ -367,7 +327,7 @@
             // lblCPForCNPJ
             // 
             this.lblCPForCNPJ.AutoSize = true;
-            this.lblCPForCNPJ.Location = new System.Drawing.Point(13, 107);
+            this.lblCPForCNPJ.Location = new System.Drawing.Point(13, 158);
             this.lblCPForCNPJ.Name = "lblCPForCNPJ";
             this.lblCPForCNPJ.Size = new System.Drawing.Size(83, 13);
             this.lblCPForCNPJ.TabIndex = 3;
@@ -385,6 +345,7 @@
             this.tableLayoutPanel2.Controls.Add(this.iconMinimizar, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 5);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -403,7 +364,7 @@
             this.iconFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconFechar.TabIndex = 1;
             this.iconFechar.TabStop = false;
-            this.iconFechar.Click += new System.EventHandler(this.iconFechar_Click);
+            this.iconFechar.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // iconMinimizar
             // 
@@ -437,26 +398,21 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(64, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(585, 32);
+            this.label2.Size = new System.Drawing.Size(324, 32);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Manutenção dos documentos digitalizados";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Text = "Digitalizar documentos";
             // 
-            // frmAtualizarDocumentosDigitalizados
+            // frmDigitalizarDocumentos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(997, 655);
+            this.ClientSize = new System.Drawing.Size(997, 521);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmAtualizarDocumentosDigitalizados";
+            this.Name = "frmDigitalizarDocumentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Manutenção de Documentos Digitalizados";
-            this.Load += new System.EventHandler(this.frmAtualizarDocumentosDigitalizados_Load);
+            this.Text = "Digitalização de Documentos";
+            this.Load += new System.EventHandler(this.frmDigitalizarDocumentos_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
@@ -475,12 +431,10 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox iconFechar;
-        private System.Windows.Forms.PictureBox iconMinimizar;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.GroupBox grpAcao;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnDigitalizar;
         private System.Windows.Forms.Label lblCNPJCPF;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label label4;
@@ -496,19 +450,15 @@
         private System.Windows.Forms.Label lblNomeCliente;
         private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.Label lblCPForCNPJ;
-        private System.Windows.Forms.GroupBox grpAcao;
-        private System.Windows.Forms.Button btnDigitalizar;
-        private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.Button btnVisualizar;
-        private System.Windows.Forms.Button btnExcluirDocumentos;
-        private System.Windows.Forms.ListView lstDocumentosDigitalisados;
-        private System.Windows.Forms.ColumnHeader col1;
-        private System.Windows.Forms.ColumnHeader colNomeArquivo;
-        private System.Windows.Forms.ColumnHeader colPath;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.PictureBox iconFechar;
+        private System.Windows.Forms.PictureBox iconMinimizar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox chkVisualizacao;
+        private System.Windows.Forms.Label lblNomeArquivo;
+        private System.Windows.Forms.Label label5;
 
-        //private Nevron.UI.WinForm.Controls.NGrouper grpDigitalizar;
-        //private Nevron.UI.WinForm.Controls.NButton btnSair;
-        //private Nevron.UI.WinForm.Controls.NButton btnDigitalizar;
-        //private Nevron.UI.WinForm.Controls.NComboBox cmbDocumento;
+        
     }
 }

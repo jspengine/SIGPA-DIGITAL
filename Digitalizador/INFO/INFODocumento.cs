@@ -12,8 +12,10 @@ using System.Collections;
 namespace SIGPA.INFO {
 	public class INFODocumento {
 
-		private double iddocumentos;
-		private string nomedocumento;
+        private double iddocumentos;
+        private string nomedocumento;
+        private string categoriadocumento;
+        private int ordemdocumento;
         private INFOTipoDocumento objTipoDocumento;
 		private List<INFOProcesso> objProcesso;
 
@@ -60,6 +62,18 @@ namespace SIGPA.INFO {
         {
             get { return objTipoDocumento; }
             set { objTipoDocumento = value; }
+        }
+
+        public string Categoriadocumento
+        {
+            get { return categoriadocumento; }
+            set { categoriadocumento = value; }
+        }
+
+        public int Ordemdocumento
+        {
+            get { return ordemdocumento; }
+            set { ordemdocumento = value; }
         }
 
 	}//end INFODocumento

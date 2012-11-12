@@ -136,18 +136,14 @@ namespace DigitalView
 
         private void cmbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbTipoDocumento.SelectedIndex > 0)
+            if (cmbTipoDocumento.SelectedItem != null && !String.IsNullOrEmpty(txtReferencia.Text))
             {
-                cmbDocumento.Items.Clear();
+
                 CarregarComboDocumento();
                 cmbDocumento.Enabled = true;
+                lblPathDiretorio.Text = "";
+                btnDigitalizar.Enabled = false;
             }
-            else
-            {
-                cmbDocumento.SelectedIndex = -1;
-                cmbDocumento.Enabled = true;
-            }
-
         }
 
         private void cmbDocumento_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,7 +153,35 @@ namespace DigitalView
             string NomeDir;
             try
             {
-                if (cmbDocumento.SelectedIndex > 0)
+
+                //Dados cadastrais será montado acima da referência
+                String nomePastaDadosCadastraisemParametros = System.Configuration.ConfigurationManager.AppSettings["NOMEPASTADADOSCADASTRAIS"].ToString();
+                if (nomePastaDadosCadastraisemParametros.Equals(cmbTipoDocumento.Text) && cmbDocumento.SelectedItem != null)
+                {
+                    //Monto o diretório de dados cadastrais abaixo do cliente
+
+                    // |----- + Nome Cliente Mapa 
+                    //      |----- + Dados Cadastrais
+                    //                  |------ + Identidade
+                    //                  |------ + CPF
+                    //                  |------ + Outros
+                    objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
+
+                    objBoDigitalizarDocumentos.boMontarDiretorioDadosCadastrais(
+                                                                             cmbTipoDocumento.Text,
+                                                                             cmbDocumento.Text,
+                                                                             objCliente,
+                                                                             out NomeArquivo,
+                                                                             out NomeDir);
+
+                    PopularListView();
+
+                    lblPathDiretorio.Text = NomeDir;
+                    btnDigitalizar.Enabled = true;
+
+
+                }
+                else if (!nomePastaDadosCadastraisemParametros.Equals(cmbTipoDocumento.Text) && cmbDocumento.Text != "")
                 {
                     objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
 
@@ -170,16 +194,11 @@ namespace DigitalView
 
                     PopularListView();
 
-                    //lblNomeArquivo.Text = NomeArquivo;
                     lblPathDiretorio.Text = NomeDir;
-                   
+                    btnDigitalizar.Enabled = true;
                 }
-                else
-                {
-                   // lblNomeArquivo.Text = string.Empty;
-                    lblPathDiretorio.Text = string.Empty;
-                    btnDigitalizar.Enabled = false;
-                }
+           
+
 
             }
             catch (Exception ex)
@@ -209,12 +228,12 @@ namespace DigitalView
 
                 if (ListaInfoTipoDocumento != null)
                 {
-                    //cmbTipoDocumento.Items.Insert(0, "SELECIONE ...");
-                    //for (int i = 0; i < ListaInfoTipoDocumento.Count; i++)
-                    //{
-                    //    cmbTipoDocumento.Items.Add(new ComboCustom(ListaInfoTipoDocumento[i].IdTipoDocumento, ListaInfoTipoDocumento[i].NomeTipoDocumento));
-                    //}
-                    //cmbTipoDocumento.SelectedIndex = 0;
+                  
+
+                    cmbTipoDocumento.DataSource = ListaInfoTipoDocumento;
+                    cmbTipoDocumento.DisplayMember = "NomeTipoDocumento";
+                    cmbTipoDocumento.ValueMember = "IdTipoDocumento";
+
                 }
                 else
                 {
@@ -235,18 +254,18 @@ namespace DigitalView
 
             try
             {
+
+                cmbDocumento.DataSource = null;
                 objBoDigitalizar = new BODigitalizarDocumentos();
 
                 ListaInfoDocumento = objBoDigitalizar.boObterListaDocumento((double)cmbTipoDocumento.SelectedValue, txtReferencia.Text.Substring(0, 1).ToUpper());
 
                 if (ListaInfoDocumento != null)
                 {
-                    //cmbDocumento.Items.Insert(0, "SELECIONE ...");
-                    //for (int i = 0; i < ListaInfoDocumento.Count; i++)
-                    //{
-                    //    cmbDocumento.Items.Add(new ComboCustom(ListaInfoDocumento[i].IdDocumentos, ListaInfoDocumento[i].NomeDocumento));
-                    //}
-                    //cmbDocumento.SelectedIndex = 0;
+                    cmbDocumento.DataSource = ListaInfoDocumento;
+                    cmbDocumento.DisplayMember = "NomeDocumento";
+                    cmbDocumento.ValueMember = "IdDocumentos";
+                   
                 }
                 else
                 {
@@ -271,7 +290,7 @@ namespace DigitalView
                 this.lstDocumentosDigitalisados.Items.Clear();
 
                 objManterDocumentosDigitais = new BOManterDocumentosDigitais();
-                //ListaDocumentosDigitais = objManterDocumentosDigitais.boObterDocumentosDigitais(txtReferencia.Text,(double)((ComboCustom)(cmbDocumento.SelectedItem)).Valor );
+                ListaDocumentosDigitais = objManterDocumentosDigitais.boObterDocumentosDigitais(txtReferencia.Text,(double)((INFODocumento)(cmbDocumento.SelectedItem)).IdDocumentos );
 
                 if (ListaDocumentosDigitais != null)
                 {
@@ -405,7 +424,7 @@ namespace DigitalView
             {
                 cmd = objTwain.PassMessage(ref m);
 
-                if (cmd == TwainCommand.Null)
+                if (cmd == TwainCommand.Null || cmd == TwainCommand.Not)
                 {
                     MessageBox.Show("Talvez o Scanner esteja DESLIGADO, DESPLUGADO ou DESCONECTADO, por favor verifique !!!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Cursor.Current = Cursors.Default;
@@ -415,8 +434,9 @@ namespace DigitalView
                     return false;
                 }
 
-                if (cmd == TwainCommand.Not)
-                    return false;
+                //if (cmd == TwainCommand.Not)
+
+                //    return false;
 
                 switch (cmd)
                 {

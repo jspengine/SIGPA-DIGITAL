@@ -114,6 +114,26 @@ namespace DigitalView
             }
         }
 
+        private void mostrarFrmDocumento()
+        {
+            frmCadastrarDocumentos frm = new frmCadastrarDocumentos();
+            try
+            {
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Um erro tratado aconteceu: " + ex.ToString(), "SIGPA - DIGITALIZADOR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                frm.Dispose();
+                frm = null;
+            }
+        }
+
+        
+
 
         private void lnkDigitalizarDocumentos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -202,7 +222,9 @@ namespace DigitalView
 
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            mostrarFrmTipoDocumento();
+            //mostrarFrmTipoDocumento();
+
+            mostrarFrmDocumento();
         }
        
 

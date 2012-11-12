@@ -26,6 +26,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Banco de Dados", "Banco de Dados", "{23A07AA3-EC4C-4B5D-8C80-E7B724B9BF75}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\..\..\Desktop\sigpa_digital.sql = ..\..\..\..\Desktop\sigpa_digital.sql
+		v2Script.sql = v2Script.sql
 	EndProjectSection
 EndProject
 Global

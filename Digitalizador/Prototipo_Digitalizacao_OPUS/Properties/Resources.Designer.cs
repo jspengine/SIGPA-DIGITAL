@@ -59,5 +59,145 @@ namespace DigitalView.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Bitmap background_main {
+            get {
+                object obj = ResourceManager.GetObject("background_main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap backgroundTitle {
+            get {
+                object obj = ResourceManager.GetObject("backgroundTitle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap backgroung_title_tool {
+            get {
+                object obj = ResourceManager.GetObject("backgroung_title_tool", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap btnAtualizar_16 {
+            get {
+                object obj = ResourceManager.GetObject("btnAtualizar_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap btnDiretorio_16 {
+            get {
+                object obj = ResourceManager.GetObject("btnDiretorio_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap btnEntrar_24 {
+            get {
+                object obj = ResourceManager.GetObject("btnEntrar_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap btnExcluir {
+            get {
+                object obj = ResourceManager.GetObject("btnExcluir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap btnSair_24 {
+            get {
+                object obj = ResourceManager.GetObject("btnSair_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap btnVisualizar {
+            get {
+                object obj = ResourceManager.GetObject("btnVisualizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap EngieneParametros_48 {
+            get {
+                object obj = ResourceManager.GetObject("EngieneParametros_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Escaner_16 {
+            get {
+                object obj = ResourceManager.GetObject("Escaner_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon Escaner_24 {
+            get {
+                object obj = ResourceManager.GetObject("Escaner_24", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Escaner_32 {
+            get {
+                object obj = ResourceManager.GetObject("Escaner_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Escanner_48 {
+            get {
+                object obj = ResourceManager.GetObject("Escanner_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Login_48 {
+            get {
+                object obj = ResourceManager.GetObject("Login_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ni0067_32 {
+            get {
+                object obj = ResourceManager.GetObject("ni0067_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ni0073_32 {
+            get {
+                object obj = ResourceManager.GetObject("ni0073_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pdf {
+            get {
+                object obj = ResourceManager.GetObject("pdf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Sistema_48 {
+            get {
+                object obj = ResourceManager.GetObject("Sistema_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap wi0147_48 {
+            get {
+                object obj = ResourceManager.GetObject("wi0147_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

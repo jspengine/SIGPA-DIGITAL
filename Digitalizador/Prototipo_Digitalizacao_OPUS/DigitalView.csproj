@@ -69,11 +69,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCadastrarDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastrarDocumentos.Designer.cs">
+      <DependentUpon>frmCadastrarDocumentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTipoDocumento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTipoDocumento.Designer.cs">
       <DependentUpon>frmTipoDocumento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDigitalizarDocumentos1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,8 +131,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCadastrarDocumentos.resx">
+      <DependentUpon>frmCadastrarDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTipoDocumento.resx">
       <DependentUpon>frmTipoDocumento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDigitalizarDocumentos1.resx">
       <DependentUpon>frmDigitalizarDocumentos1.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -181,6 +192,9 @@
   <ItemGroup>
     <Content Include="DLLs\PdfSharp.dll" />
     <Content Include="DLLs\RImageScan.dll" />
+    <None Include="Imagens\background-main.png" />
+    <None Include="Imagens\backgroundTitle.png" />
+    <None Include="Imagens\backgroung-title-tool.png" />
     <Content Include="Imagens\dir.png" />
     <Content Include="Imagens\Escaner-16.png" />
     <Content Include="Imagens\Escaner-32.png" />
@@ -194,6 +208,8 @@
     <Content Include="Imagens\btnVisualizar.png" />
     <Content Include="Imagens\btnExcluir.png" />
     <Content Include="Imagens\LogoRtn1.jpg" />
+    <None Include="Imagens\ni0067-32.png" />
+    <None Include="Imagens\ni0073-32.png" />
     <Content Include="Imagens\pdf.png" />
     <Content Include="Imagens\Sistema-48.png" />
     <Content Include="Imagens\EngieneParametros-48.png" />
@@ -249,6 +265,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
