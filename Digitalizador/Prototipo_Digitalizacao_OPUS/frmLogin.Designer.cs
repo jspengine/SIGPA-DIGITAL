@@ -58,7 +58,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(299, 294);
             this.tableLayoutPanel1.TabIndex = 8;
@@ -74,9 +74,9 @@
             this.grpAutentica.Controls.Add(this.txtSenha);
             this.grpAutentica.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpAutentica.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpAutentica.Location = new System.Drawing.Point(4, 55);
+            this.grpAutentica.Location = new System.Drawing.Point(4, 59);
             this.grpAutentica.Name = "grpAutentica";
-            this.grpAutentica.Size = new System.Drawing.Size(291, 235);
+            this.grpAutentica.Size = new System.Drawing.Size(291, 231);
             this.grpAutentica.TabIndex = 8;
             this.grpAutentica.TabStop = false;
             // 
@@ -97,6 +97,7 @@
             this.btnSair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSair.BackgroundImage")));
             this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
@@ -113,9 +114,10 @@
             // 
             this.btnEntrar.BackColor = System.Drawing.Color.Transparent;
             this.btnEntrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEntrar.BackgroundImage")));
+            this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrar.ForeColor = System.Drawing.Color.White;
-            this.btnEntrar.Image = ((System.Drawing.Image)(resources.GetObject("btnEntrar.Image")));
+            this.btnEntrar.Image = global::DigitalView.Properties.Resources.key_fill_24x24;
             this.btnEntrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEntrar.Location = new System.Drawing.Point(14, 171);
             this.btnEntrar.Name = "btnEntrar";
@@ -168,7 +170,7 @@
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTitle.Location = new System.Drawing.Point(4, 4);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(291, 44);
+            this.pnlTitle.Size = new System.Drawing.Size(291, 48);
             this.pnlTitle.TabIndex = 9;
             // 
             // pictureBox1

@@ -59,22 +59,22 @@ namespace SIGPA.BO
         {
             DAOTipoDocumento objDaoTipoDocumento = null;
             objDaoTipoDocumento = new DAOTipoDocumento();
-            int i;
+            //int i;
             try
             {
-                List<INFOTipoDocumento> lstDaoObj = null;
-                lstDaoObj = objDaoTipoDocumento.dbObterListaTipoDocumento();
+                //List<INFOTipoDocumento> lstDaoObj = null;
+                //lstDaoObj = objDaoTipoDocumento.dbObterListaTipoDocumento();
 
-                for (i = 0; i < lstDaoObj.Count; i++)
-                {
+                //for (i = 0; i < lstDaoObj.Count; i++)
+                //{
 
-                    string aux = lstDaoObj[i].NomeTipoDocumento.ToUpper();
-                    if (aux == pObjTipoDocumento.NomeTipoDocumento.ToUpper())
-                    {
-                        return false;
-                    }
+                //    string aux = lstDaoObj[i].NomeTipoDocumento.ToUpper();
+                //    if (aux == pObjTipoDocumento.NomeTipoDocumento.ToUpper())
+                //    {
+                //        return false;
+                //    }
 
-                }
+                //}
 
                 return objDaoTipoDocumento.dbAlterarTipoDocumento(pObjTipoDocumento);
             }

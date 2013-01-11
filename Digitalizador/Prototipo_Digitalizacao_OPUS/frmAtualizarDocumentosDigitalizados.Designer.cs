@@ -116,21 +116,22 @@
             this.grpAcao.Controls.Add(this.btnDigitalizar);
             this.grpAcao.Location = new System.Drawing.Point(3, 293);
             this.grpAcao.Name = "grpAcao";
-            this.grpAcao.Size = new System.Drawing.Size(981, 76);
+            this.grpAcao.Size = new System.Drawing.Size(981, 74);
             this.grpAcao.TabIndex = 17;
             this.grpAcao.TabStop = false;
             // 
             // btnSair
             // 
             this.btnSair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSair.BackgroundImage")));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.Location = new System.Drawing.Point(827, 17);
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSair.Location = new System.Drawing.Point(767, 21);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(148, 48);
+            this.btnSair.Size = new System.Drawing.Size(200, 35);
             this.btnSair.TabIndex = 3;
             this.btnSair.Text = "Sair";
-            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
@@ -138,14 +139,15 @@
             // 
             this.btnVisualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVisualizar.BackgroundImage")));
             this.btnVisualizar.Enabled = false;
+            this.btnVisualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVisualizar.ForeColor = System.Drawing.Color.White;
-            this.btnVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnVisualizar.Image")));
-            this.btnVisualizar.Location = new System.Drawing.Point(334, 17);
+            this.btnVisualizar.Image = global::DigitalView.Properties.Resources.magnifying_glass_24x24;
+            this.btnVisualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVisualizar.Location = new System.Drawing.Point(515, 21);
             this.btnVisualizar.Name = "btnVisualizar";
-            this.btnVisualizar.Size = new System.Drawing.Size(148, 48);
+            this.btnVisualizar.Size = new System.Drawing.Size(200, 35);
             this.btnVisualizar.TabIndex = 2;
             this.btnVisualizar.Text = "Visualizar";
-            this.btnVisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnVisualizar.UseVisualStyleBackColor = true;
             this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
             // 
@@ -153,14 +155,15 @@
             // 
             this.btnExcluirDocumentos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcluirDocumentos.BackgroundImage")));
             this.btnExcluirDocumentos.Enabled = false;
+            this.btnExcluirDocumentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluirDocumentos.ForeColor = System.Drawing.Color.White;
-            this.btnExcluirDocumentos.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluirDocumentos.Image")));
-            this.btnExcluirDocumentos.Location = new System.Drawing.Point(171, 17);
+            this.btnExcluirDocumentos.Image = global::DigitalView.Properties.Resources.trash_fill_24x24;
+            this.btnExcluirDocumentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluirDocumentos.Location = new System.Drawing.Point(258, 21);
             this.btnExcluirDocumentos.Name = "btnExcluirDocumentos";
-            this.btnExcluirDocumentos.Size = new System.Drawing.Size(148, 48);
+            this.btnExcluirDocumentos.Size = new System.Drawing.Size(200, 35);
             this.btnExcluirDocumentos.TabIndex = 1;
             this.btnExcluirDocumentos.Text = "Excluir";
-            this.btnExcluirDocumentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExcluirDocumentos.UseVisualStyleBackColor = true;
             this.btnExcluirDocumentos.Click += new System.EventHandler(this.btnExcluirDocumentos_Click);
             // 
@@ -168,14 +171,15 @@
             // 
             this.btnDigitalizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDigitalizar.BackgroundImage")));
             this.btnDigitalizar.Enabled = false;
+            this.btnDigitalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDigitalizar.ForeColor = System.Drawing.Color.White;
-            this.btnDigitalizar.Image = ((System.Drawing.Image)(resources.GetObject("btnDigitalizar.Image")));
-            this.btnDigitalizar.Location = new System.Drawing.Point(8, 17);
+            this.btnDigitalizar.Image = global::DigitalView.Properties.Resources.play_alt_24x24;
+            this.btnDigitalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDigitalizar.Location = new System.Drawing.Point(14, 21);
             this.btnDigitalizar.Name = "btnDigitalizar";
-            this.btnDigitalizar.Size = new System.Drawing.Size(148, 48);
+            this.btnDigitalizar.Size = new System.Drawing.Size(200, 35);
             this.btnDigitalizar.TabIndex = 0;
             this.btnDigitalizar.Text = "Digitalizar";
-            this.btnDigitalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDigitalizar.UseVisualStyleBackColor = true;
             this.btnDigitalizar.Click += new System.EventHandler(this.btnDigitalizar_Click);
             // 
@@ -191,10 +195,10 @@
             this.lstDocumentosDigitalisados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lstDocumentosDigitalisados.FullRowSelect = true;
             this.lstDocumentosDigitalisados.GridLines = true;
-            this.lstDocumentosDigitalisados.Location = new System.Drawing.Point(0, 375);
+            this.lstDocumentosDigitalisados.Location = new System.Drawing.Point(0, 373);
             this.lstDocumentosDigitalisados.MultiSelect = false;
             this.lstDocumentosDigitalisados.Name = "lstDocumentosDigitalisados";
-            this.lstDocumentosDigitalisados.Size = new System.Drawing.Size(987, 218);
+            this.lstDocumentosDigitalisados.Size = new System.Drawing.Size(987, 220);
             this.lstDocumentosDigitalisados.TabIndex = 16;
             this.lstDocumentosDigitalisados.UseCompatibleStateImageBehavior = false;
             this.lstDocumentosDigitalisados.View = System.Windows.Forms.View.Details;
@@ -396,7 +400,7 @@
             // 
             this.iconFechar.BackColor = System.Drawing.Color.Transparent;
             this.iconFechar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconFechar.Image = ((System.Drawing.Image)(resources.GetObject("iconFechar.Image")));
+            this.iconFechar.Image = global::DigitalView.Properties.Resources.x_alt_32x32;
             this.iconFechar.Location = new System.Drawing.Point(929, 3);
             this.iconFechar.Name = "iconFechar";
             this.iconFechar.Size = new System.Drawing.Size(55, 38);
@@ -408,7 +412,7 @@
             // iconMinimizar
             // 
             this.iconMinimizar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("iconMinimizar.Image")));
+            this.iconMinimizar.Image = global::DigitalView.Properties.Resources.minus_alt_32x32;
             this.iconMinimizar.Location = new System.Drawing.Point(870, 3);
             this.iconMinimizar.Name = "iconMinimizar";
             this.iconMinimizar.Size = new System.Drawing.Size(53, 38);

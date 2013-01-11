@@ -121,6 +121,7 @@ namespace DigitalView
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.btnSair.DialogResult = System.Windows.Forms.DialogResult.OK;
         }
 
         //Se tiver algum item da list box selecionado e carregado na txtbox, atualiza o cadastro do cara.

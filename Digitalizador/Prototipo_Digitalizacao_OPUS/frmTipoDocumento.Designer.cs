@@ -35,17 +35,17 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lstTipoDocumento = new System.Windows.Forms.ListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TipoDocumento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpVisualizador = new System.Windows.Forms.GroupBox();
+            this.btnNovoCadastro = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbtxtcodigo = new System.Windows.Forms.Label();
             this.lbCodigo = new System.Windows.Forms.Label();
             this.txtTipoDocumento = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNovoCadastro = new System.Windows.Forms.Button();
-            this.lbtxtcodigo = new System.Windows.Forms.Label();
-            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -61,15 +61,15 @@
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTitle.Location = new System.Drawing.Point(4, 4);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(842, 44);
+            this.pnlTitle.Size = new System.Drawing.Size(598, 44);
             this.pnlTitle.TabIndex = 2;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(7, -1);
+            this.pictureBox1.Image = global::DigitalView.Properties.Resources.document_alt_fill_24x32;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 46);
+            this.pictureBox1.Size = new System.Drawing.Size(32, 40);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -82,20 +82,21 @@
             this.label3.Location = new System.Drawing.Point(58, 7);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(327, 32);
+            this.label3.Size = new System.Drawing.Size(450, 32);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Parâmetros do sistema";
+            this.label3.Text = "Cadastrar Tipos de Documentos";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnSair
             // 
             this.btnSair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSair.BackgroundImage")));
             this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.White;
-            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
+            this.btnSair.Image = global::DigitalView.Properties.Resources.x_21x211;
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(647, 168);
+            this.btnSair.Location = new System.Drawing.Point(394, 151);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(185, 38);
             this.btnSair.TabIndex = 4;
@@ -118,7 +119,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 164F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(850, 473);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(606, 473);
             this.tableLayoutPanel1.TabIndex = 3;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -136,18 +137,24 @@
             this.lstTipoDocumento.Location = new System.Drawing.Point(4, 311);
             this.lstTipoDocumento.MultiSelect = false;
             this.lstTipoDocumento.Name = "lstTipoDocumento";
-            this.lstTipoDocumento.Size = new System.Drawing.Size(842, 158);
+            this.lstTipoDocumento.Size = new System.Drawing.Size(598, 158);
             this.lstTipoDocumento.TabIndex = 18;
             this.lstTipoDocumento.UseCompatibleStateImageBehavior = false;
             this.lstTipoDocumento.View = System.Windows.Forms.View.Details;
             this.lstTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.lstTipoDocumento_SelectedIndexChanged);
             this.lstTipoDocumento.DoubleClick += new System.EventHandler(this.lstTipoDocumento_DoubleClick);
             // 
+            // id
+            // 
+            this.id.DisplayIndex = 1;
+            this.id.Text = "ID";
+            this.id.Width = 1;
+            // 
             // TipoDocumento
             // 
             this.TipoDocumento.DisplayIndex = 0;
             this.TipoDocumento.Text = "Tipo de Documento";
-            this.TipoDocumento.Width = 843;
+            this.TipoDocumento.Width = 600;
             // 
             // grpVisualizador
             // 
@@ -159,23 +166,41 @@
             this.grpVisualizador.Controls.Add(this.btnSair);
             this.grpVisualizador.Location = new System.Drawing.Point(4, 55);
             this.grpVisualizador.Name = "grpVisualizador";
-            this.grpVisualizador.Size = new System.Drawing.Size(840, 220);
+            this.grpVisualizador.Size = new System.Drawing.Size(598, 206);
             this.grpVisualizador.TabIndex = 1;
             this.grpVisualizador.TabStop = false;
+            // 
+            // btnNovoCadastro
+            // 
+            this.btnNovoCadastro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNovoCadastro.BackgroundImage")));
+            this.btnNovoCadastro.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNovoCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoCadastro.ForeColor = System.Drawing.Color.White;
+            this.btnNovoCadastro.Image = global::DigitalView.Properties.Resources.document_alt_fill_18x24;
+            this.btnNovoCadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovoCadastro.Location = new System.Drawing.Point(394, 19);
+            this.btnNovoCadastro.Name = "btnNovoCadastro";
+            this.btnNovoCadastro.Size = new System.Drawing.Size(185, 38);
+            this.btnNovoCadastro.TabIndex = 10;
+            this.btnNovoCadastro.Text = "&Novo Cadastro";
+            this.btnNovoCadastro.Visible = false;
+            this.btnNovoCadastro.Click += new System.EventHandler(this.btnNovoCadastro_Click);
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.BackgroundImage")));
             this.btnAtualizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
+            this.btnAtualizar.Image = global::DigitalView.Properties.Resources.pen_alt2_24x24;
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(265, 168);
+            this.btnAtualizar.Location = new System.Drawing.Point(394, 63);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(185, 38);
             this.btnAtualizar.TabIndex = 9;
-            this.btnAtualizar.Text = "&Atualizar";
+            this.btnAtualizar.Text = "&Editar";
             this.btnAtualizar.Visible = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
@@ -183,15 +208,16 @@
             // 
             this.btnCadastrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.BackgroundImage")));
             this.btnCadastrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
+            this.btnCadastrar.Image = global::DigitalView.Properties.Resources.plus_24x241;
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrar.Location = new System.Drawing.Point(456, 168);
+            this.btnCadastrar.Location = new System.Drawing.Point(394, 107);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(185, 38);
             this.btnCadastrar.TabIndex = 8;
-            this.btnCadastrar.Text = "&Cadastrar";
+            this.btnCadastrar.Text = "&Salvar";
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // panel1
@@ -202,52 +228,10 @@
             this.panel1.Controls.Add(this.txtTipoDocumento);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(12, 63);
+            this.panel1.Location = new System.Drawing.Point(12, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 73);
+            this.panel1.Size = new System.Drawing.Size(371, 170);
             this.panel1.TabIndex = 7;
-            // 
-            // lbCodigo
-            // 
-            this.lbCodigo.AutoSize = true;
-            this.lbCodigo.Location = new System.Drawing.Point(230, 9);
-            this.lbCodigo.Name = "lbCodigo";
-            this.lbCodigo.Size = new System.Drawing.Size(14, 13);
-            this.lbCodigo.TabIndex = 12;
-            this.lbCodigo.Text = "e";
-            this.lbCodigo.Visible = false;
-            // 
-            // txtTipoDocumento
-            // 
-            this.txtTipoDocumento.Location = new System.Drawing.Point(233, 28);
-            this.txtTipoDocumento.MaxLength = 300;
-            this.txtTipoDocumento.Name = "txtTipoDocumento";
-            this.txtTipoDocumento.Size = new System.Drawing.Size(551, 20);
-            this.txtTipoDocumento.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(18, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(222, 23);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Cadastro dos Tipos de Documentos:";
-            // 
-            // btnNovoCadastro
-            // 
-            this.btnNovoCadastro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNovoCadastro.BackgroundImage")));
-            this.btnNovoCadastro.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNovoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovoCadastro.ForeColor = System.Drawing.Color.White;
-            this.btnNovoCadastro.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoCadastro.Image")));
-            this.btnNovoCadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovoCadastro.Location = new System.Drawing.Point(67, 168);
-            this.btnNovoCadastro.Name = "btnNovoCadastro";
-            this.btnNovoCadastro.Size = new System.Drawing.Size(185, 38);
-            this.btnNovoCadastro.TabIndex = 10;
-            this.btnNovoCadastro.Text = "&Novo Cadastro";
-            this.btnNovoCadastro.Visible = false;
-            this.btnNovoCadastro.Click += new System.EventHandler(this.btnNovoCadastro_Click);
             // 
             // lbtxtcodigo
             // 
@@ -259,18 +243,38 @@
             this.lbtxtcodigo.Text = "Código:";
             this.lbtxtcodigo.Visible = false;
             // 
-            // id
+            // lbCodigo
             // 
-            this.id.DisplayIndex = 1;
-            this.id.Text = "ID";
-            this.id.Width = 1;
+            this.lbCodigo.AutoSize = true;
+            this.lbCodigo.Location = new System.Drawing.Point(89, 9);
+            this.lbCodigo.Name = "lbCodigo";
+            this.lbCodigo.Size = new System.Drawing.Size(14, 13);
+            this.lbCodigo.TabIndex = 12;
+            this.lbCodigo.Text = "e";
+            this.lbCodigo.Visible = false;
+            // 
+            // txtTipoDocumento
+            // 
+            this.txtTipoDocumento.Location = new System.Drawing.Point(21, 63);
+            this.txtTipoDocumento.MaxLength = 100;
+            this.txtTipoDocumento.Name = "txtTipoDocumento";
+            this.txtTipoDocumento.Size = new System.Drawing.Size(333, 20);
+            this.txtTipoDocumento.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(18, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 23);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Cadastro dos Tipos de Documentos:";
             // 
             // frmTipoDocumento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(850, 473);
+            this.ClientSize = new System.Drawing.Size(606, 473);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTipoDocumento";

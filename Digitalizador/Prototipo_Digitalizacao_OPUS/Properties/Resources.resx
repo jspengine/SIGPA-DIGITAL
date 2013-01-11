@@ -178,4 +178,58 @@
   <data name="backgroung_title_tool" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\backgroung-title-tool.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\btAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="document_alt_fill_18x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\document_alt_fill_18x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="document_alt_fill_24x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\document_alt_fill_24x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key_fill_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\key_fill_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifying_glass_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\magnifying_glass_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minus_alt_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\minus_alt_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pen_alt2_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\pen_alt2_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pen_alt2_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\pen_alt2_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="play_alt_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\play_alt_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\black\plus_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus_24x241" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\plus_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus_alt_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\plus_alt_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trash_fill_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\trash_fill_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="x_21x21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\black\x_21x21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="x_21x211" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\x_21x21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="x_alt_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\black\x_alt_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="x_alt_24x241" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\x_alt_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="x_alt_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\white\x_alt_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -97,6 +97,96 @@ namespace SIGPA.BO
             
         }
 
+        /* Guardando as informações dos documentos de dados cadastrais do cliente digitalidados na base de dados
+         * Este procedimento é necessário porque os dados cadastrais do cliente são 
+         * informações do cliente e não informações do processo
+         */
+        public bool boDigitalizarDadosCadastrais(
+                                    string pPathFileTmp,
+                                    string pDirName,
+                                    string pFileName,
+                                    double idDocumento,
+                                    double idCliente)
+        {
+            String pDirFile = string.Empty;
+            DAODadosCadastrais daoDadosCadstrais = null;
+            INFODadosCadastrais dadoscadastrais = null;
+            DALParametros objParametros = null;
+            INFOParametros objInfoParametros = null;
+            DAOHistorico objDaoHistorico = null;
+            INFOHistorico objInfoHistorico = null;
+            long idDocumentoDigital;
+            bool returnvalue = false;
+            try
+            {
+                boAbrirTrasacao();
+
+                //Salvo o Path do arquivo na base de dados na Tabela dados Cadastrais
+
+
+                dadoscadastrais = new INFODadosCadastrais();
+                dadoscadastrais.Nome_arquivo = pFileName;
+                dadoscadastrais.Nome_diretorio_arquivo = pDirName;
+                dadoscadastrais.Id_documento = idDocumento;
+                dadoscadastrais.Id_cliente = idCliente;
+
+                daoDadosCadstrais = new DAODadosCadastrais();
+
+                //idDocumentoDigital = objDaoDocumentoDigital.dbInserirDocumentos(dadoscadastrais, pTrans);
+                idDocumentoDigital = daoDadosCadstrais.dbInserirDadosCadastrais(dadoscadastrais, pTrans);
+                //Descrevo a operação para guardar o histórico
+
+                objInfoHistorico = new INFOHistorico();
+                objInfoHistorico.DescricaoOperacao = "DIGITALIZAÇÃO DO DOCUMENTO DE DADOS CADASTRAIS: " + pFileName.ToUpper() + " NO DIRETÓRIO: " + pDirName.ToUpper();
+                objInfoHistorico.NomeUsuarioResponsavel = Global.USER;
+                objInfoHistorico.ObjDocumentoDigital = new INFODocumentoDigital();
+                objInfoHistorico.ObjDocumentoDigital.IdDocumentoDigital = idDocumentoDigital;
+
+                objDaoHistorico = new DAOHistorico();
+                if (objDaoHistorico.dbInserirHistorico(objInfoHistorico, pTrans))
+                {
+                    objParametros = new DALParametros();
+                    objInfoParametros = new INFOParametros();
+
+                    //Atualizo o contador em parametros
+                    objInfoParametros.NumeroContador = objParametros.dbObterParametros().NumeroContador;
+                    if (objParametros.dbAtualizarContador(objInfoParametros, pTrans))
+                    {
+                        //Move de PDF file of the Directory Tmp for your destination.
+                        pDirFile = pDirName + pFileName;
+
+                        if (System.IO.File.Exists(pDirFile)) System.IO.File.Delete(pDirFile);
+
+                        System.IO.File.Move(pPathFileTmp, pDirFile);
+                        //SaveToDisk(pImage, pDirFile);
+                        boCommit();
+                        returnvalue = true;
+                    }
+                    //else boRollBack(); returnvalue = false;
+                }
+                // else boRollBack(); returnvalue = false;
+
+                return returnvalue;
+
+            }
+            catch (Exception ex)
+            {
+                boRollBack();
+                throw ex;
+            }
+            finally
+            {
+                daoDadosCadstrais = null;
+                dadoscadastrais = null;
+                objParametros = null;
+                objInfoParametros = null;
+                objDaoHistorico = null;
+                objInfoHistorico = null;
+            }
+
+        }
+
+
         public INFOCliente boSincronizarBaseSIGPA(string pStrNref)
         {
             DAOProcesso objDaoProcesso = null;
@@ -265,7 +355,9 @@ namespace SIGPA.BO
                 SBDiretorio = new StringBuilder();
 
                 SBDiretorio.Append(objParametros.NomeDiretorioDocumentos + "\\");
+                
                 SBDiretorio.Append(pObjCliente.NomeClienteMapa.Replace(".", "").Replace("-", "").Replace(" ", "").Trim().ToUpper() + "\\");
+                
                 SBDiretorio.Append(pTipoDocumento.Trim().Replace("/", "").ToUpper() + "\\");
                 SBDiretorio.Append(pDocumento.Trim().Replace("/", "").ToUpper() + "\\");
 
@@ -277,6 +369,8 @@ namespace SIGPA.BO
                     System.IO.Directory.CreateDirectory(NomeDiretorio);
                 }
 
+
+               
                 pNameFile = justLegalChars(NomeArquivo);
                 pNameDir = NomeDiretorio;
 
@@ -320,9 +414,9 @@ namespace SIGPA.BO
 
                 SBDiretorio.Append(objParametros.NomeDiretorioDocumentos + "\\");
                 SBDiretorio.Append(pObjCliente.NomeClienteMapa.Replace(".", "").Replace("-","").Replace(" ","").Trim().ToUpper() + "\\");
-                
-                SBDiretorio.Append(pTipoDocumento.Trim().Replace("/","").ToUpper() + "\\");
                 SBDiretorio.Append(pNRef.Replace("-", "").Replace("/", "").ToUpper() + "\\");
+                SBDiretorio.Append(pTipoDocumento.Trim().Replace("/","").ToUpper() + "\\");
+               
                 SBDiretorio.Append(pDocumento.Trim().Replace("/","").ToUpper() + "\\");
 
                 NomeDiretorio = SBDiretorio.Replace(" ", "").Replace("(","").Replace(")","").Replace("Á", "A").Replace("Ç", "C").Replace("Ã", "A").Replace("Í","I").Replace("É", "E").ToString().Trim();

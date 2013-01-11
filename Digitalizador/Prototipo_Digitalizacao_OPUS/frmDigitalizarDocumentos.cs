@@ -205,7 +205,7 @@ namespace DigitalView
 
             try
             {
-                Cursor.Current = Cursors.WaitCursor;
+               // Cursor.Current = Cursors.WaitCursor;
                 btnDigitalizar.Enabled = false;
                 InitializeScan();
                 objTwain.Acquire();
@@ -216,10 +216,10 @@ namespace DigitalView
             {
                 MessageBox.Show("ERRO : " + ex.ToString(), Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                Cursor = Cursors.Default;
-            }
+            //finally
+            //{
+            //    Cursor = Cursors.Default;
+            //}
 
             
 
@@ -233,13 +233,14 @@ namespace DigitalView
             TwainCommand cmd;
             bool ReturnValue = false;
             string TempDirPdf = string.Empty;
-            BODigitalizarDocumentos objBoDigitalizarDocumentos = null;
+            
             gObjLog.Inserir("Lendo eventos de Imessage Filter --> " + m.ToString (), TipoLog.AVISO );
             try
             {
+                Cursor = Cursors.WaitCursor;
                 cmd = objTwain.PassMessage(ref m);
 
-                if (cmd == TwainCommand.Null )
+                if (cmd == TwainCommand.Null)
                 {
                     MessageBox.Show("Talvez o Scanner esteja DESLIGADO, DESPLUGADO ou DESCONECTADO, por favor verifique !!!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Cursor.Current = Cursors.Default;
@@ -274,7 +275,7 @@ namespace DigitalView
                         {
                             TempDirPdf = System.Configuration.ConfigurationSettings.AppSettings["DIRPDF"].ToString();
                             ArrayList pics = objTwain.TransferPictures();
-                            
+
                             EndingScan();
                             objTwain.CloseSrc();
 
@@ -283,7 +284,7 @@ namespace DigitalView
                                 img = (IntPtr)pics[i];
                                 RImageScan.GdiPlusLib.Gdip.SaveImage(i.ToString() +
                                                     System.Configuration.ConfigurationSettings.AppSettings["EXTIMG"].ToString().ToLower(),
-                                                    GlobalLock(img), GetPixelInfo(GlobalLock(img)),lblNomeArquivo.Text);
+                                                    GlobalLock(img), GetPixelInfo(GlobalLock(img)), lblNomeArquivo.Text);
                                 GdipDisposeImage(img);
                                 GlobalFree(img);
                             }
@@ -292,27 +293,72 @@ namespace DigitalView
 
                             if (pics.Count != 0)
                             {
-                                RImageScan.RImageToPdf objPDF = new RImageScan.RImageToPdf();
-                                objPDF.ExportToPDF(lblNomeArquivo.Text, chkVisualizacao.Checked );
-                                gObjLog.Inserir("Escaneou as imagens para o diretório temporario ", TipoLog.AVISO);
 
-                                //Save file to System DataBase.
-
-                                objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
-
-                                gObjLog.Inserir("Salvando os Informações no banco de dados.", TipoLog.AVISO);
-
-                                if (objBoDigitalizarDocumentos.boDigitalizarDocumentos(TempDirPdf + lblNomeArquivo.Text,
-                                                                                    lblPathDiretorio.Text,
-                                                                                    lblNomeArquivo.Text,
-                                                                                    (double)cmbDocumento.SelectedValue,
-                                                                                    objCliente.ObjProcesso[0].IdProcesso))
+                                if (MessageBox.Show("Você deseja realmente [ SALVAR ] o arquivo digitalizado?", 
+                                    "SALVAR", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) == System.Windows.Forms.DialogResult.Yes)
                                 {
-                                    MessageBox.Show("Documento Digitalizado com SUCESSO!!!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    string diretorioTemporario = TempDirPdf + lblNomeArquivo.Text;
+                                    string pathDiretorio = lblPathDiretorio.Text;
+                                    string nomearquivo = lblNomeArquivo.Text;
+                                    double id_documento = (double)cmbDocumento.SelectedValue;
+                                    double id_processo = objCliente.ObjProcesso[0].IdProcesso;
+                                    double id_cliente = objCliente.IdCliente;
+
+
+                                    RImageScan.RImageToPdf objPDF = new RImageScan.RImageToPdf();
+                                    objPDF.ExportToPDF(lblNomeArquivo.Text, chkVisualizacao.Checked);
+                                    gObjLog.Inserir("Escaneou as imagens para o diretório temporario ", TipoLog.AVISO);
+
+                                    //Save file to System DataBase.
+
+                                    //objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
+
+                                    gObjLog.Inserir("Salvando os Informações no banco de dados.", TipoLog.AVISO);
+
+                                // Se for dados cadastrais salvo as informações do documento digitalizado na tabela de dados cadastrais
+                                // Se o documento digitalizado for de processos salvo na tabela de documentos_digitais.
+
+                                               
+                                    String nomePastaDadosCadastraisemParametros = 
+                                        System.Configuration.ConfigurationManager.AppSettings["NOMEPASTADADOSCADASTRAIS"].ToString();
+                                    
+                                    if (nomePastaDadosCadastraisemParametros.Equals(cmbTipoDocumento.Text) 
+                                        && cmbDocumento.SelectedItem != null)
+                                    {
+                                       digitalizarDocumentosDeDadosCadastrais(diretorioTemporario, 
+                                                                              pathDiretorio, 
+                                                                              nomearquivo, 
+                                                                              id_documento,
+                                                                              id_cliente);
+                                    }
+                                    else if (!nomePastaDadosCadastraisemParametros.Equals(cmbTipoDocumento.Text) && cmbDocumento.Text != "")
+                                    {
+                                        digitalizarDocumentosDeProcessos(diretorioTemporario, 
+                                                                              pathDiretorio, 
+                                                                              nomearquivo, 
+                                                                              id_documento,
+                                                                              id_processo);
+                                    }
+ 
+                                    MessageBox.Show("Documento Digitalizado com SUCESSO!!!", 
+                                        Global.CODAPP + " - " + Global.DESCRICAOAPP, 
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    
                                     btnDigitalizar.Enabled = true;
                                     gObjLog.Inserir("Documento foi digitalizado com sucesso!!!.", TipoLog.AVISO);
+
+
                                 }
-                               
+                                else{
+
+                                    MessageBox.Show("Documento não foi gravado!!!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    btnDigitalizar.Enabled = true;
+                                
+                                }
+
+
                             }
                             break;
                         }
@@ -322,11 +368,14 @@ namespace DigitalView
             }
             catch (Exception ex)
             {
-                gObjLog.Inserir("ERROR: " + ex.ToString (), TipoLog.ERRO );
-                Cursor.Current = Cursors.Default ;
+                gObjLog.Inserir("ERROR: " + ex.ToString(), TipoLog.ERRO);
+                Cursor.Current = Cursors.Default;
                 btnDigitalizar.Enabled = true;
                 EndingScan();
                 MessageBox.Show("ERROR : " + ex.ToString());
+            }
+            finally {
+                Cursor = Cursors.Default;
             }
 
             return ReturnValue;
@@ -349,6 +398,56 @@ namespace DigitalView
                 //this.Enabled = true;
                 //this.Activate();
             }
+        }
+
+        private bool digitalizarDocumentosDeProcessos( string diretorioTemporario, 
+                                                        string pathDiretorio, 
+                                                        string nomearquivo, 
+                                                        double id_documento,
+                                                        double id_processo)
+        {
+            BODigitalizarDocumentos objBoDigitalizarDocumentos = null;
+            try
+            {
+                objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
+
+                return objBoDigitalizarDocumentos.boDigitalizarDocumentos(diretorioTemporario,
+                                                                            pathDiretorio,
+                                                                            nomearquivo,
+                                                                            id_documento,
+                                                                            id_processo);
+            }
+            catch (Exception ex)
+            {   
+                throw ex;
+            }
+        }
+
+        private bool digitalizarDocumentosDeDadosCadastrais( string diretorioTemporario, 
+                                                             string pathDiretorio, 
+                                                             string nomearquivo, 
+                                                             double id_documento,
+                                                             double id_cliente)
+        {
+
+            BODigitalizarDocumentos objBoDigitalizarDocumentos = null;
+            
+            try
+            {
+                objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
+
+                return objBoDigitalizarDocumentos.boDigitalizarDadosCadastrais(diretorioTemporario,
+                                                                                pathDiretorio,
+                                                                                nomearquivo,
+                                                                                id_documento,
+                                                                                id_cliente);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        
         }
 
 #endregion
@@ -478,14 +577,7 @@ namespace DigitalView
                 MessageBox.Show("ERRO : " + ex.ToString(), Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //throw;
             }
-
-        }
-
-        
-
-
-
-       
+        }       
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 2)]

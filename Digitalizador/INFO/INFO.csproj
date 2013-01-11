@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="INFOCategoriaProcesso.cs" />
     <Compile Include="INFOCliente.cs" />
+    <Compile Include="INFODadosCadastrais.cs" />
     <Compile Include="INFODocumento.cs" />
     <Compile Include="INFODocumentoDigital.cs" />
     <Compile Include="INFOHistorico.cs" />

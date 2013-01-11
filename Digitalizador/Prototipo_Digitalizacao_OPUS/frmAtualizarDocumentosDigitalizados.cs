@@ -192,6 +192,8 @@ namespace DigitalView
                                                                              out NomeArquivo,
                                                                              out NomeDir);
 
+                  
+
                     PopularListView();
 
                     lblPathDiretorio.Text = NomeDir;
@@ -397,12 +399,14 @@ namespace DigitalView
                     objInfoDocumentoDigitais.NomeDiretorioArquivo = lstDocumentosDigitalisados.SelectedItems[i].SubItems[2].Text;
                 }
 
-                //Abrindo a janela dos arquivos de logs
-                System.Diagnostics.Process objExplorer = new System.Diagnostics.Process();
-                objExplorer.EnableRaisingEvents = false;
-                objExplorer.StartInfo.FileName = "AcroRd32.exe";
-                objExplorer.StartInfo.Arguments = objInfoDocumentoDigitais.NomeDiretorioArquivo + objInfoDocumentoDigitais.NomeArquivo;
-                objExplorer.Start(); 
+                
+                //System.Diagnostics.Process objExplorer = new System.Diagnostics.Process();
+                ////objExplorer.EnableRaisingEvents = false;
+                ////objExplorer.StartInfo.FileName = "AcroRd32.exe";
+                //objExplorer.StartInfo.Arguments = objInfoDocumentoDigitais.NomeDiretorioArquivo + objInfoDocumentoDigitais.NomeArquivo;
+                //objExplorer.Start();
+
+                System.Diagnostics.Process.Start(@"" + objInfoDocumentoDigitais.NomeDiretorioArquivo + objInfoDocumentoDigitais.NomeArquivo);
             }
             else {
                 MessageBox.Show("Por favor, Selecione um documento para Visualizar!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information );
@@ -424,7 +428,7 @@ namespace DigitalView
             {
                 cmd = objTwain.PassMessage(ref m);
 
-                if (cmd == TwainCommand.Null || cmd == TwainCommand.Not)
+                if (cmd == TwainCommand.Null )
                 {
                     MessageBox.Show("Talvez o Scanner esteja DESLIGADO, DESPLUGADO ou DESCONECTADO, por favor verifique !!!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Cursor.Current = Cursors.Default;
@@ -434,9 +438,9 @@ namespace DigitalView
                     return false;
                 }
 
-                //if (cmd == TwainCommand.Not)
+                if (cmd == TwainCommand.Not)
 
-                //    return false;
+                    return false;
 
                 switch (cmd)
                 {
@@ -484,12 +488,24 @@ namespace DigitalView
 
                             if (pics.Count != 0)
                             {
-                                RImageScan.RImageToPdf objPDF = new RImageScan.RImageToPdf();
-                                objPDF.ExportToPDF(FileNameTemp, false);
 
-                                //Save file to System DataBase.
-                                AtualizarDigitralizacao ();
-                                btnDigitalizar.Enabled = true;
+                                if (MessageBox.Show("Você deseja realmente [ SALVAR ] o arquivo digitalizado?", "SALVAR", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                                {
+                                    RImageScan.RImageToPdf objPDF = new RImageScan.RImageToPdf();
+                                    objPDF.ExportToPDF(FileNameTemp, false);
+
+                                    //Save file to System DataBase.
+                                    AtualizarDigitralizacao();
+                                    btnDigitalizar.Enabled = true;
+                                }
+                                else
+                                {
+
+                                    MessageBox.Show("Documento não foi gravado!!!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    btnDigitalizar.Enabled = true;
+
+                                }
                             }
                             break;
                         }
@@ -580,6 +596,8 @@ namespace DigitalView
             this.WindowState = FormWindowState.Minimized;
 
         }
+
+        
 
 
     }

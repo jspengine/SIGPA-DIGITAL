@@ -141,13 +141,16 @@ namespace SIGPA.DAO
 
             try
             {
-                strSql.Append("UPDATE TIPODOCUMENTO SET ");
-                strSql.Append("NM_TIPODOCUMENTO ='" + pObjTipoDocumento.NomeTipoDocumento + "' ");
-                strSql.Append("WHERE ID_TIPODOCUMENTO =" + pObjTipoDocumento.IdTipoDocumento.ToString());
+                strSql.Append(" UPDATE TIPODOCUMENTO SET ");
+                strSql.Append(" NM_TIPODOCUMENTO =?nometipodocumento ");
+                strSql.Append(" WHERE ID_TIPODOCUMENTO =?idtipodocumento");
 
                 objConn = new MySqlConnection(gConnectionString);
                 objConn.Open();
                 objCmd = new MySqlCommand(strSql.ToString(), objConn);
+
+                objCmd.Parameters.Add("?nometipodocumento", MySqlDbType.VarChar).Value = pObjTipoDocumento.NomeTipoDocumento.ToUpper();
+                objCmd.Parameters.Add("?idtipodocumento", MySqlDbType.Double).Value = pObjTipoDocumento.IdTipoDocumento;
 
 
                 return (objCmd.ExecuteNonQuery() > 0) ? true : false;

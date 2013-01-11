@@ -81,6 +81,13 @@ namespace DigitalView.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap btAdd {
+            get {
+                object obj = ResourceManager.GetObject("btAdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap btnAtualizar_16 {
             get {
                 object obj = ResourceManager.GetObject("btnAtualizar_16", resourceCulture);
@@ -123,6 +130,20 @@ namespace DigitalView.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap document_alt_fill_18x24 {
+            get {
+                object obj = ResourceManager.GetObject("document_alt_fill_18x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap document_alt_fill_24x32 {
+            get {
+                object obj = ResourceManager.GetObject("document_alt_fill_24x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap EngieneParametros_48 {
             get {
                 object obj = ResourceManager.GetObject("EngieneParametros_48", resourceCulture);
@@ -158,9 +179,30 @@ namespace DigitalView.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap key_fill_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("key_fill_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Login_48 {
             get {
                 object obj = ResourceManager.GetObject("Login_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap magnifying_glass_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("magnifying_glass_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap minus_alt_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("minus_alt_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +228,48 @@ namespace DigitalView.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap pen_alt2_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("pen_alt2_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pen_alt2_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("pen_alt2_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap play_alt_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("play_alt_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap plus_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("plus_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap plus_24x241 {
+            get {
+                object obj = ResourceManager.GetObject("plus_24x241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap plus_alt_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("plus_alt_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Sistema_48 {
             get {
                 object obj = ResourceManager.GetObject("Sistema_48", resourceCulture);
@@ -193,9 +277,51 @@ namespace DigitalView.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap trash_fill_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("trash_fill_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap wi0147_48 {
             get {
                 object obj = ResourceManager.GetObject("wi0147_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap x_21x21 {
+            get {
+                object obj = ResourceManager.GetObject("x_21x21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap x_21x211 {
+            get {
+                object obj = ResourceManager.GetObject("x_21x211", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap x_alt_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("x_alt_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap x_alt_24x241 {
+            get {
+                object obj = ResourceManager.GetObject("x_alt_24x241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap x_alt_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("x_alt_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

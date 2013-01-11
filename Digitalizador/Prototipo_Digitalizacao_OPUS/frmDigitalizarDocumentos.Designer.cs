@@ -81,7 +81,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(997, 521);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(997, 568);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Click += new System.EventHandler(this.frmDigitalizarDocumentos_Load);
             // 
@@ -103,7 +103,7 @@
             this.pnlMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMain.Location = new System.Drawing.Point(5, 57);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(987, 459);
+            this.pnlMain.Size = new System.Drawing.Size(987, 506);
             this.pnlMain.TabIndex = 8;
             // 
             // chkVisualizacao
@@ -122,7 +122,7 @@
             // 
             this.grpAcao.Controls.Add(this.btnSair);
             this.grpAcao.Controls.Add(this.btnDigitalizar);
-            this.grpAcao.Location = new System.Drawing.Point(3, 380);
+            this.grpAcao.Location = new System.Drawing.Point(3, 425);
             this.grpAcao.Name = "grpAcao";
             this.grpAcao.Size = new System.Drawing.Size(981, 76);
             this.grpAcao.TabIndex = 17;
@@ -131,14 +131,15 @@
             // btnSair
             // 
             this.btnSair.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSair.BackgroundImage")));
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.Location = new System.Drawing.Point(827, 17);
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSair.Location = new System.Drawing.Point(528, 17);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(148, 48);
+            this.btnSair.Size = new System.Drawing.Size(228, 43);
             this.btnSair.TabIndex = 3;
             this.btnSair.Text = "Sair";
-            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
@@ -146,14 +147,15 @@
             // 
             this.btnDigitalizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDigitalizar.BackgroundImage")));
             this.btnDigitalizar.Enabled = false;
+            this.btnDigitalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDigitalizar.ForeColor = System.Drawing.Color.White;
-            this.btnDigitalizar.Image = ((System.Drawing.Image)(resources.GetObject("btnDigitalizar.Image")));
-            this.btnDigitalizar.Location = new System.Drawing.Point(13, 17);
+            this.btnDigitalizar.Image = global::DigitalView.Properties.Resources.play_alt_24x24;
+            this.btnDigitalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDigitalizar.Location = new System.Drawing.Point(225, 17);
             this.btnDigitalizar.Name = "btnDigitalizar";
-            this.btnDigitalizar.Size = new System.Drawing.Size(148, 48);
+            this.btnDigitalizar.Size = new System.Drawing.Size(226, 43);
             this.btnDigitalizar.TabIndex = 0;
             this.btnDigitalizar.Text = "Digitalizar";
-            this.btnDigitalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDigitalizar.UseVisualStyleBackColor = true;
             this.btnDigitalizar.Click += new System.EventHandler(this.btnDigitalizar_Click);
             // 
@@ -162,7 +164,7 @@
             this.lblCNPJCPF.AutoSize = true;
             this.lblCNPJCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCNPJCPF.ForeColor = System.Drawing.Color.Navy;
-            this.lblCNPJCPF.Location = new System.Drawing.Point(152, 153);
+            this.lblCNPJCPF.Location = new System.Drawing.Point(152, 186);
             this.lblCNPJCPF.Name = "lblCNPJCPF";
             this.lblCNPJCPF.Size = new System.Drawing.Size(0, 20);
             this.lblCNPJCPF.TabIndex = 15;
@@ -172,7 +174,7 @@
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.ForeColor = System.Drawing.Color.Navy;
-            this.lblNome.Location = new System.Drawing.Point(152, 120);
+            this.lblNome.Location = new System.Drawing.Point(152, 153);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(0, 20);
             this.lblNome.TabIndex = 14;
@@ -180,7 +182,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 129);
+            this.label4.Location = new System.Drawing.Point(13, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 13);
             this.label4.TabIndex = 13;
@@ -191,11 +193,11 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(522, 81);
+            this.label11.Location = new System.Drawing.Point(213, 109);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(419, 17);
+            this.label11.Size = new System.Drawing.Size(319, 17);
             this.label11.TabIndex = 12;
-            this.label11.Text = "<DIGITE O NÚMERO DE REFERÊNCIA E TECLE ENTER>";
+            this.label11.Text = "<DIGITE A REFERÊNCIA E TECLE ENTER>";
             // 
             // grpDocumentos
             // 
@@ -209,7 +211,7 @@
             this.grpDocumentos.Controls.Add(this.label6);
             this.grpDocumentos.Enabled = false;
             this.grpDocumentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpDocumentos.Location = new System.Drawing.Point(3, 188);
+            this.grpDocumentos.Location = new System.Drawing.Point(6, 244);
             this.grpDocumentos.Name = "grpDocumentos";
             this.grpDocumentos.Size = new System.Drawing.Size(975, 178);
             this.grpDocumentos.TabIndex = 11;
@@ -238,7 +240,7 @@
             this.cmbDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDocumento.Enabled = false;
             this.cmbDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDocumento.Location = new System.Drawing.Point(179, 71);
+            this.cmbDocumento.Location = new System.Drawing.Point(172, 72);
             this.cmbDocumento.Name = "cmbDocumento";
             this.cmbDocumento.Size = new System.Drawing.Size(400, 28);
             this.cmbDocumento.TabIndex = 12;
@@ -256,11 +258,11 @@
             // lblPathDiretorio
             // 
             this.lblPathDiretorio.AutoSize = true;
-            this.lblPathDiretorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPathDiretorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPathDiretorio.ForeColor = System.Drawing.Color.Navy;
             this.lblPathDiretorio.Location = new System.Drawing.Point(224, 110);
             this.lblPathDiretorio.Name = "lblPathDiretorio";
-            this.lblPathDiretorio.Size = new System.Drawing.Size(0, 17);
+            this.lblPathDiretorio.Size = new System.Drawing.Size(0, 15);
             this.lblPathDiretorio.TabIndex = 10;
             // 
             // label9
@@ -277,7 +279,7 @@
             this.cmbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoDocumento.ForeColor = System.Drawing.Color.Black;
-            this.cmbTipoDocumento.Location = new System.Drawing.Point(179, 26);
+            this.cmbTipoDocumento.Location = new System.Drawing.Point(172, 27);
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(400, 28);
             this.cmbTipoDocumento.TabIndex = 3;
@@ -295,7 +297,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 75);
+            this.label1.Location = new System.Drawing.Point(13, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 13);
             this.label1.TabIndex = 0;
@@ -305,7 +307,7 @@
             // 
             this.lblNomeCliente.AutoSize = true;
             this.lblNomeCliente.ForeColor = System.Drawing.Color.Navy;
-            this.lblNomeCliente.Location = new System.Drawing.Point(152, 146);
+            this.lblNomeCliente.Location = new System.Drawing.Point(152, 179);
             this.lblNomeCliente.Name = "lblNomeCliente";
             this.lblNomeCliente.Size = new System.Drawing.Size(0, 13);
             this.lblNomeCliente.TabIndex = 4;
@@ -317,17 +319,17 @@
             this.txtReferencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReferencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtReferencia.Location = new System.Drawing.Point(182, 57);
+            this.txtReferencia.Location = new System.Drawing.Point(175, 65);
             this.txtReferencia.MaxLength = 15;
             this.txtReferencia.Name = "txtReferencia";
-            this.txtReferencia.Size = new System.Drawing.Size(334, 41);
+            this.txtReferencia.Size = new System.Drawing.Size(403, 41);
             this.txtReferencia.TabIndex = 1;
             this.txtReferencia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtReferencia_KeyDown);
             // 
             // lblCPForCNPJ
             // 
             this.lblCPForCNPJ.AutoSize = true;
-            this.lblCPForCNPJ.Location = new System.Drawing.Point(13, 158);
+            this.lblCPForCNPJ.Location = new System.Drawing.Point(13, 191);
             this.lblCPForCNPJ.Name = "lblCPForCNPJ";
             this.lblCPForCNPJ.Size = new System.Drawing.Size(83, 13);
             this.lblCPForCNPJ.TabIndex = 3;
@@ -357,7 +359,7 @@
             // 
             this.iconFechar.BackColor = System.Drawing.Color.Transparent;
             this.iconFechar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconFechar.Image = ((System.Drawing.Image)(resources.GetObject("iconFechar.Image")));
+            this.iconFechar.Image = global::DigitalView.Properties.Resources.x_alt_32x32;
             this.iconFechar.Location = new System.Drawing.Point(929, 3);
             this.iconFechar.Name = "iconFechar";
             this.iconFechar.Size = new System.Drawing.Size(55, 38);
@@ -369,7 +371,7 @@
             // iconMinimizar
             // 
             this.iconMinimizar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("iconMinimizar.Image")));
+            this.iconMinimizar.Image = global::DigitalView.Properties.Resources.minus_alt_32x32;
             this.iconMinimizar.Location = new System.Drawing.Point(870, 3);
             this.iconMinimizar.Name = "iconMinimizar";
             this.iconMinimizar.Size = new System.Drawing.Size(53, 38);
@@ -405,7 +407,7 @@
             // frmDigitalizarDocumentos
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(997, 521);
+            this.ClientSize = new System.Drawing.Size(997, 568);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

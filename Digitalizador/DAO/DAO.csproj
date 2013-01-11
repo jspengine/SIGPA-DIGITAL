@@ -67,8 +67,10 @@
     <Compile Include="DALParametros.cs" />
     <Compile Include="DAOCategoriaProcesso.cs" />
     <Compile Include="DAOCliente.cs" />
+    <Compile Include="DAODadosCadastrais.cs" />
     <Compile Include="DAODocumento.cs" />
     <Compile Include="DAODocumentoDigital.cs" />
+    <Compile Include="DAOFix.cs" />
     <Compile Include="DAOHistorico.cs" />
     <Compile Include="DAOProcesso.cs" />
     <Compile Include="DAOTipoDocumento.cs" />

@@ -46,7 +46,7 @@ namespace DigitalView
             frmDigitalizarDocumentos frm = new frmDigitalizarDocumentos();
             try
             {
-                frm.ShowDialog();
+                frm.ShowDialog(this);
             }
             catch (Exception ex)
             {
@@ -65,7 +65,7 @@ namespace DigitalView
             frmParametros frm = new frmParametros();
             try
             {
-                frm.ShowDialog();
+                frm.ShowDialog(this);
             }
             catch (Exception ex)
             {
@@ -83,7 +83,7 @@ namespace DigitalView
             frmAtualizarDocumentosDigitalizados frm = new frmAtualizarDocumentosDigitalizados();
             try
             {
-                frm.ShowDialog();
+                frm.ShowDialog(this);
             }
             catch (Exception ex)
             {
@@ -101,7 +101,7 @@ namespace DigitalView
             frmTipoDocumento frm = new frmTipoDocumento();
             try
             {
-                frm.ShowDialog();
+                frm.ShowDialog(this);
             }
             catch (Exception ex)
             {
@@ -119,7 +119,7 @@ namespace DigitalView
             frmCadastrarDocumentos frm = new frmCadastrarDocumentos();
             try
             {
-                frm.ShowDialog();
+                frm.ShowDialog(this);
             }
             catch (Exception ex)
             {
@@ -215,7 +215,7 @@ namespace DigitalView
 
         private void lnkDigitalizarV2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            new frmManterTiposDocumentos().Show();
+            new frmManterTiposDocumentos().Show(this);
 
             
         }

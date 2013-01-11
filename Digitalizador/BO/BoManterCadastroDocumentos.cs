@@ -26,9 +26,9 @@ namespace SIGPA.BO
                 {
                     r = 1; //Está cadastrado
                 }
-                else if (daoDocumento.dbjaExisteoOrdenadorCadastrado(documento)){
-                    r = 2; // Ordenador ja está cadastrado.
-                }
+                //else if (daoDocumento.dbjaExisteoOrdenadorCadastrado(documento)){
+                //    r = 2; // Ordenador ja está cadastrado.
+                //}
                 else if (daoDocumento.dbInserirDocumento(documento)){
                     r = 3; //Documento gravado com sucesso;
                     

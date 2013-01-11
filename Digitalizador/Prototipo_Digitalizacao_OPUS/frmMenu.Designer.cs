@@ -281,13 +281,13 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(19, 263);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(19, 209);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.7732F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.22681F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(283, 242);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(257, 187);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // panel3
@@ -299,7 +299,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(4, 66);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(275, 172);
+            this.panel3.Size = new System.Drawing.Size(249, 117);
             this.panel3.TabIndex = 0;
             // 
             // linkLabel5
@@ -343,7 +343,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(275, 55);
+            this.panel4.Size = new System.Drawing.Size(249, 55);
             this.panel4.TabIndex = 1;
             // 
             // label2
@@ -380,10 +380,10 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 15);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.7732F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.22681F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.79546F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.20454F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(283, 242);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(257, 177);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // panel1
@@ -393,9 +393,9 @@
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(4, 66);
+            this.panel1.Location = new System.Drawing.Point(4, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(275, 172);
+            this.panel1.Size = new System.Drawing.Size(249, 106);
             this.panel1.TabIndex = 0;
             // 
             // linkLabel6
@@ -439,7 +439,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(275, 55);
+            this.panel2.Size = new System.Drawing.Size(249, 56);
             this.panel2.TabIndex = 1;
             // 
             // label1
