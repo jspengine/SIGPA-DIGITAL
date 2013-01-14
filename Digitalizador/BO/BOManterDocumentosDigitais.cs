@@ -125,5 +125,20 @@ namespace SIGPA.BO
             return objHistorico;
 
         }
+
+        public List<INFODadosCadastrais> obterDocumentosDadosCadastraisDigitalizados(double idcliente, double iddocumento)
+        {
+            DAODadosCadastrais daoDadosCadastrais = null;
+            try
+            {
+                daoDadosCadastrais = new DAODadosCadastrais();
+                return daoDadosCadastrais.dbObterListaDocumentoDadosCadastraisdoCliente(idcliente, iddocumento);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

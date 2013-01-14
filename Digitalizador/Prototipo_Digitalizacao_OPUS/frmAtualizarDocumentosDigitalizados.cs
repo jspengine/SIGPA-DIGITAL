@@ -241,6 +241,9 @@ namespace DigitalView
                 {
                     MessageBox.Show("Cadastre os Tipos de Documentos no Banco de Dados!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                popularComboCliente();
+                popularComboDadosCadastrais();
             }
             catch (Exception ex)
             {
@@ -389,7 +392,7 @@ namespace DigitalView
         {
             INFODocumentoDigital objInfoDocumentoDigitais = null;
 
-            if (lstDocumentosDigitalisados.Items.Count > 0)
+            if (lstDocumentosDigitalisados.SelectedItems.Count > 0)
             {
                 for (int i = 0; i < lstDocumentosDigitalisados.SelectedItems.Count; i++)
                 {
@@ -399,14 +402,15 @@ namespace DigitalView
                     objInfoDocumentoDigitais.NomeDiretorioArquivo = lstDocumentosDigitalisados.SelectedItems[i].SubItems[2].Text;
                 }
 
-                
-                //System.Diagnostics.Process objExplorer = new System.Diagnostics.Process();
-                ////objExplorer.EnableRaisingEvents = false;
-                ////objExplorer.StartInfo.FileName = "AcroRd32.exe";
-                //objExplorer.StartInfo.Arguments = objInfoDocumentoDigitais.NomeDiretorioArquivo + objInfoDocumentoDigitais.NomeArquivo;
-                //objExplorer.Start();
 
-                System.Diagnostics.Process.Start(@"" + objInfoDocumentoDigitais.NomeDiretorioArquivo + objInfoDocumentoDigitais.NomeArquivo);
+                System.Diagnostics.Process objExplorer = new System.Diagnostics.Process();
+                objExplorer.EnableRaisingEvents = false;
+                objExplorer.StartInfo.FileName = System.Configuration.ConfigurationManager.
+                        AppSettings.Get("LEITORPDF").ToString();//"AcroRd32.exe";
+                objExplorer.StartInfo.Arguments = objInfoDocumentoDigitais.NomeDiretorioArquivo + objInfoDocumentoDigitais.NomeArquivo;
+                objExplorer.Start();
+
+                //System.Diagnostics.Process.Start(@"" + objInfoDocumentoDigitais.NomeDiretorioArquivo + objInfoDocumentoDigitais.NomeArquivo);
             }
             else {
                 MessageBox.Show("Por favor, Selecione um documento para Visualizar!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information );
@@ -599,6 +603,176 @@ namespace DigitalView
 
         
 
+
+        private void popularComboCliente() {
+            BOManterCliente boCliente = null;
+
+            List<INFOCliente> listaCliente = null;
+
+            try
+            {
+                boCliente = new BOManterCliente();
+
+                cmbCliente.DataSource = null;
+                boCliente = new BOManterCliente();
+
+                listaCliente = boCliente.obterClientes();
+
+
+                if (listaCliente != null)
+                {
+                    cmbCliente.DataSource = listaCliente;
+                    cmbCliente.DisplayMember = "NomeClienteMapa";
+                    cmbCliente.ValueMember = "IdCliente";
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// Popula a combo de dados Cadastrais
+        /// </summary>
+        private void popularComboDadosCadastrais()
+        {
+            BODigitalizarDocumentos bo = null;
+
+            List<INFODocumento> listaDocumentos = null;
+
+            try
+            {
+                bo = new BODigitalizarDocumentos();
+                comboDocumentoDadosCadastrais.DataSource = null;
+                listaDocumentos = bo.obterDocumentosDadosCadastrais(3.0);
+
+
+                if (listaDocumentos != null)
+                {
+                    comboDocumentoDadosCadastrais.DataSource = listaDocumentos;
+                    comboDocumentoDadosCadastrais.DisplayMember = "NomeDocumento";
+                    comboDocumentoDadosCadastrais.ValueMember = "IdDocumentos";
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Popula o listView com as informações de dados Cadastrais
+        /// </summary>
+        private void PopularListViewDadosCadastrais()
+        {
+            ListViewItem lObjListViewItem = null;
+            List<INFODadosCadastrais> listadadosCadastrais = null;
+
+            BOManterDocumentosDigitais objManterDocumentosDigitais = null;
+            try
+            {
+                this.lstDocumentosDigitalisados.Items.Clear();
+
+                objManterDocumentosDigitais = new BOManterDocumentosDigitais();
+                
+                listadadosCadastrais = objManterDocumentosDigitais.obterDocumentosDadosCadastraisDigitalizados(
+                                        (double)((INFOCliente)cmbCliente.SelectedItem).IdCliente,
+                                        (double)((INFODocumento)comboDocumentoDadosCadastrais.SelectedItem).IdDocumentos);
+
+                if (listadadosCadastrais != null)
+                {
+                    //HABILITO OS BOTÕES de manutenção
+                    btnExcluirDocumentosCadastrais.Enabled = true;
+                    btnVisualizarDocumentosCadastrais.Enabled = true;
+                   
+
+                    for (int i = 0; i < listadadosCadastrais.Count; i++)
+                    {
+                        lObjListViewItem = new ListViewItem(string.Empty, 0);
+
+
+                        lObjListViewItem.SubItems.Add(listadadosCadastrais[i].Nome_arquivo);
+                        lObjListViewItem.SubItems.Add(listadadosCadastrais[i].Nome_diretorio_arquivo);
+
+
+                        lObjListViewItem.Tag = listadadosCadastrais[i].Id_dadoscadastrais;
+
+                        this.lstDocumentosDigitalisados.Items.AddRange(new ListViewItem[] { lObjListViewItem });
+                    }
+                }
+                else
+                {
+                    //DESABILITO OS BOTÕES de manutenção
+                    btnExcluirDocumentosCadastrais.Enabled = false;
+                    btnVisualizarDocumentosCadastrais.Enabled = false;
+                    MessageBox.Show("Este documento ainda não foi digitalizado!", 
+                        Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                lObjListViewItem = null;
+            }
+        }
+
+        /// <summary>
+        /// Consulta os Dados Cadastrais e coloca na grid
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            PopularListViewDadosCadastrais();
+        }
+
+       
+
+
+        private void limparListView(){
+            this.lstDocumentosDigitalisados.Items.Clear();
+        }
+
+       
+
+        private void tabManutencao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                limparListView();
+        }
+
+        
+        //private void tabManutencao_Selected(object sender, TabConmatrolEventArgs e)
+        //{
+        //    limparListView();
+        //}
+
+        //private void tabDadosCadastrais_Leave(object sender, EventArgs e)
+        //{
+        //    limparListView();
+        //}
+
+        //private void tabProcessos_Leave(object sender, EventArgs e)
+        //{
+        //    limparListView();
+        //}
+
+        //private void tabManutencao_TabIndexChanged(object sender, EventArgs e)
+        //{
+        //    limparListView();
+        //}
 
     }
 

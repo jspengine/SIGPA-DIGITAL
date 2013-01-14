@@ -16,6 +16,116 @@ namespace SIGPA.DAO
             gConnectionString = ConfigurationManager.ConnectionStrings["SIGPA_DIGITAL"].ConnectionString;
         }
 
+
+
+        public List<INFOCliente> dbObterCliente()
+        {
+            StringBuilder strSQL = null;
+            MySqlConnection objConn = null;
+            MySqlCommand objCmd = null;
+            MySqlDataReader objDr = null;
+            INFOCliente objCliente = null;
+
+            List<INFOCliente> listaCliente;
+
+            try
+            {
+                strSQL = new StringBuilder();
+
+                strSQL.AppendLine(" SELECT ID_CLIENTE, NM_CLIENTE, NM_CLIENTE_MAPA, NR_CNPJ, NR_CPF  ");
+                strSQL.AppendLine(" FROM cliente  ORDER BY NM_CLIENTE");
+                //strSQL.AppendLine(" WHERE ID_CLIENTE = ?idCliente");
+
+                objConn = new MySqlConnection(gConnectionString);
+                objConn.Open();
+                objCmd = new MySqlCommand(strSQL.ToString(), objConn);
+
+                //objCmd.Parameters.Add("?idCliente", MySqlDbType.Int32).Value = pIntIdCliente;
+
+                objDr = objCmd.ExecuteReader();
+
+                listaCliente = new List<INFOCliente>();
+                if (objDr != null)
+                {
+                    while (objDr.Read())
+                    {
+                        objCliente = new INFOCliente();
+
+                        if (objDr["ID_CLIENTE"] != DBNull.Value)
+                        {
+                            objCliente.IdCliente = (double)objDr["ID_CLIENTE"];
+                        }
+
+                        if (objDr["NM_CLIENTE"] != DBNull.Value)
+                        {
+                            objCliente.NomeCliente = (string)objDr["NM_CLIENTE"];
+                        }
+                        else
+                        {
+                            objCliente.NomeCliente = null;
+                        }
+
+                        if (objDr["NM_CLIENTE_MAPA"] != DBNull.Value)
+                        {
+                            objCliente.NomeClienteMapa = (string)objDr["NM_CLIENTE_MAPA"];
+                        }
+                        else
+                        {
+                            objCliente.NomeClienteMapa = null;
+                        }
+
+                        if (objDr["NR_CNPJ"] != DBNull.Value)
+                        {
+                            objCliente.NumeroCnpj = (string)objDr["NR_CNPJ"];
+                        }
+
+                        if (objDr["NR_CPF"] != DBNull.Value)
+                        {
+                            objCliente.NumeroCpf = (string)objDr["NR_CPF"];
+                        }
+
+
+                        listaCliente.Add(objCliente);
+                    }
+                }
+
+                return listaCliente;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+
+                if (objCmd != null)
+                {
+                    objCmd.Dispose();
+                    objCmd = null;
+                }
+
+                if (objDr != null)
+                {
+                    if (objDr.IsClosed == false)
+                    {
+                        objDr.Close();
+                    }
+                    objDr = null;
+                }
+
+                if (objConn.State == System.Data.ConnectionState.Open)
+                {
+                    objConn.Close();
+                    objConn.Dispose();
+                    objConn = null;
+                }
+
+                strSQL = null;
+            }
+
+        }
+
+
         public INFOCliente dbObterCliente(double pIntIdCliente)
         {
             StringBuilder strSQL = null;

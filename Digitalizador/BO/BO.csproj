@@ -69,6 +69,7 @@
     <Compile Include="BODigitalizarDocumentos.cs" />
     <Compile Include="BOGeneral.cs" />
     <Compile Include="BoManterCadastroDocumentos.cs" />
+    <Compile Include="BOManterCliente.cs" />
     <Compile Include="BOManterDocumentosDigitais.cs" />
     <Compile Include="BOManterParametros.cs" />
     <Compile Include="BORealizarLogin.cs" />

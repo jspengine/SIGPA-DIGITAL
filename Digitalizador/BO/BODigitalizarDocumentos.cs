@@ -454,6 +454,26 @@ namespace SIGPA.BO
         }
 
 
+        /// <summary>
+        /// Obtenho a lista de Dados cadastrais
+        /// </summary>
+        /// <returns></returns>
+
+        public  List<INFODocumento> obterDocumentosDadosCadastrais(double tipodocumento){
+
+            try 
+	        {
+                return new DAODocumento().dbObterListaDocumentoDadosCadastrais(tipodocumento);
+	        }
+	        catch (Exception ex)
+	        {
+		        throw ex;
+	        }
+        }
+
+
+       
+
     }
    
 }

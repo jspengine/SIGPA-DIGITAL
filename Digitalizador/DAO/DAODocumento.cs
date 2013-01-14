@@ -196,7 +196,103 @@ namespace SIGPA.DAO
             }
 
         }
-        
+
+
+
+
+        public List<INFODocumento> dbObterListaDocumentoDadosCadastrais(double pIdentificador)
+        {
+            StringBuilder strSQL = null;
+            MySqlConnection objConn = null;
+            MySqlDataReader objDr = null;
+            INFODocumento objDocumento = null;
+            List<INFODocumento> ListaDocumento = null;
+            try
+            {
+                strSQL = new StringBuilder();
+
+                strSQL.AppendLine("SELECT ID_DOCUMENTO, NM_DOCUMENTO, DS_CATEGORIADOCUMENTO, NR_ORDEM ");
+                strSQL.AppendLine(" FROM documento  ");
+                strSQL.AppendLine(" WHERE ID_TIPODOCUMENTO = " + pIdentificador.ToString());
+                //strSQL.AppendLine(" AND (DS_CATEGORIADOCUMENTO = 'S' OR DS_CATEGORIADOCUMENTO = '" + pCategoria + "')");
+                strSQL.AppendLine(" ORDER BY NR_ORDEM ASC");
+
+                objConn = new MySqlConnection(gConnectionString);
+
+                objDr = dbObterRegistros(objConn, strSQL.ToString(), null);
+
+                if (objDr != null)
+                {
+                    while (objDr.Read())
+                    {
+                        objDocumento = new INFODocumento();
+
+                        if (objDr["ID_DOCUMENTO"] != DBNull.Value)
+                        {
+                            objDocumento.IdDocumentos = (double)objDr["ID_DOCUMENTO"];
+                        }
+
+                        if (objDr["NM_DOCUMENTO"] != DBNull.Value)
+                        {
+                            objDocumento.NomeDocumento = (string)objDr["NM_DOCUMENTO"];
+                        }
+                        else
+                        {
+                            objDocumento.NomeDocumento = null;
+                        }
+
+                        if (objDr["DS_CATEGORIADOCUMENTO"] != DBNull.Value)
+                        {
+                            objDocumento.Categoriadocumento = (string)objDr["DS_CATEGORIADOCUMENTO"];
+                        }
+                        else
+                        {
+                            objDocumento.Categoriadocumento = null;
+                        }
+
+                        if (objDr["NR_ORDEM"] != DBNull.Value)
+                        {
+                            objDocumento.Ordemdocumento = (int)objDr["NR_ORDEM"];
+                        }
+
+
+                        if (ListaDocumento == null)
+                        {
+                            ListaDocumento = new List<INFODocumento>();
+                        }
+
+                        ListaDocumento.Add(objDocumento);
+                    }
+                }
+
+                return ListaDocumento;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (objDr != null)
+                {
+                    if (objDr.IsClosed == false)
+                    {
+                        objDr.Close();
+                    }
+                    objDr = null;
+                }
+
+                if (objConn.State == System.Data.ConnectionState.Open)
+                {
+                    objConn.Close();
+                    objConn.Dispose();
+                    objConn = null;
+                }
+
+                strSQL = null;
+            }
+
+        }
 
         //Verifica se existe o mesmo documento ja cadastrado para o Tipo de documento e tipo de processo
 
