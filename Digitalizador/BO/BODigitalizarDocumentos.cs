@@ -17,6 +17,15 @@ namespace SIGPA.BO
         
         }
 
+        /// <summary>
+        /// Após a digitalização do documento é necessário atualizar seus metadatas no banco de dados
+        /// </summary>
+        /// <param name="pPathFileTmp"></param>
+        /// <param name="pDirName"></param>
+        /// <param name="pFileName"></param>
+        /// <param name="idDocumento"></param>
+        /// <param name="idProcesso"></param>
+        /// <returns></returns>
         public bool boDigitalizarDocumentos(string pPathFileTmp, 
                                             string pDirName, 
                                             string pFileName, 
@@ -49,7 +58,8 @@ namespace SIGPA.BO
                 //Descrevo a operação para guardar o histórico
 
                 objInfoHistorico = new INFOHistorico();
-                objInfoHistorico.DescricaoOperacao = "DIGITALIZAÇÃO DO DOCUMENTO: "+ pFileName.ToUpper() +" NO DIRETÓRIO: " + pDirName.ToUpper();
+                objInfoHistorico.DescricaoOperacao = "DIGITALIZAÇÃO DO DOCUMENTO: "+ 
+                    pFileName.ToUpper() +" NO DIRETÓRIO: " + pDirName.ToUpper();
                 objInfoHistorico.NomeUsuarioResponsavel = Global.USER;
                 objInfoHistorico.ObjDocumentoDigital = new INFODocumentoDigital();
                 objInfoHistorico.ObjDocumentoDigital.IdDocumentoDigital = idDocumentoDigital;
@@ -97,10 +107,17 @@ namespace SIGPA.BO
             
         }
 
-        /* Guardando as informações dos documentos de dados cadastrais do cliente digitalidados na base de dados
-         * Este procedimento é necessário porque os dados cadastrais do cliente são 
-         * informações do cliente e não informações do processo
-         */
+        /// <summary>
+        /// Guardando as informações dos documentos de dados cadastrais do cliente digitalidados na base de dados.
+        /// Este procedimento é necessário porque os dados cadastrais do cliente são 
+        /// informações do cliente e não informações do processo
+        /// </summary>
+        /// <param name="pPathFileTmp"></param>
+        /// <param name="pDirName"></param>
+        /// <param name="pFileName"></param>
+        /// <param name="idDocumento"></param>
+        /// <param name="idCliente"></param>
+        /// <returns></returns>
         public bool boDigitalizarDadosCadastrais(
                                     string pPathFileTmp,
                                     string pDirName,
@@ -186,7 +203,11 @@ namespace SIGPA.BO
 
         }
 
-
+        /// <summary>
+        /// Sincroniza o processo entre o SIGPA e o Sistema de Digitalização
+        /// </summary>
+        /// <param name="pStrNref"></param>
+        /// <returns></returns>
         public INFOCliente boSincronizarBaseSIGPA(string pStrNref)
         {
             DAOProcesso objDaoProcesso = null;
@@ -293,7 +314,10 @@ namespace SIGPA.BO
             
             
         }
-
+        /// <summary>
+        /// Obtem lista do tipo de documento
+        /// </summary>
+        /// <returns></returns>
         public List<INFOTipoDocumento> boObterListaTipoDocumento() {
 
             DAOTipoDocumento objDalTipoDocumento = null;
@@ -308,7 +332,12 @@ namespace SIGPA.BO
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Obtem a lista dos documentos
+        /// </summary>
+        /// <param name="pIdentificador"></param>
+        /// <param name="pCategoria"></param>
+        /// <returns></returns>
         public List<INFODocumento> boObterListaDocumento(double pIdentificador, string pCategoria)
         {
 

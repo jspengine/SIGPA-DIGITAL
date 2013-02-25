@@ -158,6 +158,7 @@ namespace DigitalView
                 String nomePastaDadosCadastraisemParametros = System.Configuration.ConfigurationManager.AppSettings["NOMEPASTADADOSCADASTRAIS"].ToString();
                 if (nomePastaDadosCadastraisemParametros.Equals(cmbTipoDocumento.Text) && cmbDocumento.SelectedItem != null)
                 {
+                    tabManutencao.SelectTab(1);
                     //Monto o diretório de dados cadastrais abaixo do cliente
 
                     // |----- + Nome Cliente Mapa 
@@ -165,19 +166,19 @@ namespace DigitalView
                     //                  |------ + Identidade
                     //                  |------ + CPF
                     //                  |------ + Outros
-                    objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
+                    //objBoDigitalizarDocumentos = new BODigitalizarDocumentos();
 
-                    objBoDigitalizarDocumentos.boMontarDiretorioDadosCadastrais(
-                                                                             cmbTipoDocumento.Text,
-                                                                             cmbDocumento.Text,
-                                                                             objCliente,
-                                                                             out NomeArquivo,
-                                                                             out NomeDir);
+                    //objBoDigitalizarDocumentos.boMontarDiretorioDadosCadastrais(
+                    //                                                         cmbTipoDocumento.Text,
+                    //                                                         cmbDocumento.Text,
+                    //                                                         objCliente,
+                    //                                                         out NomeArquivo,
+                    //                                                         out NomeDir);
 
-                    PopularListView();
+                    //PopularListView();
 
-                    lblPathDiretorio.Text = NomeDir;
-                    btnDigitalizar.Enabled = true;
+                    //lblPathDiretorio.Text = NomeDir;
+                    //btnDigitalizar.Enabled = true;
 
 
                 }
@@ -713,8 +714,8 @@ namespace DigitalView
                     //DESABILITO OS BOTÕES de manutenção
                     btnExcluirDocumentosCadastrais.Enabled = false;
                     btnVisualizarDocumentosCadastrais.Enabled = false;
-                    MessageBox.Show("Este documento ainda não foi digitalizado!", 
-                        Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Este documento ainda não foi digitalizado!", 
+                    //    Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
@@ -753,42 +754,53 @@ namespace DigitalView
                 limparListView();
         }
 
-        
-        //private void tabManutencao_Selected(object sender, TabConmatrolEventArgs e)
-        //{
-        //    limparListView();
-        //}
 
-        //private void tabDadosCadastrais_Leave(object sender, EventArgs e)
-        //{
-        //    limparListView();
-        //}
+        /// <summary>
+        /// Ação do Botão excluir dadosCadastrais
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExcluirDocumentosCadastrais_Click(object sender, EventArgs e)
+        {
+            BOManterDocumentosDigitais objManterDocumentosDigitais = null;
+            INFODadosCadastrais infodadoscadastrais = null;
+            try
+            {
+                if (lstDocumentosDigitalisados.SelectedItems.Count > 0)
+                {
 
-        //private void tabProcessos_Leave(object sender, EventArgs e)
-        //{
-        //    limparListView();
-        //}
+                    objManterDocumentosDigitais = new BOManterDocumentosDigitais();
 
-        //private void tabManutencao_TabIndexChanged(object sender, EventArgs e)
-        //{
-        //    limparListView();
-        //}
+
+                    for (int i = 0; i < lstDocumentosDigitalisados.SelectedItems.Count; i++)
+                    {
+                        infodadoscadastrais = new INFODadosCadastrais();
+                        infodadoscadastrais.Id_dadoscadastrais = (int)lstDocumentosDigitalisados.SelectedItems[i].Tag;
+                        infodadoscadastrais.Nome_arquivo = lstDocumentosDigitalisados.SelectedItems[i].SubItems[1].Text;
+                        infodadoscadastrais.Nome_diretorio_arquivo = lstDocumentosDigitalisados.SelectedItems[i].SubItems[2].Text;
+                    }
+
+                    if (objManterDocumentosDigitais.boExcluirDadosCadastrais(infodadoscadastrais))
+                    {
+                        PopularListViewDadosCadastrais();
+                        MessageBox.Show("Documento excluido com sucesso!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, Selecione um documento para excluir!", Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lstDocumentosDigitalisados.Focus();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO : " + ex.ToString(), Global.CODAPP + " - " + Global.DESCRICAOAPP, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
     }
 
-    //[StructLayout(LayoutKind.Sequential, Pack = 2)]
-    //internal class BITMAPINFOHEADER
-    //{
-    //    public int biSize;
-    //    public int biWidth;
-    //    public int biHeight;
-    //    public short biPlanes;
-    //    public short biBitCount;
-    //    public int biCompression;
-    //    public int biSizeImage;
-    //    public int biXPelsPerMeter;
-    //    public int biYPelsPerMeter;
-    //    public int biClrUsed;
-    //    public int biClrImportant;
-    //}
+  
 }

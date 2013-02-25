@@ -29,6 +29,10 @@ namespace SIGPA.DAO
             }
         }
 
+
+      
+
+
         public bool dbAlterarDocumento(INFODocumentoDigital pObjDocumentoDigital, MySqlTransaction pObjTrans)
         {
             StringBuilder strSql = new StringBuilder();

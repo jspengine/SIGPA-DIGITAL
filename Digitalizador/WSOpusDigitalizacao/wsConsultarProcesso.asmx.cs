@@ -5,6 +5,8 @@ using System.Data;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using System.Web.Script.Services;
+using System.Web.Script.Serialization;
 using WSOpusDigitalizacao.DAO;
 using WSOpusDigitalizacao.INFO;
 
@@ -21,11 +23,6 @@ namespace WSOpusDigitalizacao
     public class WsConsultarProcesso : System.Web.Services.WebService
     {
 
-        //[WebMethod]
-        //public string HelloWorld()
-        //{
-        //    return "Hello World";
-        //}
         [WebMethod]
         public wsINFOUsuario wsRealizarLogin(string pUser, string pSenha)
         {
@@ -43,6 +40,7 @@ namespace WSOpusDigitalizacao
             }
         }
 
+        
         [WebMethod]
         public wsINFOCliente wsConsultarProcesso(string pNumeroProcesso)
         {
@@ -59,6 +57,39 @@ namespace WSOpusDigitalizacao
                 throw ex;
             }
         }
+
+
+      
+        /// <summary>
+        /// Este método retorna uma lista com todas os navios que estarão ou estão sendo atracados. 
+        /// </summary>
+        /// <returns>
+        /// Retorna um objeto javascript (JSON) com os navios atracados, conforme parametros configurados pelo administrador
+        /// </returns>
+        [ScriptMethod(ResponseFormat=ResponseFormat.Json)]
+        [WebMethod]
+        public string obterNaviosAtracados() {
+
+            DAONavios daoNavio = null;
+           
+
+            try
+            {
+                daoNavio = new DAONavios();
+
+                int qtdDiasAmonitorar = int.Parse(System.Configuration.ConfigurationManager.AppSettings.Get("qtdDiasAMonitorar"));
+                int qtdRegistrosAExibirem = int.Parse(System.Configuration.ConfigurationManager.AppSettings.Get("qtdRegistrosAExibirem"));
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                return js.Serialize(daoNavio.obterUltimosNaviosAtracados(qtdDiasAmonitorar, qtdRegistrosAExibirem));
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
 
     }
 }

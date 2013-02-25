@@ -10,6 +10,13 @@ namespace SIGPA.BO
 {
     public class BOManterDocumentosDigitais:BOGeneral
     {
+
+        /// <summary>
+        /// Obtem uma lista de dos documentos digitais a partir da referencia e do identificador do documento
+        /// </summary>
+        /// <param name="pNref"></param>
+        /// <param name="pIdDocumento"></param>
+        /// <returns></returns>
         public List<INFODocumentoDigital> boObterDocumentosDigitais(string pNref, double pIdDocumento){
             DAODocumentoDigital objDalDocumentoDigital = null;
             try
@@ -23,7 +30,11 @@ namespace SIGPA.BO
                 throw ex ;
             }
         }
-
+        /// <summary>
+        /// Exclui lógicamente o documento do banco de dados
+        /// </summary>
+        /// <param name="pObjInfoDocumentoDigital"></param>
+        /// <returns></returns>
         public bool boExcluirDocumentosDigitais(INFODocumentoDigital pObjInfoDocumentoDigital) {
             DAODocumentoDigital objDaoDocumentoDigital = null;
             DAOHistorico objDaoHistorico = null;
@@ -65,6 +76,63 @@ namespace SIGPA.BO
             return returnValue;
         }
 
+        /// <summary>
+        /// Exclui da base de dados os dados cadastrais
+        /// </summary>
+        /// <param name="dadoscadastrais"></param>
+        /// <returns></returns>
+        public bool boExcluirDadosCadastrais(INFODadosCadastrais dadoscadastrais)
+        {
+            DAODadosCadastrais daoDadosCadastrais = null;
+            DAOHistorico objDaoHistorico = null;
+            bool returnValue = false;
+            try
+            {
+                boAbrirTrasacao();
+
+                //Excluir documento lógicamente do banco de dados
+                daoDadosCadastrais = new DAODadosCadastrais();
+                if (daoDadosCadastrais.dbExcluirDadosCadastrais(dadoscadastrais, pTrans))
+                {
+                    //Registrar histórico para exclusão    
+                    objDaoHistorico = new DAOHistorico();
+                    if (objDaoHistorico.dbInserirHistorico(boMontarHistorico("EXCLUSÃO DO DOCUMENTO: " + dadoscadastrais.Nome_arquivo +
+                                                       " NO DIRETORIO: " + dadoscadastrais.Nome_diretorio_arquivo + ".",
+                                                       dadoscadastrais.Id_dadoscadastrais),
+                                                       pTrans))
+                    {
+                        //Excluir o arquivo Fisicamente do Disco
+                        string filename = dadoscadastrais.Nome_diretorio_arquivo + dadoscadastrais.Nome_arquivo;
+                        if (System.IO.File.Exists(filename))
+                        {
+                            System.IO.File.Delete(filename);
+                        }
+                        boCommit();
+                        returnValue = true;
+
+                    }
+                }//else boRollBack();       
+            }
+            catch (Exception ex)
+            {
+                boRollBack();
+                throw ex;
+            }
+            finally
+            {
+                daoDadosCadastrais = null;
+                objDaoHistorico = null;
+            }
+            return returnValue;
+        }
+
+
+        /// <summary>
+        /// Realizo a alteração do documento digitalizado
+        /// </summary>
+        /// <param name="pObjInfoDocumentoDigital"></param>
+        /// <param name="strPathTmp"></param>
+        /// <returns></returns>
         public bool boAtualizarDocumentosDigitais(INFODocumentoDigital pObjInfoDocumentoDigital, string strPathTmp)
         {
             DAODocumentoDigital objDaoDocumentoDigital = null;
@@ -114,6 +182,13 @@ namespace SIGPA.BO
             return returnValue;
         }
 
+
+        /// <summary>
+        /// monto o objeto de histórico da operação realizada
+        /// </summary>
+        /// <param name="pDescricaoOperacao"></param>
+        /// <param name="pIdDocumentoDigital"></param>
+        /// <returns></returns>
         private INFOHistorico boMontarHistorico( string pDescricaoOperacao, double pIdDocumentoDigital) {
             INFOHistorico objHistorico = new INFOHistorico();
 
@@ -126,6 +201,13 @@ namespace SIGPA.BO
 
         }
 
+
+        /// <summary>
+        /// Obtem uma lista de dados cadastrais que ja foram digitalizados a partir do id do cliente e id do documento
+        /// </summary>
+        /// <param name="idcliente"></param>
+        /// <param name="iddocumento"></param>
+        /// <returns></returns>
         public List<INFODadosCadastrais> obterDocumentosDadosCadastraisDigitalizados(double idcliente, double iddocumento)
         {
             DAODadosCadastrais daoDadosCadastrais = null;

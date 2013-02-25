@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OPUS DIGITALIZADOR")]
-[assembly: AssemblyDescription("Hystory Version: 1.1 - Change was made in the code for verify if webservice is available. Put the code for trace [in logs files] in the use case DIGITALIZAR DOCUMENTOS. Version: 2.0 - Interface remodelada para retirada de componentes de terceiros e implementada funções para manutenção dos tipos de documentos e documentos localizados na combo da tela de digitalização" )]
+[assembly: AssemblyTitle("GingaCode - SDPA")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Opus Comércio Exterior")]
-[assembly: AssemblyProduct("SIGPA Digitalizador")]
+[assembly: AssemblyProduct("GingaCode - SDPA")]
 [assembly: AssemblyCopyright("Copyright © Opus Comércio Exterior")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.0.0")]
+[assembly: AssemblyVersion("3.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

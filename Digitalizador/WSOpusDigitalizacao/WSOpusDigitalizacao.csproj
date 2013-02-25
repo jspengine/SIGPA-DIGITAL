@@ -60,8 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DAOCliente.cs" />
+    <Compile Include="DAO\DAONavios.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
     <Compile Include="INFO\wsINFOCliente.cs" />
+    <Compile Include="INFO\wsINFONavios.cs" />
     <Compile Include="INFO\wsINFOUsuario.cs" />
     <Compile Include="wsConsultarProcesso.asmx.cs">
       <DependentUpon>wsConsultarProcesso.asmx</DependentUpon>

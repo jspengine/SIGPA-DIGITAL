@@ -490,6 +490,7 @@
             this.btnExcluirDocumentosCadastrais.TabIndex = 1;
             this.btnExcluirDocumentosCadastrais.Text = "Excluir";
             this.btnExcluirDocumentosCadastrais.UseVisualStyleBackColor = true;
+            this.btnExcluirDocumentosCadastrais.Click += new System.EventHandler(this.btnExcluirDocumentosCadastrais_Click);
             // 
             // cmbCliente
             // 

@@ -1,0 +1,155 @@
+body{
+	background: #2e2e2e;
+	margin: 15px 13px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+}
+#header{
+	background: #fff url(../img/topo.jpg) no-repeat center top;
+	height: 157px;
+	width: 100%;
+	margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+#header #globo img{
+    position: absolute;
+    top: -68px;
+    width: 250px;
+    height: 260px;
+    left: 50%;
+    margin-left: -150px;
+}
+#right{
+	width: 285px;
+	float: right;
+}
+#left {
+    margin-right: 295px;
+    max-height: 790px;
+    overflow: hidden;
+    min-height: 565PX;
+}
+.bg_titulo{
+    background: url(../img/faixa.jpg) repeat-x 0 0;
+}
+#footer {
+    margin-top: 15px;
+    background: black;
+    padding: 15px 25px;
+    color: white;
+    height: 85px;
+}
+#footer .box{
+    width: 100%;
+}
+#footer p{
+    font-size: 22px;
+}
+#destaque{
+	padding: 10px;
+	background: #000000;
+	color: #FFFFFF;
+	height: 65px;
+	margin-bottom: 12px;
+	font-weight: bold;
+	font-size: 28px;
+    overflow: hidden;
+	
+}
+#destaque span{
+    position: relative;
+    top: 10px;
+    color: #fff;
+    margin-left: 10px;
+}
+#resultadoDestCambio span{
+    top: 5px;
+}
+#destaque .box{
+    color: Red;
+    margin-left: 25px;
+    font-size: 36px;
+}
+.status_navio{
+    color: Green;
+}
+.titulo{
+	background: url(../img/faixa.jpg) repeat-x 0 0;
+	padding: 8px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	font-size: 26px;
+	border: 2px solid #000000;
+}
+#destaque .royalSlide{
+	float: left;
+	padding: 10px 30px;
+	width: 300px;
+}
+#footer .royalSlide{
+	float: left;
+	padding: 10px 30px;
+	border-right: 1px solid;
+}
+#footer .royalSlide:last-child{
+	border-right: 0;
+}
+#footer p{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#footer .box span{
+    display: block;
+    color: Green;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+p{
+	margin: 0;
+	padding: 0;
+}
+small{
+    display: block;
+    color: #999;
+}
+table{
+    border: 0;
+}
+tr{
+    color: #fff;
+}
+table#DataGrid1{
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+}
+table#DataGrid1 td{
+    padding: 7px 5px;
+    text-align: center;
+    border: 2px solid black;
+}
+table#DataGrid1 tr{
+color: Red;
+}
+table#DataGrid2{
+    width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+}
+table#DataGrid2 td{
+    padding: 7px 2px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid black;
+}
+.clear{
+	clear: both;
+}
+.royalslider {
+    width: 100%;
+    height: 85px;
+    overflow: hidden;
+    display: block;
+}

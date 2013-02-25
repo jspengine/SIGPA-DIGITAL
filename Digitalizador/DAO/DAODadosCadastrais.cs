@@ -58,6 +58,35 @@ namespace SIGPA.DAO
         }
 
         /// <summary>
+        /// Seta a flag de exclusão dos dados Cadastrais
+        /// </summary>
+        /// <param name="pDadosCadastrais"></param>
+        /// <param name="pObjTrans"></param>
+        /// <returns></returns>
+        public bool dbExcluirDadosCadastrais(INFODadosCadastrais pDadosCadastrais, MySqlTransaction pObjTrans)
+        {
+            StringBuilder strSql = new StringBuilder();
+
+            try
+            {
+                strSql.Append("UPDATE DADOSCADASTRAIS  SET FL_EXCLUIDO = 1 WHERE ID_DADOSCADASTRAIS = " + pDadosCadastrais.Id_dadoscadastrais.ToString());
+
+                if (dbExecutarQuery(strSql.ToString(), pObjTrans) > 0) return true; else return false;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                strSql = null;
+            }
+        }
+
+
+        /// <summary>
         /// Obtem a lista dos Documentos de Dados cadastrais do cliente 
         /// </summary>
         /// <param name="pIdentificador"></param>
@@ -77,6 +106,7 @@ namespace SIGPA.DAO
                 strSQL.AppendLine(" FROM dadoscadastrais  ");
                 strSQL.AppendLine(" WHERE ID_DOCUMENTO = " + iddocumento.ToString());
                 strSQL.AppendLine(" AND PK_ID_CLIENTE = " + idcliente.ToString());
+                strSQL.AppendLine(" AND FL_EXCLUIDO = 0 " );
                 
 
                 objConn = new MySqlConnection(gConnectionString);
