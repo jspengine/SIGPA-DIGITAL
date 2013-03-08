@@ -1,11 +1,11 @@
 body{
-	background: #2e2e2e;
+	background: #3f3f3f;
 	margin: 15px 13px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 24px;
 }
 #header{
-	background: #fff url(../img/topo.jpg) no-repeat center top;
+	background: #fff url(../images/topo.jpg) no-repeat center top;
 	height: 157px;
 	width: 100%;
 	margin-bottom: 15px;
@@ -31,7 +31,7 @@ body{
     min-height: 565PX;
 }
 .bg_titulo{
-    background: url(../img/faixa.jpg) repeat-x 0 0;
+    background: url(../images/faixa.jpg) repeat-x 0 0;
 }
 #footer {
     margin-top: 15px;
@@ -75,7 +75,7 @@ body{
     color: Green;
 }
 .titulo{
-	background: url(../img/faixa.jpg) repeat-x 0 0;
+	background: url(../images/faixa.jpg) repeat-x 0 0;
 	padding: 8px;
 	font-weight: bold;
 	color: #FFFFFF;
@@ -120,25 +120,26 @@ table{
 tr{
     color: #fff;
 }
-table#DataGrid1{
+table#cotacao{
     width: 100%;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: bold;
 }
-table#DataGrid1 td{
+table#cotacao td{
     padding: 7px 5px;
     text-align: center;
     border: 2px solid black;
 }
-table#DataGrid1 tr{
-color: Red;
+table#cotacao tr{
+color: #fff;
 }
-table#DataGrid2{
+
+table#tbnavio{
     width: 100%;
     font-size: 24px;
     font-weight: bold;
 }
-table#DataGrid2 td{
+table#tbnavio td{
     padding: 7px 2px;
     font-weight: bold;
     text-align: center;
@@ -152,4 +153,10 @@ table#DataGrid2 td{
     height: 85px;
     overflow: hidden;
     display: block;
+}
+
+#tbodyNavio tr
+{
+    font-weight:bold;
+    color:red;
 }

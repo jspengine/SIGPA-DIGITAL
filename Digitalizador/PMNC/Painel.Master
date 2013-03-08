@@ -1,0 +1,326 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Painel.master.cs" Inherits="PMNC.Painel" %>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Monitoramento - Desenvolvido por Ginga Code</title>
+    
+    <link href="css/royalslider.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script type="text/javascript"  src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.royalslider.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            var listaInformes = null;
+
+
+            //Aplicando o efeito de pisca na cotação do dia a cada 2 segundo
+            window.setInterval(function () {
+                piscar();
+            }, 1000 * 2);
+
+            function piscar() {
+                $("#destaque .box").animate(
+                    { opacity: 0 },
+                    function () {
+                        $(this).animate({ opacity: 1 });
+                    });
+            }
+
+            //Temporizador rodando a cada 1 minutos em busca de informações de novas
+            getInformativos();
+
+            //            window.setInterval(function () {
+            //                getInformativos();
+            //            }, 1000 * 30 * 1);
+
+            var sliderJQ;
+            //obtendo noticias para o feed rotativo
+            function getInformativos() {
+
+                var rssurl = "servicemonitor.ashx?optype=1";
+                var aniversariantesurl = "servicemonitor.ashx?optype=2";
+                var comunicadosurl = "servicemonitor.ashx?optype=3";
+
+
+                try {
+
+                    $("#agenda").empty();
+
+                    sliderJQ = null;
+
+                    obterInformativos(rssurl);
+                    obterInformativos(aniversariantesurl);
+                    obterInformativos(comunicadosurl);
+
+
+                    if (listaInformes.length > 0) {
+
+                        for (var i = 0; i < listaInformes.length; i++) {
+
+                            var content = "<div class='box'><span>" + listaInformes[i].getCategoria() + "</span>";
+                            content += "<p>" + listaInformes[i].getResenha() + "</p>";
+                            content += "<small>" + listaInformes[i].getData() + "</small>";
+
+                            $("#agenda").append(content);
+                        }
+
+                        var sliderJQ = $("#agenda").royalSlider({
+                            hideArrowOnLastSlide: false,
+                            loop: true,
+                            autoPlay: {
+                                enabled: true,
+                                delay: 5000
+                            },
+                            keyboardNavEnabled: true
+                        });
+
+                        //ativarSlider();
+
+                    }
+
+                } catch (e) {
+                    alert(e);
+                }
+                finally {
+                    listaInformes = null;
+                }
+
+            }
+
+            function Informes() {
+                var categoria = null;
+                var resenha = null;
+                var data = null;
+
+                //Categoria
+                this.getCategoria = function getCategoria() {
+                    return categoria;
+                }
+                this.setCategoria = function setCategoria(value) {
+                    categoria = value;
+                }
+                //Resenha
+                this.getResenha = function getResenha() {
+                    return resenha;
+                }
+                this.setResenha = function setCategoria(value) {
+                    resenha = value;
+                }
+
+                //Data
+                this.getData = function getData() {
+                    return data;
+                }
+                this.setData = function setData(value) {
+                    data = value;
+                }
+            }
+
+            function obterInformativos(url) {
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: "json",
+                    async: false,
+                    success: function (listaInformativos) {
+                        var informes = null;
+                        for (var i = 0; i < listaInformativos.length; i++) {
+
+                            informes = new Informes();
+                            informes.setCategoria(listaInformativos[i].Categoriainformativo);
+                            informes.setResenha(listaInformativos[i].Resenha);
+                            informes.setData(listaInformativos[i].Datapublicacao);
+
+                            if (listaInformes == null)
+                                listaInformes = new Array();
+
+
+                            listaInformes.push(informes);
+
+                        } //Fim for
+
+
+                    }
+                });
+            }
+
+
+            //Incializo o Servico de monitoramento de cotacao e configuro o temporizador 
+            //para ir buscar a taxa de em 1 hora
+            
+            obterCotacao();
+            
+            window.setInterval(function () {
+                obterCotacao();
+            }, 1000 * 60 * 60 * 1); 
+
+            function obterCotacao() {
+
+                var url = "servicemonitor.ashx?optype=5";
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: "json",
+                    async: false,
+                    success: function (listacotacao) {
+
+                        $("#tbodyCotacao").empty();
+
+                        var row = "";
+
+                        for (var i = 0; i < listacotacao.length; i++) {
+
+                            if (isToday(listacotacao[i].Data)) {
+                                $("#taxadolar").empty();
+                                $("#taxaeuro").empty();
+
+                                $("#taxadolar").append("USD: " +listacotacao[i].Valor_usd);
+                                $("#taxaeuro").append("EUZ:" + listacotacao[i].Valor_euz);
+                            }
+
+                            (i % 2 == 0) ? row += "<tr>" : row += "<tr style='background-color:#000;'>";
+
+                            row += "<td >" + listacotacao[i].Data + "</td>";
+                            row += "<td style='color:yellow'>" + listacotacao[i].Valor_usd + "</td>";
+                            row += "<td style='color:red'>" + listacotacao[i].Valor_cnm + "</td>";
+                            row += "<td style='color:orange'>" + listacotacao[i].Valor_euz + "</td>";
+
+                            row += "</tr>";
+                        } //Fim for
+
+                        $("#tbodyCotacao").append(row);
+
+                    }
+                });
+            }
+
+            /*
+            * Obtem a lista de 10 navios próximos de chegar ao Brasil em determinado terminal
+            *  e configuro o script para obter os navios a cada 15 minutos
+            */
+
+            obterNavios();
+
+            window.setInterval(function () {
+                obterNavios();
+            }, 1000 * 60 * 15 ); 
+
+            function obterNavios() {
+                var url = "servicemonitor.ashx?optype=4";
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: "json",
+                    async: false,
+                    success: function (navios) {
+
+                        $("#tbodyNavio").empty();
+
+                        var row = "";
+
+                        for (var i = 0; i < navios.length; i++) {
+
+
+                            //(i % 2 == 0) ? row += "<tr>" : row += "<tr style='background-color:#000;'>";
+
+                            if (navios[i].Data_previsao_chegada_navio != null && isToday(navios[i].Data_previsao_chegada_navio)) {
+                                row += "<tr style='color:#fff ; background-color:green'>"
+                            }
+                            else {
+                                row += "<tr>"
+                            }
+
+                            row += "<td>" + navios[i].Navio_embarque + "</td>";
+                            row += "<td>" + navios[i].Terminal_chegada + "</td>";
+                            row += "<td>" + navios[i].Data_previsao_chegada_navio + "</td>";
+
+                            if (navios[i].Data_chegada_navio == null) {
+                                row += "<td>&nbsp;</td>";
+                            }
+                            else {
+                                row += "<td>" + navios[i].Data_chegada_navio + "</td>";
+                            }
+
+                            row += "</tr>";
+                        } //Fim for
+
+
+                        $("#tbodyNavio").append(row);
+
+                    }
+                });
+            }
+
+            function isToday(data) {
+                var dateToBeAnalitcs = new String(data).split("/");
+                var d = new Date();
+
+                return ((parseInt(dateToBeAnalitcs[0]) == d.getDate()) && (parseInt(dateToBeAnalitcs[1]) == (d.getMonth() + 1)))
+
+            }
+
+
+        });
+
+       
+    
+    </script>
+
+</head>
+<body>
+    
+<div id="container">
+	<div id="header"><div id="globo"><img src="images/globo1.gif" width="200" alt="Opus Comércio Exterior" /></div></div>
+    <div id="right">
+    	<div class="titulo"> Câmbio </div>
+
+        <asp:ContentPlaceHolder ID="cambio" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+        <div id="left">
+        <div id="destaque">
+            <span>Taxa do dia:</span>
+            <span id="taxadolar" class="box"></span>
+            <span id="taxaeuro" class="box"></span>
+           
+        </div>
+
+        <div id="navios"> 
+            <asp:ContentPlaceHolder ID="navio" runat="server">
+            
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="footer">
+     
+        <div id="agenda"  class="royalSlider rsDefaultInv col">
+        </div>
+
+
+    	<div class="clear"></div>
+        <div style=" margin-top: 40px; float:right;">
+           
+            
+            <img src="images/gingacodelogo.png" width="30" height="30" alt="Ginga Code - Concretizando Ideias" />  
+            <span style=" color:#fff; font-size:16px; font-weight:bold; vertical-align:middle; margin-left: 10px;">Desenvolvido por: Ginga Code</span>
+        </div>
+        
+    </div>
+</div>
+    
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="obterNaviosAtracados">
+        <s:complexType />
+      </s:element>
+      <s:element name="obterNaviosAtracadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterNaviosAtracadosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterRSSParaOMonitor">
+        <s:complexType />
+      </s:element>
+      <s:element name="obterRSSParaOMonitorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterRSSParaOMonitorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterAniversariantes">
+        <s:complexType />
+      </s:element>
+      <s:element name="obterAniversariantesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterAniversariantesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterComunicados">
+        <s:complexType />
+      </s:element>
+      <s:element name="obterComunicadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterComunicadosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterCotacao">
+        <s:complexType />
+      </s:element>
+      <s:element name="obterCotacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterCotacaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="obterNaviosAtracadosSoapIn">
+    <wsdl:part name="parameters" element="tns:obterNaviosAtracados" />
+  </wsdl:message>
+  <wsdl:message name="obterNaviosAtracadosSoapOut">
+    <wsdl:part name="parameters" element="tns:obterNaviosAtracadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="obterRSSParaOMonitorSoapIn">
+    <wsdl:part name="parameters" element="tns:obterRSSParaOMonitor" />
+  </wsdl:message>
+  <wsdl:message name="obterRSSParaOMonitorSoapOut">
+    <wsdl:part name="parameters" element="tns:obterRSSParaOMonitorResponse" />
+  </wsdl:message>
+  <wsdl:message name="obterAniversariantesSoapIn">
+    <wsdl:part name="parameters" element="tns:obterAniversariantes" />
+  </wsdl:message>
+  <wsdl:message name="obterAniversariantesSoapOut">
+    <wsdl:part name="parameters" element="tns:obterAniversariantesResponse" />
+  </wsdl:message>
+  <wsdl:message name="obterComunicadosSoapIn">
+    <wsdl:part name="parameters" element="tns:obterComunicados" />
+  </wsdl:message>
+  <wsdl:message name="obterComunicadosSoapOut">
+    <wsdl:part name="parameters" element="tns:obterComunicadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="obterCotacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:obterCotacao" />
+  </wsdl:message>
+  <wsdl:message name="obterCotacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:obterCotacaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsPainelOperacionalSoap">
+    <wsdl:operation name="obterNaviosAtracados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtem os ultimos 10 navios atracados </wsdl:documentation>
+      <wsdl:input message="tns:obterNaviosAtracadosSoapIn" />
+      <wsdl:output message="tns:obterNaviosAtracadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterRSSParaOMonitor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Mostra uma lista com os objetos Javascript com os informativos a serem mostrados site [http://www.desenvolvimento.gov.br/portalmdic/sitio/rss.php?area=5]</wsdl:documentation>
+      <wsdl:input message="tns:obterRSSParaOMonitorSoapIn" />
+      <wsdl:output message="tns:obterRSSParaOMonitorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterAniversariantes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtem a lista de aniversariantes do mes a cada 5 dias</wsdl:documentation>
+      <wsdl:input message="tns:obterAniversariantesSoapIn" />
+      <wsdl:output message="tns:obterAniversariantesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterComunicados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtem a lista de comunicados habilitados</wsdl:documentation>
+      <wsdl:input message="tns:obterComunicadosSoapIn" />
+      <wsdl:output message="tns:obterComunicadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterCotacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtenho as ultimas cotações cadastradas na base de dados</wsdl:documentation>
+      <wsdl:input message="tns:obterCotacaoSoapIn" />
+      <wsdl:output message="tns:obterCotacaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsPainelOperacionalSoap" type="tns:wsPainelOperacionalSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obterNaviosAtracados">
+      <soap:operation soapAction="http://tempuri.org/obterNaviosAtracados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterRSSParaOMonitor">
+      <soap:operation soapAction="http://tempuri.org/obterRSSParaOMonitor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterAniversariantes">
+      <soap:operation soapAction="http://tempuri.org/obterAniversariantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterComunicados">
+      <soap:operation soapAction="http://tempuri.org/obterComunicados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterCotacao">
+      <soap:operation soapAction="http://tempuri.org/obterCotacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsPainelOperacionalSoap12" type="tns:wsPainelOperacionalSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obterNaviosAtracados">
+      <soap12:operation soapAction="http://tempuri.org/obterNaviosAtracados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterRSSParaOMonitor">
+      <soap12:operation soapAction="http://tempuri.org/obterRSSParaOMonitor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterAniversariantes">
+      <soap12:operation soapAction="http://tempuri.org/obterAniversariantes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterComunicados">
+      <soap12:operation soapAction="http://tempuri.org/obterComunicados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterCotacao">
+      <soap12:operation soapAction="http://tempuri.org/obterCotacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsPainelOperacional">
+    <wsdl:port name="wsPainelOperacionalSoap" binding="tns:wsPainelOperacionalSoap">
+      <soap:address location="http://localhost:1104/wsPainelOperacional.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsPainelOperacionalSoap12" binding="tns:wsPainelOperacionalSoap12">
+      <soap12:address location="http://localhost:1104/wsPainelOperacional.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

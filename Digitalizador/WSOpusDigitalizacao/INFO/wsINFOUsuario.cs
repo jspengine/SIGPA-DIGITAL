@@ -6,7 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 
-
+using System;
 
 namespace WSOpusDigitalizacao.INFO
 {
@@ -14,6 +14,9 @@ namespace WSOpusDigitalizacao.INFO
 
 		private string nomeusuario;
 		private string perfilusuario;
+        private DateTime dataAniversario;
+
+       
 
 		public wsINFOUsuario(){
 
@@ -26,6 +29,12 @@ namespace WSOpusDigitalizacao.INFO
 		public virtual void Dispose(){
 
 		}
+
+        public DateTime DataAniversario
+        {
+            get { return dataAniversario; }
+            set { dataAniversario = value; }
+        }
 
 		public string NomeUsuario{
 			get{

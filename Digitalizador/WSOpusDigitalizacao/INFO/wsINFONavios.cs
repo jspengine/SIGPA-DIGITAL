@@ -9,8 +9,8 @@ namespace WSOpusDigitalizacao.INFO
     {
         private string navio_embarque;
         private string terminal_chegada;
-        private DateTime data_previsao_chegada_navio;
-        private DateTime data_chegada_navio;
+        private string data_previsao_chegada_navio;
+        private string data_chegada_navio;
 
         public string Navio_embarque
         {
@@ -24,13 +24,13 @@ namespace WSOpusDigitalizacao.INFO
             set { terminal_chegada = value; }
         }
         
-        public DateTime Data_previsao_chegada_navio
+        public string Data_previsao_chegada_navio
         {
             get { return data_previsao_chegada_navio; }
             set { data_previsao_chegada_navio = value; }
         }
        
-        public DateTime Data_chegada_navio
+        public string  Data_chegada_navio
         {
             get { return data_chegada_navio; }
             set { data_chegada_navio = value; }

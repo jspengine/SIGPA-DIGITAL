@@ -27,10 +27,10 @@ namespace WSOpusDigitalizacao.DAO
         /// </summary>
         /// <param name="qtdRegistrosARetornar">Indica a Quantidade de Registros a ser retornado na lista</param>
         /// <param name="qtdDiasAmonitorarParaOFuturo">
-        /// Indica em quantos dias para o futuro a partir da data de hoje os registros deverão ser 
+        /// Indica em quantos dias para acima e abaixo a partir da data de hoje os registros deverão ser 
         /// exibidos tendo como base a data da previsão de chegada. Exemplo: Se este parametro 
-        /// receber como argumento 5 será somado cinco dias para frente e exibidos todos os 
-        /// registros com previsão de chegada menor ou igual a data de (hoje + 5 dias do parametro) 
+        /// receber como argumento 5 será somado cinco dias para frente e e cinco dias para trás eserão exibidos todos os 
+        /// registros com previsão de chegada entre essas 2 datas. 
         ///</param>
         /// <returns>Lista com os navios que serão atracados </returns>
         public List<wsINFONavios> obterUltimosNaviosAtracados(int qtdRegistrosARetornar, 
@@ -46,18 +46,19 @@ namespace WSOpusDigitalizacao.DAO
             {
                 strSQL = new StringBuilder();
 
-                strSQL.AppendLine(" SELECT top 10 embarque, terminal, prev_chegada, chegada ");
+                strSQL.AppendLine(" SELECT top "+ qtdRegistrosARetornar + " embarque, terminal, prev_chegada, chegada ");
                 strSQL.AppendLine(" FROM processos ");
-                strSQL.AppendLine(" WHERE desemb_fecha=false AND trim(embarque) <> '' AND prev_chegada <> null AND chegada <> null");
+                strSQL.AppendLine(" WHERE desemb_fecha=false AND trim(embarque) <> '' AND trim(terminal) <> '' ");
+                strSQL.AppendLine(" AND prev_chegada <> null") 
+                    .AppendLine(" AND prev_chegada between DateSerial(Year(Date()), Month(Date()) , Day(Date())+ " + qtdDiasAmonitorarParaOFuturo.ToString() + " )") 
+                    .AppendLine(" AND DateSerial(Year(Date()), Month(Date()) , Day(Date()) - " + qtdDiasAmonitorarParaOFuturo.ToString() + " )");
                 strSQL.AppendLine(" GROUP BY  embarque, terminal, prev_chegada,  chegada ");
-                strSQL.AppendLine(" ORDER BY chegada DESC ");
+                strSQL.AppendLine(" ORDER BY prev_chegada DESC ");
 
                 objConn = new OleDbConnection(strConnection);
                 objConn.Open();
                 objCmd = new OleDbCommand(strSQL.ToString(), objConn);
-                //objCmd.Parameters.Add("?qtdRegistrosARetornar", OleDbType.VarChar).Value =
-                //    qtdRegistrosARetornar;
-
+               
 
                 objDr = objCmd.ExecuteReader();
 
@@ -80,13 +81,13 @@ namespace WSOpusDigitalizacao.DAO
 
                         if (objDr["prev_chegada"] != DBNull.Value)
                         {
-                            navios.Data_previsao_chegada_navio = (DateTime)objDr["prev_chegada"];
+                            navios.Data_previsao_chegada_navio = ((DateTime)objDr["prev_chegada"]).ToString("dd/MM/yyyy");
                         }
 
 
                         if (objDr["chegada"] != DBNull.Value)
                         {
-                            navios.Data_chegada_navio = (DateTime)objDr["chegada"];
+                            navios.Data_chegada_navio = ((DateTime)objDr["chegada"]).ToString("dd/MM/yyyy");
                         }
 
                         if (listanavios == null) listanavios = new List<wsINFONavios>();

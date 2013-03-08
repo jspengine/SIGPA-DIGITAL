@@ -5,10 +5,12 @@ using System.Data;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using System.Xml;
 using System.Web.Script.Services;
 using System.Web.Script.Serialization;
 using WSOpusDigitalizacao.DAO;
 using WSOpusDigitalizacao.INFO;
+using System.Collections.Generic;
 
 namespace WSOpusDigitalizacao
 {
@@ -23,13 +25,13 @@ namespace WSOpusDigitalizacao
     public class WsConsultarProcesso : System.Web.Services.WebService
     {
 
-        [WebMethod]
+        [WebMethod(Description = "Realiza o login no SIGPA")]
         public wsINFOUsuario wsRealizarLogin(string pUser, string pSenha)
         {
             DAOUsuario objDaoUsuario = null;
             try
             {
-                objDaoUsuario = new DAOUsuario() ;
+                objDaoUsuario = new DAOUsuario();
 
                 return objDaoUsuario.dbObterUsuario(pUser, pSenha);
 
@@ -40,8 +42,8 @@ namespace WSOpusDigitalizacao
             }
         }
 
-        
-        [WebMethod]
+
+        [WebMethod(Description = "Consulta os processos a partir no número de referência")]
         public wsINFOCliente wsConsultarProcesso(string pNumeroProcesso)
         {
             DAOCliente objDalCliente = null;
@@ -59,37 +61,6 @@ namespace WSOpusDigitalizacao
         }
 
 
-      
-        /// <summary>
-        /// Este método retorna uma lista com todas os navios que estarão ou estão sendo atracados. 
-        /// </summary>
-        /// <returns>
-        /// Retorna um objeto javascript (JSON) com os navios atracados, conforme parametros configurados pelo administrador
-        /// </returns>
-        [ScriptMethod(ResponseFormat=ResponseFormat.Json)]
-        [WebMethod]
-        public string obterNaviosAtracados() {
-
-            DAONavios daoNavio = null;
-           
-
-            try
-            {
-                daoNavio = new DAONavios();
-
-                int qtdDiasAmonitorar = int.Parse(System.Configuration.ConfigurationManager.AppSettings.Get("qtdDiasAMonitorar"));
-                int qtdRegistrosAExibirem = int.Parse(System.Configuration.ConfigurationManager.AppSettings.Get("qtdRegistrosAExibirem"));
-
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                return js.Serialize(daoNavio.obterUltimosNaviosAtracados(qtdDiasAmonitorar, qtdRegistrosAExibirem));
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        
-
     }
+   
 }

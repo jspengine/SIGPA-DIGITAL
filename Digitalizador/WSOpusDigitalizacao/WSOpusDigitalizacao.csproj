@@ -56,20 +56,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="wsConsultarProcesso.asmx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="wsPainelOperacional.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DAOCliente.cs" />
+    <Compile Include="DAO\DAOComunicado.cs" />
+    <Compile Include="DAO\DAOCotacao.cs" />
     <Compile Include="DAO\DAONavios.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
+    <Compile Include="INFO\INFOCotacao.cs" />
     <Compile Include="INFO\wsINFOCliente.cs" />
     <Compile Include="INFO\wsINFONavios.cs" />
+    <Compile Include="INFO\wsINFOInformativos.cs" />
     <Compile Include="INFO\wsINFOUsuario.cs" />
+    <Compile Include="Util\Util.cs" />
     <Compile Include="wsConsultarProcesso.asmx.cs">
       <DependentUpon>wsConsultarProcesso.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="wsPainelOperacional.asmx.cs">
+      <DependentUpon>wsPainelOperacional.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">
