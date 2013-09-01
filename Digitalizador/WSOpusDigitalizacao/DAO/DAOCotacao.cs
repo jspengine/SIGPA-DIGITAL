@@ -33,6 +33,7 @@ namespace WSOpusDigitalizacao.DAO
 
                 strSQL.AppendLine(" SELECT top 10 dt_cotacao, euz, cnm, usd ");
                 strSQL.AppendLine(" FROM cotacao ");
+                strSQL.AppendLine(" ORDER BY dt_cotacao DESC ");
                
 
 

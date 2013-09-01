@@ -46,14 +46,14 @@ namespace WSOpusDigitalizacao.DAO
             {
                 strSQL = new StringBuilder();
 
-                strSQL.AppendLine(" SELECT top "+ qtdRegistrosARetornar + " embarque, terminal, prev_chegada, chegada ");
-                strSQL.AppendLine(" FROM processos ");
-                strSQL.AppendLine(" WHERE desemb_fecha=false AND trim(embarque) <> '' AND trim(terminal) <> '' ");
-                strSQL.AppendLine(" AND prev_chegada <> null") 
-                    .AppendLine(" AND prev_chegada between DateSerial(Year(Date()), Month(Date()) , Day(Date())+ " + qtdDiasAmonitorarParaOFuturo.ToString() + " )") 
+                strSQL.AppendLine(" SELECT top " + qtdRegistrosARetornar + " N.navio as embarque,T.nome_terminal as terminal, N.dt_previsao_chegada as prev_chegada , N.dt_chegada  as chegada ");
+                strSQL.AppendLine(" FROM navios N, terminal T ");
+                strSQL.AppendLine(" WHERE  N.pk_id_terminal = T.id_terminal ");
+                strSQL.AppendLine(" AND TRIM(N.pk_id_terminal) <>''") 
+                    .AppendLine(" AND N.dt_previsao_chegada Is Not Null  ")
+                    .AppendLine(" AND N.dt_previsao_chegada BETWEEN DateSerial(Year(Date()),Month(Date()),Day(Date()) + " + qtdDiasAmonitorarParaOFuturo.ToString() + " )") 
                     .AppendLine(" AND DateSerial(Year(Date()), Month(Date()) , Day(Date()) - " + qtdDiasAmonitorarParaOFuturo.ToString() + " )");
-                strSQL.AppendLine(" GROUP BY  embarque, terminal, prev_chegada,  chegada ");
-                strSQL.AppendLine(" ORDER BY prev_chegada DESC ");
+                strSQL.AppendLine(" ORDER BY N.dt_previsao_chegada DESC ");
 
                 objConn = new OleDbConnection(strConnection);
                 objConn.Open();
